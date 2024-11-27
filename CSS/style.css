@@ -1,0 +1,14 @@
+body{
+    font-family: 'Poppins';
+}
+
+#pino{
+    width: 50%;
+    padding-left: 10%;
+}
+
+#titulo{
+    font-size: 50px;
+    padding: 150px;
+    /* background-color: linear-gradient(#181a60, #5cb8e8); */
+}
