@@ -3,12 +3,12 @@ body{
 }
 
 #pino{
-    width: 50%;
+    width: 77%;
     padding-left: 10%;
 }
 
 #titulo{
     font-size: 50px;
     padding: 150px;
-    /* background-color: linear-gradient(#181a60, #5cb8e8); */
+    background-color: antiquewhite;
 }
