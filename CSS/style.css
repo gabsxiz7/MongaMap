@@ -2,13 +2,8 @@ body{
     font-family: 'Poppins';
 }
 
-#pino{
-    width: 77%;
-    padding-left: 10%;
+aside{
+    margin-top: 8%;
+    font-size: 60px;
 }
 
-#titulo{
-    font-size: 50px;
-    padding: 150px;
-    background-color: antiquewhite;
-}
