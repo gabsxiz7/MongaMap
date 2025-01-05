@@ -7,3 +7,21 @@ aside{
     font-size: 60px;
 }
 
+#logo {
+    width: 300px;
+    height: auto;
+    margin: 20px;
+}
+
+.navbar-brand img {
+    width: 60px;
+    height: auto;
+    margin-right: 10px;
+}
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
