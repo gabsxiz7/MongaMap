@@ -3,9 +3,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 50px 20px;
+    padding: 100px 20px;
     background: linear-gradient(to bottom, #004085, #007bff);
-    color: white;
+    min-height: 500px;
   }
 
 .home .container {
@@ -51,19 +51,21 @@
     font-style: italic;
     text-align: left;
   }
-  .home-text .btn-primary {
+.btn.btn-primary{
+  margin-left: 10px; /* Espaço entre os links e o botão */
+    padding: 5px 20px;
     background-color: #ffffff;
-    border: none;
-    font-weight: bold;
-    color: #007bff;
-    padding: 10px 40px;
-    text-decoration: none;
+    color: #000000;
     border-radius: 20px;
-    transition: background-color 0.1s;
-  }
-  .home-text .btn-primary:hover {
-    background-color: #acacac;
-  }
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+} 
+.btn:hover{
+  background-color: #0056b3;
+  color: #ffffff;
+}
+
   
   /* Estilo para os Destaques */
   .destaques {
@@ -71,7 +73,9 @@
     justify-content: space-around;
     padding: 20px;
     background: #f8f9fa;
+    background-color: transparent; /* Deixa o fundo transparente */
     flex-wrap: wrap;
+    gap: 20px;
   }
   
   .card {
@@ -80,13 +84,26 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     max-width: 300px;
+    flex: 1;
     margin: 10px;
   }
   
   .card img {
-    max-width: 100px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+  .card-body {
+    padding: 10px;
+  }
+  .card-body h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
     margin-bottom: 10px;
+    color: #004085;
   }
   
   .card h3 {
@@ -96,13 +113,15 @@
     color: #004085;
   }
   
-  .card p {
+  .card-body p {
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     color: #333;
+    text-align: justify;
   }
   .card:hover {
     transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     transition: transform 0.3 ease;
   }
   /* Footer */
@@ -116,14 +135,33 @@
   /*Sobre nós*/
   .body {
     font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    height: 100%; /* Garante que o body ocupe toda a tela */
+    margin: 0; /* Remove margens padrão */
+    padding: 0; /* Remove espaçamento padrão */
+    
   }
 
   .sobre-nos {
-    background-color: #f9f9f9;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #333;
+    background-color: transparent; /* Deixa o fundo transparente */
     padding: 30px;
     text-align: center;
     border-top: 2px solid #007bff;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
   }
+  .sobre-nos.show {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
 .sobre-nos h2 {
   font-size: 2.5rem;
   color: #003366;
@@ -147,10 +185,11 @@
   margin-bottom: 20px;
 }
 .sobre-nos-item {
+  margin-top: 30px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 15px;
-  margin-bottom: 20px;
 }
 .sobre-nos-item img {
   width: 40px;
@@ -163,19 +202,125 @@
   text-align:center;
   line-height: 5;
 }
-.btn-sobre-nos {
+.btn-saiba-mais {
   display: inline-block;
   padding: 10px 20px;
-  background-color: white;
-  color: #007bff;
+  background-color: #007bff;
+  color: #fff;
   text-decoration: none;
-  border-radius: 30px;
+  border-radius: 20px;
   margin-top: 200px;
   transition: background-color 0.3s ease;
 }
-.btn-sobre-nos:hover {
-  background-color: #969696;
+.btn-saiba-mais:hover {
+  background-color: #0056b3;
 }
+/*sobre nos detalhes */
+.sobre-nos-detalhes {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dois blocos lado a lado */
+  gap: 20px; /* Espaçamento entre os blocos */
+}
+
+.detalhe h3 {
+  font-size: 1.8rem;
+  color: #003366;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.detalhe h3 i {
+  font-size: 1.5rem;
+  color: #007bff;
+}
+
+.detalhe p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #333;
+  text-align: justify;
+}
+
+/* Navbar */
+.navbar {
+  background-color: var(--navbar-background);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1;
+  position: relative;
+}
+.navbar:hover {
+  background-color: #007bff;
+}
+.navbar a {
+  color: #000000;
+}
+.navbar-fixed {
+  background-color: #007bff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Carrossel de imagens */
+.carousel-inner img {
+  height: 80vh;
+  transition: transform 1s ease, opacity 1s ease;
+  object-fit: cover;
+}
+.carousel {
+  margin-top: 20px;
+  background-color: white;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  border-radius: 10px;
+}
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 10px;
+}
+.carousel-controlprev, .carousel-control-next {
+  width: 5%;
+}
+.carousel-inner img:hover {
+  transform: scale(1.05); /* Ampliar levemente a imagem */
+  opacity: 0.8;
+}
+
+/* efeito fade in seções */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* animação navbar logo mongamap */
+.pulse {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.1);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+
 
 
 /* Seção de Cadastro */
