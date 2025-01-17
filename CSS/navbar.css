@@ -1,0 +1,116 @@
+/* Navbar */
+.navbar {
+    background-color: #ffffff;
+    box-shadow: none;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Container da navbar */
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Logo e nome da marca */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #003366;
+}
+
+.navbar-brand .logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
+/* Links da navbar */
+.navbar-links {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+
+
+.navbar-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+    color: #949494;
+}
+
+/* Botão "Cadastre-se" */
+.btn-cadastrar {
+    background-color: #007bff;
+    padding: 8px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+.btn-cadastrar:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+
+/* Ajuste específico para a navbar na página cadastro.html */
+.page-cadastro .navbar {
+    position: absolute; /* Deixe a navbar fora do fluxo para não "empurrar" o conteúdo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: none; /* Remova a sombra */
+}
+
+.page-cadastro .navbar .navbar-links a { 
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+    transition: color 0.3s ease;/* Ajuste a cor dos links para branco ou uma cor que contraste com o fundo */
+}
+
+.page-cadastro .navbar .navbar-links a:hover {
+    color: #949494;
+}
+
+.page-cadastro .navbar .navbar-brand {
+    color: #003366; /* Ajuste a cor da marca para combinar */
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.page-cadastro .navbar .btn-cadastrar {
+    background-color: #007bff; 
+    color: #fff;
+    padding: 8px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background-color 0.3s ease
+}
+
+.page-cadastro .navbar .btn-cadastrar:hover {
+    background-color: #0056b3;
+    
+}
+
+ 

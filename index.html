@@ -8,32 +8,28 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="CSS/navbar.css">
+    <link rel="stylesheet" href="CSS/home.css">
 </head>
 <body>
-
-    <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="IMG/logo.png" alt="Logo MongaMap" style="height: 50px;" class="logo-home pulse">
-                Monga📍Map
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#">Início</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Sobre</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Conheça</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Entrar</a></li>
-                    <li class="nav-item"><a href="cadastro.html" class="btn btn-primary">Cadastre-se</a>
-                    </li>
-                </ul>          
-            </div>
+  <nav class="navbar">
+    <div class="navbar-container">
+        <a href="index.html" class="navbar-brand">
+            <img src="IMG/logo.png" alt="Logo MongaMap" class="logo">
+            Monga📍Map
+        </a>
+        <ul class="navbar-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="sobre.html" class="active">Sobre</a></li>
+            <li><a href="conheca.html">Conheça</a></li>
+            <li><a href="trofeus.html" class="active">Troféus</a></li>
+            <li><a href="comentarios.html" class="active">Feedback</a></li>
+            <li><a href="cadastro.html" class="btn-cadastrar">Cadastre-se</a></li>
+            </ul>
         </div>
-    </nav>
-    <!-- Seção Principal -->
+</nav>
+    <!-- SEÇÃO PRINCIPAL -->
     <section class="home">
       <div class="container">
         <div class="home-left">
@@ -47,7 +43,7 @@
         </div>
       </div>
     </section>    
-      <!--Carrossel inicio-->
+      <!--CARROSSEL INICIAL-->
       <section class="carousel-container">
           <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
@@ -57,24 +53,24 @@
       </div>
       <div class="carousel-inner">
          <div class="carousel-item active">
-            <img src="IMG/parque.png" class="d-block w-100" alt="Descrição da Imagem 1">
+            <img src="IMG/plataformapp.png" class="d-block w-100" alt="Descrição da Imagem 1">
             <div class="carousel-caption d-none d-md-block">
-               <h5>Ponto Turístico 1</h5>
-               <p>Descrição breve do ponto turístico 1.</p>
+               <h5>Plataforma de Pesca</h5>
+               <p>Visitada por inúmeros turistas e munícipes, o local é um dos cenários mais bonitos e encantadores do Brasil. Instalada na cidade em 1977, é a maior plataforma pesqueira em estrutura de concreto armado. Avançando 400 metros mar adentro, forma um “T” e se lança 86m para cada um dos lados.</p>
             </div>
          </div>
          <div class="carousel-item">
-            <img src="IMG/praia.png" class="d-block w-100" alt="Descrição da Imagem 2">
+            <img src="IMG/raulcortez.png" class="d-block w-100" alt="Descrição da Imagem 2">
             <div class="carousel-caption d-none d-md-block">
-               <h5>Ponto Turístico 2</h5>
-               <p>Descrição breve do ponto turístico 2.</p>
+               <h5>Centro Cultural Raul Cortez</h5>
+               <p>O Centro Cultural Raul Cortez foi inaugurado em dezembro de 1996. Tem seu nome em homenagem ao ator Raul Cortez e é o coração da cena cultural de Mongaguá.</p>
             </div>
          </div>
          <div class="carousel-item">
-            <img src="IMG/praca.png" class="d-block w-100" alt="Descrição da Imagem 3">
+            <img src="IMG/padroeira2.png" class="d-block w-100" alt="Descrição da Imagem 3">
             <div class="carousel-caption d-none d-md-block">
-               <h5>Ponto Turístico 3</h5>
-               <p>Descrição breve do ponto turístico 3.</p>
+               <h5>Morro da Padroeira</h5>
+               <p>Com mais de 15 metros de altura e cerca de 2,5 toneladas, instalada em uma trilha urbana feita em uma passarela de madeira com 150 metros de extensão. São 139 degraus em meio a mata nativa.</p>
             </div>   
          </div>
       </div>
@@ -88,81 +84,110 @@
       </button>
    </div>
   </section>
-
-<!-- Seção de Destaques -->
+  <!-- SEÇÃO DE DESTAQUES -->
 <section class="destaques">
   <div class="card">
+    <a href="conheca.html">
     <img src="IMG/santa.png" alt="Exploração">
     <div class="card-body">
     <h3>Exploração Fácil</h3>
     <p>Descubra os melhores pontos turísticos de Mongaguá com poucos cliques.</p>
   </div>
+</a>
 </div>
   <div class="card">
-    <img src="IMG/plataforma.png" alt="Gamificação">
+    <a href="gamificacao.html">
+    <img src="IMG/praiaflorida.png" alt="Gamificação">
     <div class="card-body">
     <h3>Gamificação</h3>
     <p>Ganhe pontos enquanto explora, suba de nível e desbloqueie recompensas.</p>
   </div>
+  </a>
 </div>
   <div class="card">
+    <a href="">
     <img src="IMG/antas.png" alt="Descubra">
-    <div class="card-body">
-    <h3>Descubra Mais</h3>
-    <p>Explore novos lugares e viva experiências únicas com o MongaMap.</p>
+      <div class="card-body">
+      <h3>Descubra Mais</h3>
+     <p>Explore novos lugares e viva experiências únicas com o MongaMap.</p>
   </div>
+  </a>
 </div>
 </section>
-
-<!-- Seção Sobre Nós -->
-<section class="destaques fade-in">
-<section class="sobre-nos">
-  <div class="container">
-      <h2>Sobre Nós</h2>
-      <div class="sobre-nos-detalhes">
-        <div class="detalhe">
-      <h3><i class="fas fa-users"></i>Nossa Missão</h3>
-      <p>
-         MongaMap é uma iniciativa da Equipe 8-BITS para promover o turismo e a descoberta de Mongaguá através de uma experiência interativa e gamificada. Nossa equipe tem como missão trazer inovação ao setor turístico, utilizando tecnologia para criar experiências únicas.
-        </p>
-      </div>
-      <div class="detalhe">
-        <h3><i class="fas fa-handshake"></i>Nosso Compromisso</h3>
-      <p>
-        A equipe 8-BITS acredita na importância de fortalecer o turismo local, destacando os principais pontos turísticos de Mongaguá e engajando os visitantes por meio de uma plataforma intuitiva e moderna. Nosso objetivo é incentivar o turismo sustentável e acessível para todos.
-      </p>
-    </div>
-    </div>
-    <div class="sobre-nos-detalhes">
-      <div class="detalhe">
-        <h3><i class="fas fa-bullseya"></i>Objetivo</h3>
-        <p>
-          O projeto MongaMap tem como objetivo promover a visibilidade dos pontos turísticos de Mongaguá e criar uma experiência inovadora e criativa para turistas e moradores da cidade. Com o intuito de melhorar o turismo local, nosso projeto transforma a visitação aos pontos turísticos em uma experiência interativa e gamificada. Utilizando tecnologia e jogo como ferramentas principais, MongaMap incentiva as pessoas a conhecerem os pontos turísticos e suas histórias de uma maneira mais divertida podendo ganhar recompensas por suas interações, realizar desafios e completar missões.
-        </p>
-      </div>
-    <div class="detalhe">
-      <h3><i class="fas fa-lightbulb"></i>Como Surgiu</h3>
-      <p>
-        A ideia do MongaMap foi criada da observação de um problema comum enfrentado por muitas cidades, incluindo Mongaguá: a falta de engajamento e de visibilidade das atrações turísticas locais. Mongaguá, embora rica em atrações históricas, culturais e naturais, muitos deles não são amplamente conhecidos ou não atraem o número de visitantes esperado, o que prejudica o potencial turístico e, consequentemente, o desenvolvimento da economia local. Diante desse cenário a gamificação foi escolhida como solução para tornar a visitação mais atraente, estimulando a curiosidade e a interação dos visitantes de uma maneira inovadora e divertida, além de beneficiar o comércio local.
-      </p>
-    </div>
+<!--FAQ-->
+<section class="faq">
+  <h2>Perguntas Frequentes</h2>
+  <div class="pergunta">
+      <h3>Como funciona o MongaMap?</h3>
+      <p>O MongaMap ajuda você a explorar os melhores pontos turísticos de Mongaguá com uma interface intuitiva e interativa.</p>
   </div>
-      <div class="sobre-nos-item">
-        <img src="IMG/equipe.png" alt="Ícone">
-        <a href="contato.html" class="btn-sobre-nos">Saiba Mais</a>
-      </div>
+  <div class="pergunta">
+      <h3>É necessário se cadastrar?</h3>
+      <p>Não, mas cadastrando-se, você pode acessar recursos exclusivos, como gamificação e personalização.</p>
+  </div>
+  <div class="pergunta">
+    <h3>É necessário pagar para usar o MongaMap?</h3>
+    <p>Não, o MongaMap é gratuito para todos.</p>
+  </div>
+  <div class="pergunta">
+    <h3>Como funciona os pontos turísticos no mapa?</h3>
+    <p>Você pode localizar os pontos turísticos no mapa interativo, clicar nos marcadores e obter mais informações sobre cada local.</p>
+  </div>
+  <div class="pergunta">
+    <h3>Posso acessar o MongaMap pelo celular?</h3>
+    <p>Sim, o MongaMap é otimizado para dispositivos móveis. Você pode acessar o site pelo navegador do seu celular sem nenhum problema.</p>
   </div>
 </section>
+<!--CONTATO-->
+<section class="mini-mapa">
+  <h2>Encontre-nos</h2>
+  <p>Mongaguá, São Paulo, Brasil</p>
+  <div id="mini-map"></div>
 </section>
-
-<!-- Footer -->
+<!--ESTATÍSTICAS-->
+<section class="estatisticas">
+  <div class="item">
+    <h3>500+</h3>
+    <p>Usuários Registrados</p>
+</div>
+<div class="item">
+    <h3>30+</h3>
+    <p>Pontos Turísticos</p>
+</div>
+<div class="item">
+    <h3>1,000+</h3>
+    <p>Visitas Mensais</p>
+</div>
+</section>
+<!-- footer -->
 <footer class="footer">
   <p>&copy; 2025 MongaMap. Todos os direitos reservados.</p>
   <a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a>
 </footer>
-  
-    <!-- Bootstrap JS -->
+    <!-- bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="JS/style.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="JS/home.js"></script>
+
+<script>
+      // inicializa o mapa
+      var miniMap = L.map('mini-map').setView([-24.0911, -46.6206], 13);
+  
+      // adiciona a camada do OpenStreetMap
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(miniMap);
+  
+      // adiciona marcadores para pontos turísticos
+      const pontosTuristicos = [
+          { coords: [-24.093180, -46.620378], nome: 'Etec Adolpho Berezin', descricao: 'Educação técnica de qualidade.' },
+      ];
+  
+      pontosTuristicos.forEach(ponto => {
+          L.marker(ponto.coords).addTo(miniMap)
+              .bindPopup(`<b>${ponto.nome}</b><br>${ponto.descricao}`);
+      });
+  </script>
+  
 </body>
 </html>

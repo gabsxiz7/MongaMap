@@ -1,0 +1,160 @@
+/* CSS da Página de Gamificação */
+
+/* Configuração Geral */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header.header {
+    background: linear-gradient(to bottom, #004085, #007bff);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header.header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+header.header p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+/* Seção do Mapa */
+section {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    width: 800px;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #0056b3;
+}
+
+#map {
+    height: 500px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
+
+/* Footer */
+footer.footer {
+    background-color: #0056b3;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+
+footer.footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+footer.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header.header h1 {
+        font-size: 2rem;
+    }
+
+    header.header p {
+        font-size: 1rem;
+    }
+
+    section {
+        width: 95%;
+    }
+
+    #map {
+        height: 400px;
+    }
+}
+
+
+
+/*Sobre os pontos turísticos*/
+
+.pontos-turisticos {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.pontos-turisticos h2 {
+    text-align: center;
+    color: #0056b3;
+    margin-bottom: 20px;
+}
+
+.grid-pontos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.ponto-turistico {
+    flex: 1 1 calc(33% - 20px); /* Cards responsivos */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.ponto-turistico h3 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.ponto-turistico p {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.ponto-turistico img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+.ponto-turistico button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.ponto-turistico button:hover {
+    background-color: #0056b3;
+}
+

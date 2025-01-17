@@ -1,0 +1,58 @@
+/* Estilo do cabeçalho */
+.header {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    color: #003366;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Container de troféus */
+.trofeus-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+    justify-items: center;
+}
+
+.trofeu-item {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.trofeu-item img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.trofeu-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.trofeu-item p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .trofeus-container {
+        grid-template-columns: 1fr;
+    }
+}

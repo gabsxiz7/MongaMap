@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamificação - MongaMap</title>
+    <link rel="stylesheet" href="CSS/navbar.css">
+    <link rel="stylesheet" href="CSS/gamificacao.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        /* Estilo básico do mapa */
+        #map {
+            height: 400px;
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-brand">
+                <img src="IMG/logo.png" alt="Logo MongaMap" class="logo">
+                Monga📍Map
+            </a>
+            <ul class="navbar-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="conheca.html">Conheça</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="cadastro.html" class="btn-cadastrar">Cadastre-se</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <header class="header">
+        <h1>Gamificação</h1>
+        <p>Explore os pontos turísticos de Mongaguá e acompanhe seu progresso.</p>
+    </header>
+
+    <!-- Mapa -->
+    <section>
+        <h2>Mapa de Pontos Turísticos</h2>
+        <div id="map"></div>
+    </section>
+
+<!--teste-->
+    <section class="pontos-turisticos">
+        <h2>Pontos Turísticos de Mongaguá</h2>
+        <div class="grid-pontos">
+            <!-- Ponto Turístico 1 -->
+            <div class="ponto-turistico">
+                <img src="IMG/pesca.png" alt="Plataforma de Pesca">
+                <h3>Plataforma de Pesca</h3>
+                <p>Local incrível para pesca e lazer.</p>
+                <button onclick="marcarMapa(-24.0911, -46.6218)">Ver no Mapa</button>
+            </a>
+            </div>
+    
+            <!-- Ponto Turístico 2 -->
+            <div class="ponto-turistico">
+                <img src="IMG/parkeco.png" alt="Parque">
+                <h3>Parque Ecológico</h3>
+                <p>Contato direto com a natureza.</p>
+                <button onclick="marcarMapa(-24.0941, -46.6195)">Ver no Mapa</button>
+            </a>
+            </div>
+    
+            <!-- Ponto Turístico 3 -->
+            <div class="ponto-turistico">
+                <img src="IMG/igrejamatriz.png" alt="Igreja Matriz">
+                <h3>Igreja Matriz</h3>
+                <p>Rica em história e arquitetura colonial.</p>
+                <button onclick="marcarMapa(-24.0920, -46.6233)">Ver no Mapa</button>
+            </a>
+            </div>
+
+            <!--Ponto Turístico 4-->
+            <div class="ponto-turistico">
+                <img src="IMG/praiaflorida.png" alt="Praia Flórida Mirim">
+                <h3>Praia Flórida Mirim</h3>
+                <p>Praia de aguas limpas, ideal para famílias.</p>
+                <button onclick="marcarMapa(-24.0950, -46.6240)">Ver no Mapa</button>
+            </a>
+            </div>
+            
+            <!--Ponto Turístico 5-->
+            <div class="ponto-turistico">
+                <img src="IMG/praça.dudu.png" alt="Praça Dudu Samba">
+                <h3>Praça Dudu Samba</h3>
+                <p>Famosa praça de eventos culturais.</p>
+                <button onclick="marcarMapa(-24.0975, -46.6210)">Ver no Mapa</button>
+            </a>
+            </div>
+
+            <!--Ponto Turístico 6-->
+            <div class="ponto-turistico">
+                <img src="IMG/poçoantas.png" alt="Poço das Antas">
+                <h3>Poço das Antas</h3>
+                <p>Área natural para relaxar e explorar.</p>
+                <button onclick="marcarMapa(-24.0935, -46.6225)">Ver no Mapa</button>
+            </a>
+            </div>
+
+            <!--Ponto Turístico 7-->
+            <div class="ponto-turistico">
+                <img src="IMG/artesanato.png" alt="Feira de Artesanato">
+                <h3>Feira de Artesanato</h3>
+                <p>Feira de produtos locais e artesanais.</p>
+                <button onclick="marcarMapa(-24.0918, -46.6203)">Ver no Mapa</button>
+            </a>
+            </div>
+
+              <!--Ponto Turístico 8-->
+              <div class="ponto-turistico">
+                <img src="IMG/santa.png" alt="Morro da Padroeira">
+                <h3>Morro da Padroeira</h3>
+                <p>Vista panorâmica incrível da cidade.</p>
+                <button onclick="marcarMapa(-24.0890, -46.6180)">Ver no Mapa</button>
+              </a>
+            </div>
+        </div>
+    </section>
+    
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 MongaMap. Todos os direitos reservados.</p>
+        <a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a>
+    </footer>
+
+    <script src="JS/gamificacao.js"></script>
+</body>
+</html>

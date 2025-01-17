@@ -3,48 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro - MongaMap</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/style.css">
+    <title>Login e Cadastro - MongaMap</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="CSS/auth.css">
+    <link rel="stylesheet" href="CSS/navbar.css">
 </head>
-<body>
+<body class="page-cadastro">
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-brand">
+                <img src="IMG/logo.png" alt="Logo MongaMap" class="logo">
+                Monga📍Map
+            </a>
+            <ul class="navbar-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html" class="active">Sobre</a></li>
+                <li><a href="conheca.html">Conheça</a></li>
+                <li><a href="trofeus.html" class="active">Troféus</a></li>
+                <li><a href="comentarios.html" class="active">Feedback</a></li>
+                <li><a href="cadastro.html" class="btn-cadastrar">Cadastre-se</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="navbar-container"></div>
+    <div class="container" id="container">
+        <!-- Formulário de Cadastro -->
+        <div class="form-container sign-up">
+            <form action="processa_cadastro.php" method="POST">
+                <h1>Criar Conta</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <input type="text" placeholder="Nome" name="nome" required>
+                <input type="email" placeholder="Email" name="email" required>
+                <input type="password" placeholder="Senha" name="senha" required>
+                <button type="submit">Cadastre-se</button>
+            </form>
+        </div>
 
-    <!-- Formulário de Cadastro -->
-    <section class="cadastro">
-        <div class="form-card">
-            <!-- Imagem Superior -->
-            <div class="logo-container">
-                <img src="IMG/logo.png" alt="Logo MongaMap" class="img-fluid">
-            </div>
-            <!-- Formulário -->
-            <div class="form-content">
-                <h2>Cadastre-se</h2>
-                <p class="descricao-texto">Faça parte do Projeto MongaMap</p>
-                <form action="processa_cadastro.php" method="POST">
-                    <div class="mb-3">
-                        <label for="nome" class="form-label">Nome</label>
-                        <input type="text" class="form-control" id="nome" name="nome" required>
+        <!-- Formulário de Login -->
+        <div class="form-container sign-in">
+            <form action="processa_login.php" method="POST">
+                <h1>Entrar</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <input type="email" placeholder="Email" name="email" required>
+                <input type="password" placeholder="Senha" name="senha" required>
+                <a href="#">Esqueceu sua senha?</a>
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+
+        <!-- Painéis -->
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <img src="IMG/logo.png" alt="Logo MongaMap" class="logo-panel">
+                    <h1>Olá, amigo!</h1>
+                    <p>Cadastre-se para acessar todos os recursos do site</p>
+                    <button class="hidden" id="login">Entrar</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <div class="logo-container">
+                        <img src="IMG/logo.png" alt="Logo MongaMap" class="logo-logo">
                     </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="senha" class="form-label">Senha</label>
-                        <input type="password" class="form-control" id="senha" name="senha" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="confirmar_senha" class="form-label">Confirme sua Senha</label>
-                        <input type="password" class="form-control" id="confirmar_senha" name="confirmar_senha" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
-                </form>
+                    <h1>Bem-vindo de volta!</h1>
+                    <p>Insira seus dados pessoais para continuar navegando em nosso site
+                    </p>
+                    <button class="hidden" id="register">Cadastrar</button>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="JS/auth.js"></script>
 </body>
 </html>
