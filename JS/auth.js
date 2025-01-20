@@ -9,3 +9,5 @@ loginButton.addEventListener('click', () => {
 registerButton.addEventListener('click', () => {
     container.classList.add('active');
 });
+
+//javascript da tela de cadastro 

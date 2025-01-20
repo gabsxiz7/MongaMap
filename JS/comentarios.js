@@ -1,14 +1,14 @@
-// Emojis de Reação
+//emojis de reação
 const emojis = document.querySelectorAll('.emoji');
 emojis.forEach((emoji) => {
     emoji.addEventListener('click', () => {
         alert(`Você reagiu com ${emoji.getAttribute('data-emoji')}`);
-        // Aqui, você pode enviar a reação para o backend
+        //enviar a reação para o backend
     });
 });
 
 
-// Estrelas de Avaliação
+//estrelas de avaliacao
 const estrelas = document.querySelectorAll('.estrela');
 estrelas.forEach((estrela, index) => {
     estrela.addEventListener('click', () => {
@@ -20,15 +20,9 @@ estrelas.forEach((estrela, index) => {
             }
         });
         alert(`Você avaliou com ${index + 1} estrelas!`);
-        // Aqui, você pode enviar a avaliação para o backend
+        //enviar a avaliacao para o backend
     });
 });
-
-
-
-
-
-
 
 
 document.getElementById('formComentario').addEventListener('submit', function (e) {
@@ -43,7 +37,7 @@ document.getElementById('formComentario').addEventListener('submit', function (e
         .then(response => response.json())
         .then(data => {
             alert(data.mensagem);
-            location.reload(); // Recarrega para exibir o novo comentário
+            location.reload(); //recarrega para exibir o novo comentário
         });
 });
 
@@ -57,7 +51,7 @@ document.querySelectorAll('.estrela').forEach((estrela, index) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                ponto_turistico_id: 1, // Substitua pelo ID correto
+                ponto_turistico_id: 1, //substitua pelo ID correto
                 estrelas: estrelas
             })
         })

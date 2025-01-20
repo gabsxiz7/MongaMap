@@ -1,3 +1,4 @@
+/*css da tela de cadastro*/
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 * {
@@ -149,8 +150,6 @@ body {
 .container.active .toggle {
     transform: translateX(50%);
 }
-
-
 .toggle-panel {
     position: absolute;
     width: 50%;
@@ -178,7 +177,6 @@ body {
 .container.active .toggle-right {
     transform: translateX(200%);
 }
-
 /*LOGO*/
 .logo-panel {
     max-width: 120px;

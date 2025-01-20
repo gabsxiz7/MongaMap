@@ -1,3 +1,4 @@
+//esse arquivo é apenas um teste sobre o mapa LeaFlet. se quiser excluir pode excluir. 
 let h2 = document.querySelector('h2');
 var map;
 
@@ -32,4 +33,7 @@ var watchID = navigator.geolocation.watchPosition(success, error, {
 });
 
 //navigator.geolocation.clearWatch(watchID);
+
+
+
 

@@ -1,6 +1,9 @@
-/* Navbar */
+/*navbar geral das telas*/
 .navbar {
     background-color: #ffffff;
+    flex-wrap: wrap;
+    font-family: system-ui;
+    line-height: 24px;
     box-shadow: none;
     padding: 10px 20px;
     position: sticky;
@@ -10,16 +13,14 @@
     justify-content: space-between;
     align-items: center;
 }
-
-/* Container da navbar */
+/*container da navbar*/
 .navbar-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
 }
-
-/* Logo e nome da marca */
+/*logo e nome*/
 .navbar-brand {
     display: flex;
     align-items: center;
@@ -27,33 +28,42 @@
     font-size: 1.5rem;
     font-weight: bold;
     color: #003366;
+    font-family: system-ui;
+    line-height: 36px;
+    margin: 0px 16px 0px 0px;
+    padding: 5px 0px;
 }
-
 .navbar-brand .logo {
     height: 40px;
     margin-right: 10px;
 }
-
-/* Links da navbar */
+/*links navbar*/
 .navbar-links {
     display: flex;
     list-style: none;
     gap: 15px;
 }
-
-
 .navbar-links a {
     text-decoration: none;
     color: #333;
     font-size: 1rem;
+    font-family: system-ui;
+    line-height: 24px;
+    text-align: left;
+    display: inline;
     transition: color 0.3s ease;
 }
-
 .navbar-links a:hover {
     color: #949494;
 }
-
-/* Botão "Cadastre-se" */
+.navbar-links ul {
+    display: flex;
+    gap: 15px;
+    line-height: 24px;
+    margin: 0px 0px 16px;
+    padding: 0px 0px 0px 32px;
+}
+/* botão "Cadastre-se" */
 .btn-cadastrar {
     background-color: #007bff;
     padding: 8px;
@@ -66,39 +76,32 @@
 }
 
 
-
-
-
-/* Ajuste específico para a navbar na página cadastro.html */
+/* ajuste específico para a navbar na tela de cadastro.html */
 .page-cadastro .navbar {
-    position: absolute; /* Deixe a navbar fora do fluxo para não "empurrar" o conteúdo */
+    position: absolute;      /*p deixar a navbar fora do fluxo para não "empurrar" o conteúdo*/
     top: 0;
     left: 0;
     width: 100%;
     background-color: #ffffff;
-    box-shadow: none; /* Remova a sombra */
+    box-shadow: none; 
 }
-
 .page-cadastro .navbar .navbar-links a { 
     text-decoration: none;
     color: #333;
     font-size: 1rem;
     transition: color 0.3s ease;/* Ajuste a cor dos links para branco ou uma cor que contraste com o fundo */
 }
-
 .page-cadastro .navbar .navbar-links a:hover {
     color: #949494;
 }
-
 .page-cadastro .navbar .navbar-brand {
-    color: #003366; /* Ajuste a cor da marca para combinar */
+    color: #003366; 
     display: flex;
     align-items: center;
     text-decoration: none;
     font-size: 1.5rem;
     font-weight: bold;
 }
-
 .page-cadastro .navbar .btn-cadastrar {
     background-color: #007bff; 
     color: #fff;
@@ -107,10 +110,8 @@
     text-decoration: none;
     transition: background-color 0.3s ease
 }
-
 .page-cadastro .navbar .btn-cadastrar:hover {
-    background-color: #0056b3;
-    
+    background-color: #0056b3;   
 }
 
  
