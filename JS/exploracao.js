@@ -31,7 +31,32 @@ function calcularDistancia() {
     );
     document.getElementById('resultado').textContent = `Distância aproximada: ${(distancia * 111).toFixed(2)} km`;
 }
-//botão compartilhar
-function compartilhar() {
-    alert('Link do planejamento copiado para a área de transferência!');
-}
+
+//seleciona o botão de compartilhar
+const compartilharBotao = document.getElementById('compartilhar-planejamento');
+
+//evento de clique no botão
+compartilharBotao.addEventListener('click', () => {
+  //dados do planejamento para compartilhar
+  const titulo = "Meu Planejamento de Viagem no MongaMap!";
+  const texto = "Planejei uma rota incrível em Mongaguá. Confira os detalhes no site!";
+  const url = "https://www.seusite.com/mongamap"; // Substitua pelo link real do site
+
+  //verifica se o navegador suporta a API de Web Share
+  if (navigator.share) {
+    navigator
+      .share({
+        title: titulo,
+        text: texto,
+        url: url,
+      })
+      .then(() => console.log("Compartilhamento realizado com sucesso!"))
+      .catch((error) =>
+        console.error("Erro ao compartilhar:", error)
+      );
+  } else {
+    alert(
+      "Infelizmente, o recurso de compartilhamento não é suportado neste navegador."
+    );
+  }
+});
