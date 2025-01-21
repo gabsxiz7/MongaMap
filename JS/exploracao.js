@@ -40,7 +40,7 @@ compartilharBotao.addEventListener('click', () => {
   //dados do planejamento para compartilhar
   const titulo = "Meu Planejamento de Viagem no MongaMap!";
   const texto = "Planejei uma rota incrível em Mongaguá. Confira os detalhes no site!";
-  const url = "https://www.seusite.com/mongamap"; // Substitua pelo link real do site
+  const url = "https://gabsxiz7.github.io/MongaMap/"; // Substitua pelo link real do site
 
   //verifica se o navegador suporta a API de Web Share
   if (navigator.share) {

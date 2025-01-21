@@ -247,18 +247,4 @@
   font-size: 1rem;
   color: #333;
 }
-/* responsividade */
-@media (max-width: 768px) {
-  .estatisticas {
-      flex-direction: column;
-      gap: 10px;
-  }
-
-  .estatisticas .item {
-      width: 100%;
-  }
-}
-
-
-
 
