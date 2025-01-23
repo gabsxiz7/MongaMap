@@ -115,4 +115,27 @@
 }
 
 
+@media (max-width: 768px) {
+    .navbar-container {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+
+    }
+    .navbar-links {
+        flex-wrap: nowrap;
+        gap: 10px;
+    }
+    .navbar-links a {
+        font-size: 0.9rem;
+    }
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    .btn-cadastrar {
+        padding: 5px 10px;
+        font-size: 0.9rem;
+    }
+
+    }
+
   
