@@ -265,7 +265,7 @@ color: #333;
 .menu-toggle .menu-bar {
   height: 3px;
   width: 100%;
-  background-color: #ffffff;
+  background-color: #000000;
   border-radius: 2px;
   transition: all 0.3s ease-in-out;
 }
@@ -309,7 +309,7 @@ color: #333;
   color: #007bff;
 }
 .menu-toggle {
-  display: flex;
+  display: none;
   border-radius: 5px;
   flex-direction: column;
   justify-content: space-between;
@@ -317,13 +317,13 @@ color: #333;
   width: 30px;
   background: none;
   cursor: pointer;
-  margin-left: auto;
 }
 
 .menu-toggle .menu-bar {
   height: 3px;
   width: 100%;
   background-color: rgb(0, 0, 0);
+  border-radius: 2px;
   transition: all 0.3s ease-in-out;
 }
 
