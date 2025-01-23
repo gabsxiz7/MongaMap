@@ -309,7 +309,7 @@ color: #333;
   color: #007bff;
 }
 .menu-toggle {
-  display: none;
+  display: flex;
   border-radius: 5px;
   flex-direction: column;
   justify-content: space-between;
