@@ -1,16 +1,3 @@
-/* fade in */
-const fadeElements = document.querySelectorAll('.fade-in');
-
-window.addEventListener('scroll', () => {
-    fadeElements.forEach(element => {
-        const position = element.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-
-        if (position < windowHeight - 100) {
-            element.classList.add('show');
-        }
-    });
-});
 //inicializa o mapa
 var miniMap = L.map('mini-map').setView([-24.0911, -46.6206], 13);
 
@@ -29,10 +16,4 @@ pontosTuristicos.forEach(ponto => {
         .bindPopup(`<b>${ponto.nome}</b><br>${ponto.descricao}`);
 });
 
-/*navbar sanduba*/
-const menuToggle = document.getElementById("menuToggle");
-const navbarLinks = document.getElementById("navbarLinks");
 
-menuToggle.addEventListener("click", () => {
-  navbarLinks.classList.toggle("show");
-});

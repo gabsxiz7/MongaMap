@@ -8,13 +8,20 @@
     <link rel="stylesheet" href="CSS/sobre.css">
     <link rel="stylesheet" href="CSS/navbar.css">
     <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body class="sobre-page">    
     <nav class="navbar">
         <div class="navbar-container">
             <a href="index.html" class="navbar-brand">
                 <img src="IMG/logo.png" alt="Logo MongaMap" class="logo">
                 Monga📍Map
             </a>
-            <ul class="navbar-links">
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                <span class="menu-bar"></span>
+                <span class="menu-bar"></span>
+                <span class="menu-bar"></span>
+            </button>
+            <ul class="navbar-links" id="navbarLinks">
                 <li><a href="index.html">Início</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
                 <li><a href="conheca.html">Conheça</a></li>
@@ -123,5 +130,6 @@
                     <a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a>
                       </footer>
         <script src="JS/sobre.js"></script>
+        <script src="JS/navbar.js"></script>
 </body>
 </html>

@@ -1,4 +1,53 @@
-/*estilização para os cards*/
+body.conheca-page .navbar {
+    background: linear-gradient(to bottom, #004085, #007bff);
+}
+.navbar {
+    width: 100%;
+    position: fixed; /* Mantém a navbar fixa */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: linear-gradient(to bottom, #004085, #007bff);
+    z-index: 10;
+}
+.btn-cadastrar {
+    background-color: #007bff; 
+    color: #fff; 
+    padding: 8px 15px;                    
+    border-radius: 20px;                   
+    text-decoration: none;                 
+    transition: background-color 0.3s ease; /*animação suave ao passar o mouse*/
+}
+.btn-cadastrar:hover {
+    background-color: #0056b3; 
+}
+.navbar-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    transition: background-color 0.3s ease;
+}
+.menu-toggle {
+    display: none; /*oculta no desktop*/
+    flex-direction: column;
+    justify-content: space-between;
+    height: 25px;
+    width: 30px;
+    cursor: pointer;
+}
+.menu-toggle .menu-bar {
+    width: 100%;
+    height: 3px;
+    background-color: #ddd;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
 .grid-item {
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -39,6 +88,7 @@
     width: 100%;
     height: auto;
     border-bottom: 1px solid #ddd;
+    object-fit: cover;
 }
 /* Background geral */
 body {
@@ -47,19 +97,21 @@ body {
 }
 /* Header */
 .header {
-    text-align: center;
-    margin-bottom: 30px;
     background: linear-gradient(to bottom, #004085, #007bff);
-    color: #fff;
-    padding: 20px;
+    color: white;
     text-align: center;
+    padding: 90px 0;
+    margin: 0;
+    position: relative;
+    z-index: 1;
 }
 .header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-size: 3rem;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 .header p {
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 .grid-container {
     display: grid;
@@ -88,7 +140,6 @@ body {
     max-width: 600px;
     width: 90%;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 0.3s ease-in-out;
     position: relative;
 }
 /*título do Modal*/
@@ -144,3 +195,41 @@ body {
 }
 
 
+
+@media (max-width: 768px) {
+    .navbar-links {
+        display: none; /*oculta no mobile por padrão*/
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background: rgba (0, 0, 0, 0.8);
+        padding: 10px;
+        border-radius: 5px;
+        border-radius: 8px;
+        z-index: 1000;
+    }
+    .navbar-links.show {
+        display: flex;
+    }
+    .menu-toggle {
+        display: flex; /*mostra o botão sanduíche no mobile*/
+    }
+    .header {
+        padding: 120px 50px;
+    }
+    .header h1 {
+        font-size: 2rem;
+    }
+    .header p {
+        font-size: 1rem;
+    }
+    .grid-container {
+        grid-template-columns: 1fr; /*cartões empilhados*/
+    }
+    .footer {
+        font-size: 0.8rem;
+    }
+    
+
+}
