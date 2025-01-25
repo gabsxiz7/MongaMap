@@ -22,17 +22,6 @@ body.conheca-page .navbar {
 .btn-cadastrar:hover {
     background-color: #0056b3; 
 }
-.navbar-links {
-    display: flex;
-    list-style: none;
-    gap: 20px;
-}
-.navbar-links a {
-    color: white;
-    text-decoration: none;
-    padding: 8px 15px;
-    transition: background-color 0.3s ease;
-}
 .menu-toggle {
     display: none; /*oculta no desktop*/
     flex-direction: column;
@@ -95,7 +84,7 @@ body {
     background: linear-gradient(to bottom, #f9f9f9, #e9e9e9);
     font-family: 'Poppins', sans-serif;
 }
-/* Header */
+/*header*/
 .header {
     background: linear-gradient(to bottom, #004085, #007bff);
     color: white;
@@ -208,9 +197,6 @@ body {
         border-radius: 5px;
         border-radius: 8px;
         z-index: 1000;
-    }
-    .navbar-links.show {
-        display: flex;
     }
     .menu-toggle {
         display: flex; /*mostra o botão sanduíche no mobile*/

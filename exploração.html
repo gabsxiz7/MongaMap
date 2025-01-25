@@ -32,6 +32,7 @@
             </ul>
         </div>
     </nav>
+  
     <header class="header">
         <h1>Planejamento Simplificado</h1>
         <p>Crie rotas personalizadas e visualize os melhores caminhos para explorar Mongaguá com praticidade.</p>
@@ -39,12 +40,12 @@
     <!----------mapa interativo-------->
     <section>
         <h2>Planeje sua Rota</h2>
-        <div id="map" style="height: 500px; width: 100%; margin: 20px 0; border-radius: 10px;"></div>
+        <div id="map"></div>
     </section>
     <!--rotas...-->
     <section>
         <h2>Rotas Sugeridas</h2>
-        <ul>
+        <ul class="rotas-sugeridas">
             <li><strong>Rota da Natureza:</strong> Parque Ecológico, Poço das Antas, Morro da Padroeira.</li>
             <li><strong>Rota Histórica:</strong> Igreja Matriz, Feira de Artesanato, Centro Cultural Raul Cortez.</li>
             <li><strong>Rota para Famílias:</strong> Praia Flórida Mirim, Praça Dudu Samba, Feira de Artesanato.</li>
@@ -78,14 +79,14 @@
                 <option value="-24.0925,-46.6265">Praia Agenor de Campos</option>
                 <option value="-24.0935,-46.6202">Centro Cultural Raul Cortez</option>
             </select>
-            <button type="button" onclick="calcularDistancia()">Calcular</button>
+            <button id="calcular" onclick="calcularDistancia()">Calcular</button>
         </form>
         <p id="resultado">Distância: --</p>
     </section>
     <!-- dicas...-->
     <section>
         <h2>Dicas para um Bom Planejamento</h2>
-        <ul>
+        <ul class="dicas-planejamento">
             <li>Verifique as condições climáticas antes de planejar sua rota.</li>
             <li>Evite horários de pico para aproveitar ao máximo cada ponto turístico.</li>
             <li>Leve água, protetor solar e use roupas confortáveis.</li>

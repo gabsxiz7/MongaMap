@@ -229,6 +229,7 @@ font-size: 1rem;
 color: #333;
 }
 
+
     /* Tela pequena: Smartphones (até 768px) */
     @media (max-width: 768px) {
     .navbar-brand {

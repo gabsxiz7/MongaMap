@@ -6,21 +6,44 @@ body {
     background-color: #f9f9f9;
     color: #333;
 }
-header.header {
+.btn-cadastrar {
+    background-color: #007bff; 
+    color: #fff; 
+    padding: 8px 15px;                    
+    border-radius: 20px;                   
+    text-decoration: none;                 
+    transition: background-color 0.3s ease; /*animação suave ao passar o mouse*/
+}
+.btn-cadastrar:hover {
+    background-color: #0056b3; 
+}
+.menu-toggle {
+    display: none; /*oculta no desktop*/
+    flex-direction: column;
+    justify-content: space-between;
+    height: 25px;
+    width: 30px;
+    cursor: pointer;
+}
+/*header*/
+.header {
     background: linear-gradient(to bottom, #004085, #007bff);
-    color: #fff;
-    padding: 20px;
+    color: white;
     text-align: center;
-}
-header.header h1 {
-    font-size: 2.5rem;
+    padding: 90px 0;
     margin: 0;
+    position: relative;
+    z-index: 1;
 }
-header.header p {
-    font-size: 1.2rem;
-    margin-top: 10px;
+.header h1 {
+    font-size: 2.5rem;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
-/* SECAO MAPA */
+.header p {
+    font-size: 1rem;
+}
+/* SECAO e MAPA */
 section {
     margin: 20px auto;
     padding: 20px;
@@ -42,40 +65,6 @@ section h2 {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin: 0 auto;
-}
-footer.footer {
-    background-color: #0056b3;
-    color: #fff;
-    padding: 10px 20px;
-    text-align: center;
-    font-size: 0.9rem;
-    margin-top: 20px;
-}
-footer.footer a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 5px;
-}
-footer.footer a:hover {
-    text-decoration: underline;
-}
-/* RESPONSIVIDADE */
-@media (max-width: 768px) {
-    header.header h1 {
-        font-size: 2rem;
-    }
-
-    header.header p {
-        font-size: 1rem;
-    }
-
-    section {
-        width: 95%;
-    }
-
-    #map {
-        height: 400px;
-    }
 }
 /*sobre pontos turísticos*/
 .pontos-turisticos {
@@ -131,4 +120,58 @@ footer.footer a:hover {
 .ponto-turistico button:hover {
     background-color: #0056b3;
 }
+/*rodapé*/
+footer.footer {
+    background-color: #0056b3;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+footer.footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 5px;
+}
+footer.footer a:hover {
+    text-decoration: underline;
+}
 
+/* Responsividade */
+@media (max-width: 768px) {
+    header.header h1 {
+        font-size: 2rem;
+    }
+    .menu-toggle {
+        display: flex; /*mostra o botão sanduíche no mobile*/
+    }
+
+    header.header p {
+        font-size: 1rem;
+    }
+
+    section {
+        width: 95%;
+    }
+
+    #map {
+        height: 300px; /* Altura menor para telas pequenas */
+    }
+
+    .grid-pontos {
+        grid-template-columns: 1fr; /* Cards empilhados */
+    }
+
+    .ponto-turistico {
+        margin: 10px 0;
+    }
+
+    .ponto-turistico h3 {
+        font-size: 1.2rem;
+    }
+
+    footer.footer {
+        font-size: 0.8rem;
+    }
+}

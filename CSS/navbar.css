@@ -12,7 +12,6 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background: transparent !important; /* garante a transparência */
   color: white;
   z-index: 10;
   margin: 0;
@@ -81,6 +80,7 @@ main, footer {
     font-size: 1rem;
     color: white;
     transition: color 0.3s ease;
+    font-family: Arial;
   }
   
   .navbar-links a:hover {
@@ -104,14 +104,13 @@ main, footer {
   .menu-toggle .menu-bar {
     height: 3px;
     width: 100%;
-    background-color: #ffffff;
+    background-color: white;
     border-radius: 2px;
     transition: all 0.3s ease-in-out;
   }
     @media (max-width: 768px) {
         .navbar {
-            background: linear-gradient(to bottom, #004085, #007bff);
-            padding: 10px 20px;
+           padding: 10px 20px;
            position: fixed;
            width: 100%;
            z-index: 10;
@@ -153,6 +152,11 @@ main, footer {
     }    
 
 
+
+
+
+
+
 /* ajuste específico para a navbar na tela de cadastro.html */
 .page-cadastro .navbar {
     position: absolute;      /*p deixar a navbar fora do fluxo para não "empurrar" o conteúdo*/
@@ -190,5 +194,4 @@ main, footer {
 .page-cadastro .navbar .btn-cadastrar:hover {
     background-color: #0056b3;   
 }
-
 
