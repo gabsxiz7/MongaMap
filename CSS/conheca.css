@@ -45,6 +45,15 @@ body.conheca-page .navbar {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+.grid-item p {
+    font-family: Arial;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 10px auto;
+    text-align: justify;
+    padding: 0 10px;
+    color: #000000;
+}
 
 .grid-item:hover {
     transform: scale(1.05);
@@ -53,24 +62,30 @@ body.conheca-page .navbar {
 
 /* títulos dos pontos turísticos */
 .grid-item h2 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: bold;
-    margin: 15px 0;
+    margin: 15px auto;
     color: #003366;
+    text-align: center;
 }
 
  /*link saiba mais */
 .grid-item .link-saiba-mais {
-    align-items: center;
-    gap: 10px;
+    display: block;  /*faz o link ocupar a linha inteira*/
+    margin: 10px auto 0; /*centraliza horizontalmente e adiciona espaçamento superior*/
+    text-align: center;  /*centraliza o texto no link*/
     color: #007bff;
-    text-decoration: underline;
     font-size: 1rem;
-    cursor: pointer;
+    text-decoration: underline;    /*sublinhado*/
     transition: color 0.3s ease;
+    background: none;
+    border: none;
+    padding: 0;
 }
 .grid-item .link-saiba-mais:hover {
-    background-color: #a7a7a7;
+   color: #4000ff;
+   background: none;
+   border: none;
 }
 /*imagens*/
 .grid-item img {
@@ -95,7 +110,7 @@ body {
     z-index: 1;
 }
 .header h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     font-family: 'Poppins', sans-serif;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -110,26 +125,27 @@ body {
 }
 /*modal*/ 
 .modal {
-    display: none;        /*oculta o modal por padrão*/
+    display: none;      /*oculta o modal inicialmente*/
     position: fixed;
     z-index: 1000;
-    left: 0;
-    top: 0;
+    top: 0%;          /*garante a centralização dentro do espaço total de 100% de largura e altura*/
+    left: 0%;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.6);              /*fundo semitransparente*/
+    background-color: rgba(0, 0, 0, 0.6);              
+    padding: 40px;   /*evita que o modal encoste nas laterais da tela*/
 }
 /*conteúdo do Modal*/
 .modal-content {
-    background-color: #fff;
-    margin: 10% auto;
-    padding: 20px;
+    background-color: white;
     border-radius: 10px;
-    max-width: 600px;
-    width: 90%;
+    max-width: 90%;    /*largura maxima em 90% da tela*/ 
+    max-height: 90%;  /*altura maxima em 90% da tela*/
+    margin: 0 auto;   /*alinha horizontalmente o modal ao centro da tela*/
+    overflow-y: auto; /*permite rolagem caso o conteúdo seja maior*/
+    padding: 40px;         
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: relative;
+    text-align: left;
 }
 /*título do Modal*/
 .modal-content h2 {
@@ -147,18 +163,38 @@ body {
     text-align: justify;
 }
 /*botão de fechar*/
-.modal-content .close {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 1.5rem;
+.modal .close {
+    color: black;
+    float: right;
+    font-size: 24px;
     font-weight: bold;
-    color: #aaa;
     cursor: pointer;
-    transition: color 0.3s ease;
+    margin-top: -10px;
 }
-.modal-content .close:hover {
-    color: #555;
+.modal .close:hover,
+.modal .close:focus {
+    color: #626262;
+}
+/*estilização do texto no model*/
+#modal-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-top: 10px;
+    text-align: justify;
+}
+#modal-description p {
+    margin-bottom: 15px;
+    text-align: justify;
+    line-height: 1.6;
+    font-size: 1rem;
+    font-family: Arial;
+}
+#modal-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #004085;
+    text-align: center;
 }
 /*estilo do mapa*/
 #modal-map {
@@ -201,6 +237,14 @@ body {
     .menu-toggle {
         display: flex; /*mostra o botão sanduíche no mobile*/
     }
+    .modal-content {
+        max-width: 95%;
+        max-height: 85%;
+        padding: 20px;
+    }
+    #modal-map {
+        height: 250px;
+    }
     .header {
         padding: 120px 50px;
     }
@@ -212,7 +256,25 @@ body {
     }
     .grid-container {
         grid-template-columns: 1fr; /*cartões empilhados*/
+        gap: 15px;
     }
+    .grid-item {
+        padding: 15px;
+        font-size: 0.9rem;
+    }
+    .grid-item img {
+        height: auto;
+    }
+    .grid-item h2 {
+        font-size: 1.2rem;
+    }
+    .grid-item p {
+        font-size: 0.9rem;
+    } 
+    .link-saiba-mais {
+        font-size: 0.9rem;
+    }
+
     .footer {
         font-size: 0.8rem;
     }
