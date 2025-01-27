@@ -1,17 +1,38 @@
 /* TESTEEEEE*/
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.btn-cadastrar {
+    background-color: #007bff; 
+    color: #fff; 
+    padding: 8px 15px;                    
+    border-radius: 20px;                   
+    text-decoration: none;                 
+    transition: background-color 0.3s ease; /*animação suave ao passar o mouse*/
+}
+.btn-cadastrar:hover {
+    background-color: #0056b3; 
+}
+
 .header {
+    background: linear-gradient(to bottom, #004085, #007bff);
     text-align: center;
-    margin-top: 30px;
-    margin-bottom: 50px;
-    color: #003366;
+    padding: 90px 0;
+    position: relative;
+    z-index: 1;
+    color: white;
 }
 .header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-size: 3rem;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 .header p {
+    font-family: Arial;
     font-size: 1.2rem;
-    color: #555;
+    color: #ffffff;
 }
 .trofeus-container {
     display: grid;

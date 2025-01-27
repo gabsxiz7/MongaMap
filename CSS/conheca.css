@@ -1,26 +1,6 @@
-body.conheca-page .navbar {
-    background: linear-gradient(to bottom, #004085, #007bff);
-}
-.navbar {
-    width: 100%;
-    position: fixed; /* Mantém a navbar fixa */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background: linear-gradient(to bottom, #004085, #007bff);
-    z-index: 10;
-}
-.btn-cadastrar {
-    background-color: #007bff; 
-    color: #fff; 
-    padding: 8px 15px;                    
-    border-radius: 20px;                   
-    text-decoration: none;                 
-    transition: background-color 0.3s ease; /*animação suave ao passar o mouse*/
-}
-.btn-cadastrar:hover {
-    background-color: #0056b3; 
+body {
+    margin: 0;
+    padding: 0;
 }
 .menu-toggle {
     display: none; /*oculta no desktop*/
@@ -38,12 +18,13 @@ body.conheca-page .navbar {
     transition: all 0.3s ease-in-out;
 }
 .grid-item {
+    cursor: pointer;  /*indica que é clicavel*/
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
     background-color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .grid-item p {
     font-family: Arial;
@@ -51,13 +32,13 @@ body.conheca-page .navbar {
     line-height: 1.6;
     margin: 10px auto;
     text-align: justify;
-    padding: 0 10px;
+    padding: 0 20px;
     color: #000000;
 }
 
 .grid-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    transform: scale(1.02); /*leve zoom no hover*/
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* títulos dos pontos turísticos */
@@ -69,24 +50,6 @@ body.conheca-page .navbar {
     text-align: center;
 }
 
- /*link saiba mais */
-.grid-item .link-saiba-mais {
-    display: block;  /*faz o link ocupar a linha inteira*/
-    margin: 10px auto 0; /*centraliza horizontalmente e adiciona espaçamento superior*/
-    text-align: center;  /*centraliza o texto no link*/
-    color: #007bff;
-    font-size: 1rem;
-    text-decoration: underline;    /*sublinhado*/
-    transition: color 0.3s ease;
-    background: none;
-    border: none;
-    padding: 0;
-}
-.grid-item .link-saiba-mais:hover {
-   color: #4000ff;
-   background: none;
-   border: none;
-}
 /*imagens*/
 .grid-item img {
     width: 100%;
@@ -198,8 +161,9 @@ body {
 }
 /*estilo do mapa*/
 #modal-map {
-    height: 300px;
+    height: 400px;
     width: 100%;
+    margin-top: 20px;
     border-radius: 10px;
 }
 .footer {
@@ -222,19 +186,7 @@ body {
 
 
 @media (max-width: 768px) {
-    .navbar-links {
-        display: none; /*oculta no mobile por padrão*/
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 10px;
-        background: rgba (0, 0, 0, 0.8);
-        padding: 10px;
-        border-radius: 5px;
-        border-radius: 8px;
-        z-index: 1000;
-    }
-    .menu-toggle {
+   .menu-toggle {
         display: flex; /*mostra o botão sanduíche no mobile*/
     }
     .modal-content {
@@ -243,7 +195,7 @@ body {
         padding: 20px;
     }
     #modal-map {
-        height: 250px;
+        height: 200px;
     }
     .header {
         padding: 120px 50px;
@@ -256,7 +208,7 @@ body {
     }
     .grid-container {
         grid-template-columns: 1fr; /*cartões empilhados*/
-        gap: 15px;
+        gap: 5px;
     }
     .grid-item {
         padding: 15px;
@@ -271,10 +223,6 @@ body {
     .grid-item p {
         font-size: 0.9rem;
     } 
-    .link-saiba-mais {
-        font-size: 0.9rem;
-    }
-
     .footer {
         font-size: 0.8rem;
     }

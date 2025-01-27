@@ -1,9 +1,10 @@
 /* navbar para todas as telas */
 body {
-    padding-top: 60px;
+  margin: 0;
+  padding: 0;
+   
 }
 .navbar {
-  background: linear-gradient(to bottom, #004085, #007bff);
   width: 100%;
   top: 0;
   left: 0;
@@ -18,6 +19,18 @@ body {
   box-shadow: none !important; /* Remove qualquer sombra */
   border: none; /* remove possíveis bordas */
   }
+  .btn-cadastrar {
+    background-color: #007bff; 
+    color: #fff; 
+    padding: 8px 15px;                    
+    border-radius: 20px; 
+    box-sizing: border-box;                  
+    text-decoration: none;                 
+    transition: background-color 0.3s ease; /*animação suave ao passar o mouse*/
+}
+.btn-cadastrar:hover {
+    background-color: #0056b3; 
+}
 
   /*navbar transparente apenas para tela inicial*/
   .home-page .navbar{
@@ -157,41 +170,8 @@ main, footer {
 
 
 
-/* ajuste específico para a navbar na tela de cadastro.html */
-.page-cadastro .navbar {
-    position: absolute;      /*p deixar a navbar fora do fluxo para não "empurrar" o conteúdo*/
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #ffffff;
-    box-shadow: none; 
-}
-.page-cadastro .navbar .navbar-links a { 
-    text-decoration: none;
-    color: #333;
-    font-size: 1rem;
-    transition: color 0.3s ease;/* Ajuste a cor dos links para branco ou uma cor que contraste com o fundo */
-}
-.page-cadastro .navbar .navbar-links a:hover {
-    color: #949494;
-}
-.page-cadastro .navbar .navbar-brand {
-    color: #003366; 
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-.page-cadastro .navbar .btn-cadastrar {
-    background-color: #007bff; 
-    color: #fff;
-    padding: 8px;
-    border-radius: 30px;
-    text-decoration: none;
-    transition: background-color 0.3s ease
-}
-.page-cadastro .navbar .btn-cadastrar:hover {
-    background-color: #0056b3;   
-}
+
+
+
+
 

@@ -23,6 +23,8 @@ pontosTuristicos.forEach(ponto => {
 });
 //calcula as distâncias
 function calcularDistancia() {
+    event.preventDefault();   //impede o recarregamento da página
+    
     const ponto1 = document.getElementById('ponto1').value.split(',');
     const ponto2 = document.getElementById('ponto2').value.split(',');
 

@@ -185,15 +185,6 @@ function abrirModal(index) {
         }
     }, 300); // Atraso para garantir que o modal esteja completamente renderizado
 }
-
-// Adiciona eventos aos links "Saiba Mais"
-document.querySelectorAll('.link-saiba-mais').forEach((link, index) => {
-    link.addEventListener('click', (event) => {
-        event.preventDefault(); // Evita o comportamento padrão do link
-        abrirModal(index);
-    });
-});
-
 // Fecha o modal
 document.querySelector('.close').addEventListener('click', () => {
     const modal = document.getElementById("modal");
