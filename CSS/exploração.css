@@ -1,10 +1,9 @@
-body {
+.body-page {
     font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
     background-color: #f9f9f9;
     color: #333;
     line-height: 1.6;
+    font-size: 16px;
 }
 /*elimina o sanduiche das telas computacionais*/
 .menu-toggle {
@@ -193,31 +192,6 @@ form {
     font-size: 1.5rem;
     margin-bottom: 10px;
 }
-footer {
-    background-color: #004085;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: 20px;
-}
-footer a {
-    color: #007bff;
-    text-decoration: none;
-    margin: 0 5px;
-}
-footer a:hover {
-    text-decoration: underline;
-}
-
-.menu-toggle .menu-bar {
-    height: 3px;
-    width: 100%;
-    background-color: white;
-    border-radius: 2px;
-    transition: all 0.3s ease-in-out;
-  }
-
-
 @media (max-width: 768px) {
     .menu-toggle {
         display: flex; /* Exibe o botão no mobile */

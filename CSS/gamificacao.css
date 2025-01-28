@@ -120,24 +120,6 @@ section h2 {
 .ponto-turistico button:hover {
     background-color: #0056b3;
 }
-/*rodapé*/
-footer.footer {
-    background-color: #0056b3;
-    color: #fff;
-    padding: 10px 20px;
-    text-align: center;
-    font-size: 0.9rem;
-    margin-top: 20px;
-}
-footer.footer a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 5px;
-}
-footer.footer a:hover {
-    text-decoration: underline;
-}
-
 /* Responsividade */
 @media (max-width: 768px) {
     header.header h1 {

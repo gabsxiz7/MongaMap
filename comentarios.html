@@ -6,9 +6,7 @@
     <title>Comentários - MongaMap</title>
     <link rel="stylesheet" href="CSS/navbar.css">
     <link rel="stylesheet" href="CSS/comentarios.css">
-    <link rel="stylesheet" href="CSS/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar">
@@ -17,12 +15,17 @@
                 <img src="IMG/logo.png" alt="Logo MongaMap" class="logo">
                 Monga📍Map
             </a>
-            <ul class="navbar-links">
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                <span class="menu-bar"></span>
+                <span class="menu-bar"></span>
+                <span class="menu-bar"></span>
+            </button>
+            <ul class="navbar-links" id="navbarLinks">
                 <li><a href="index.html">Início</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
                 <li><a href="conheca.html">Conheça</a></li>
-                <li><a href="trofeus.html" class="active">Troféus</a></li>
-                <li><a href="comentarios.html" class="active">Feedback</a></li>
+                <li><a href="trofeus.html">Troféus</a></li>
+                <li><a href="comentarios.html">Feedback</a></li>
                 <li><a href="cadastro.html" class="btn-cadastrar">Cadastre-se</a></li>
             </ul>
         </div>
@@ -71,6 +74,6 @@
         <p>&copy; 2025 MongaMap. Todos os direitos reservados.</p>
         <a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="JS/navbar.js"></script>
 </body>
 </html>
