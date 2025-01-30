@@ -9,16 +9,6 @@
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <style>
-        /*estilo básico do mapa*/
-        #map {
-            height: 400px;
-            width: 100%;
-            margin-top: 20px;
-            border-radius: 10px;
-        }
-    </style>
-</head>
 <body>
     <nav class="navbar">
         <div class="navbar-container">
@@ -45,77 +35,125 @@
         <h1>Gamificação</h1>
         <p>Explore os pontos turísticos de Mongaguá e acompanhe seu progresso.</p>
     </header>
-    <!-- mapa -->
-    <section>
-        <h2>Mapa de Pontos Turísticos</h2>
-        <div id="map"></div>
+    <!--secao do user-->
+       <main class="container-container">
+           <!-- Seção 1: Informações do Usuário -->
+           <section class="card perfil">
+           <h2>Minha Jornada 🎮</h2>
+           <img id="fotoUsuario" src="IMG/gabslinda.png" alt="Avatar">
+           <h3>Usuário: <strong id="nomeUsuario">Gabs linda</strong></h3>
+        <p id="nivelUsuario">Nível: Explorador</p>
+        <p id="pontuacaoUsuario">Pontuação: 320 ⭐</p>
     </section>
-    <section class="pontos-turisticos">
-        <h2>Pontos Turísticos de Mongaguá</h2>
-        <div class="grid-pontos">
-            <div class="ponto-turistico">
-                <img src="IMG/pesca.png" alt="Plataforma de Pesca">
-                <h3>Plataforma de Pesca</h3>
-                <p>Local incrível para pesca e lazer.</p>
-                <button onclick="marcarMapa(-24.0911, -46.6218)">Ver no Mapa</button>
-            </a>
-            </div>
-            <div class="ponto-turistico">
-                <img src="IMG/parkeco.png" alt="Parque">
-                <h3>Parque Ecológico</h3>
-                <p>Contato direto com a natureza.</p>
-                <button onclick="marcarMapa(-24.0941, -46.6195)">Ver no Mapa</button>
-            </a>
-            </div>
-            <div class="ponto-turistico">
-                <img src="IMG/igrejamatriz.png" alt="Igreja Matriz">
-                <h3>Igreja Matriz</h3>
-                <p>Rica em história e arquitetura colonial.</p>
-                <button onclick="marcarMapa(-24.0920, -46.6233)">Ver no Mapa</button>
-            </a>
-            </div>
-            <div class="ponto-turistico">
-                <img src="IMG/praiaflorida.png" alt="Praia Flórida Mirim">
-                <h3>Praia Flórida Mirim</h3>
-                <p>Praia de aguas limpas, ideal para famílias.</p>
-                <button onclick="marcarMapa(-24.0950, -46.6240)">Ver no Mapa</button>
-            </a>
-            </div>
-            <div class="ponto-turistico">
-                <img src="IMG/praça.dudu.png" alt="Praça Dudu Samba">
-                <h3>Praça Dudu Samba</h3>
-                <p>Famosa praça de eventos culturais.</p>
-                <button onclick="marcarMapa(-24.0975, -46.6210)">Ver no Mapa</button>
-            </a>
-            </div>
-            <div class="ponto-turistico">
-                <img src="IMG/poçoantas.png" alt="Poço das Antas">
-                <h3>Poço das Antas</h3>
-                <p>Área natural para relaxar e explorar.</p>
-                <button onclick="marcarMapa(-24.0935, -46.6225)">Ver no Mapa</button>
-            </a>
-            </div>
-            <div class="ponto-turistico">
-                <img src="IMG/artesanato.png" alt="Feira de Artesanato">
-                <h3>Feira de Artesanato</h3>
-                <p>Feira de produtos locais e artesanais.</p>
-                <button onclick="marcarMapa(-24.0918, -46.6203)">Ver no Mapa</button>
-            </a>
-            </div>
-              <div class="ponto-turistico">
-                <img src="IMG/santa.png" alt="Morro da Padroeira">
-                <h3>Morro da Padroeira</h3>
-                <p>Vista panorâmica incrível da cidade.</p>
-                <button onclick="marcarMapa(-24.0890, -46.6180)">Ver no Mapa</button>
-              </a>
-            </div>
+        <!-- Seção 2: Barra de Progresso -->
+           <section class="card barra-progresso">
+           <h3>Nível 2 🚀</h3>
+           <progress value="320" max="500"></progress>
+        <p id="progressText">320 / 500 pontos</p>
+    </section>
+        <!-- Seção 3: Conquistas Recentes -->
+           <section class="card conquistas">
+           <h3>Últimas Conquistas 🎉</h3>
+        <ul id="listaConquistas">
+          <!--conquistas aparece aq pelo js-->
+        </ul>
+    </section>
+        <!-- Seção 4: Missões-->
+    <section class="card">
+        <h3>Missões 📜</h3>
+        <ul id="listaMissoes">
+          <!--missões aparece aq pelo js-->
+        </ul>
+        <button class="btn-missoes" onclick="completarMissao(0)">Concluir Missão 1</button>
+        <button class="btn-missoes" onclick="completarMissao(1)">Concluir Missão 2</button>
+    </section>
+    <!-- Seção 5: Ranking de Usuários -->
+    <section class="card ranking">
+        <h3>Ranking 🏆</h3>
+        <ol class="ranking-li">
+            <li>🥇 Emerson - 1500 pontos</li>
+            <li>🥈 Gui - 1350 pontos</li>
+            <li>🥉 Thay - 1200 pontos</li>
+        </ol>
+    </section>
+</main>
+<section class="pontos-turisticos">
+    <h2>Pontos Turísticos de Mongaguá</h2>
+    <div class="grid-pontos">
+        <div class="ponto-turistico">
+            <img src="IMG/pesca.png" alt="Plataforma de Pesca">
+            <h3>Plataforma de Pesca</h3>
+            <p>Local incrível para pesca e lazer.</p>
+            <button onclick="marcarMapa(-24.0911, -46.6218)">Ver no Mapa</button>
         </div>
-    </section>
+        <div class="ponto-turistico">
+            <img src="IMG/parkeco.png" alt="Parque">
+            <h3>Parque Ecológico</h3>
+            <p>Contato direto com a natureza.</p>
+            <button onclick="marcarMapa(-24.0941, -46.6195)">Ver no Mapa</button>
+        </div>
+        <div class="ponto-turistico">
+            <img src="IMG/igrejamatriz.png" alt="Igreja Matriz">
+            <h3>Igreja Matriz</h3>
+            <p>Rica em história e arquitetura colonial.</p>
+            <button onclick="marcarMapa(-24.0920, -46.6233)">Ver no Mapa</button>
+        </a>
+        </div>
+        <div class="ponto-turistico">
+            <img src="IMG/praiaflorida.png" alt="Praia Flórida Mirim">
+            <h3>Praia Flórida Mirim</h3>
+            <p>Praia de aguas limpas, ideal para famílias.</p>
+            <button onclick="marcarMapa(-24.0950, -46.6240)">Ver no Mapa</button>
+        </div>
+        <div class="ponto-turistico">
+            <img src="IMG/praça.dudu.png" alt="Praça Dudu Samba">
+            <h3>Praça Dudu Samba</h3>
+            <p>Famosa praça de eventos culturais.</p>
+            <button onclick="marcarMapa(-24.0975, -46.6210)">Ver no Mapa</button>
+        </div>
+        <div class="ponto-turistico">
+            <img src="IMG/poçoantas.png" alt="Poço das Antas">
+            <h3>Poço das Antas</h3>
+            <p>Área natural para relaxar e explorar.</p>
+            <button onclick="marcarMapa(-24.0935, -46.6225)">Ver no Mapa</button>
+        </a>
+        </div>
+        <div class="ponto-turistico">
+            <img src="IMG/artesanato.png" alt="Feira de Artesanato">
+            <h3>Feira de Artesanato</h3>
+            <p>Feira de produtos locais e artesanais.</p>
+            <button onclick="marcarMapa(-24.0918, -46.6203)">Ver no Mapa</button>
+        </div>
+          <div class="ponto-turistico">
+            <img src="IMG/santa.png" alt="Morro da Padroeira">
+            <h3>Morro da Padroeira</h3>
+            <p>Vista panorâmica incrível da cidade.</p>
+            <button onclick="marcarMapa(-24.0890, -46.6180)">Ver no Mapa</button>
+        </div>
+    </div>
+</section>
+<!-- mapa -->
+<section>
+    <h2>Mapa de Pontos Turísticos</h2>
+    <p id="coordenadas">Obtendo localização...</p>
+    <div id="map"></div>
+</section>
+<style>
+    /*estilo básico do mapa*/
+    #map {
+        height: 400px;
+        width: 100%;
+        margin-top: 20px;
+        border-radius: 10px;
+    }
+</style>
+
     <footer class="footer">
         <p>&copy; 2025 MongaMap. Todos os direitos reservados.</p>
         <a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a>
     </footer>
     <script src="JS/gamificacao.js"></script>
     <script src="JS/navbar.js"></script>
-</body>
 </html>
+</head>
+</body>

@@ -17,6 +17,10 @@ main {
     justify-content: center;
     align-items: center;
 }
+nav.container-fluid {
+  all: unset; /* Remove os estilos do Pico CSS */
+}
+
 .navbar {
   width: 100%;
   top: 0;

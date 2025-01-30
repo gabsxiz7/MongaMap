@@ -1,125 +1,319 @@
 body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    background: linear-gradient(to bottom, #004085, #007bff);;
+    font-family: Arial;
     background-color: #f9f9f9;
     color: #333;
-}
-.btn-cadastrar {
-    background-color: #007bff; 
-    color: #fff; 
-    padding: 8px 15px;                    
-    border-radius: 20px;                   
-    text-decoration: none;                 
-    transition: background-color 0.3s ease; /*animação suave ao passar o mouse*/
-}
-.btn-cadastrar:hover {
-    background-color: #0056b3; 
-}
-.menu-toggle {
-    display: none; /*oculta no desktop*/
-    flex-direction: column;
-    justify-content: space-between;
-    height: 25px;
-    width: 30px;
-    cursor: pointer;
-}
+    padding-top: 80px; /* Ajuste conforme necessário */
+} 
+
 /*header*/
 .header {
-    background: linear-gradient(to bottom, #004085, #007bff);
     color: white;
     text-align: center;
-    padding: 90px 0;
-    margin: 0;
-    position: relative;
-    z-index: 1;
+    padding: 50px 0;
 }
 .header h1 {
-    font-size: 2.5rem;
+    font-size: 5rem;
     font-family: 'Poppins', sans-serif;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 .header p {
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 /* SECAO e MAPA */
 section {
-    margin: 20px auto;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 90%;
-    width: 800px;
+    box-sizing: border-box;
     text-align: center;
+}
+#map {
+    height: 400px; 
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 section h2 {
     font-size: 1.8rem;
     margin-bottom: 20px;
-    color: #0056b3;
+    color: #001d3c;
 }
-#map {
-    height: 500px;
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.secao-pontos {
+    max-width: 95%;
     margin: 0 auto;
+    padding: 40px;
 }
+
 /*sobre pontos turísticos*/
 .pontos-turisticos {
-    margin: 20px auto;
-    padding: 20px;
-    max-width: 800px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    padding: 40px;
+    max-width: 1500px;
+    box-sizing: border-box;
 }
 .pontos-turisticos h2 {
     text-align: center;
-    color: #0056b3;
+    color: #001d3c;
     margin-bottom: 20px;
 }
 .grid-pontos {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 40px;
+    overflow-x: auto;
+    padding: 40px;
+    scrollbar-width: thin;
+    scrollbar-color: #007bff, #f1f1f1;
 }
-.ponto-turistico {
-    flex: 1 1 calc(33% - 20px); /* Cards responsivos */
-    padding: 20px;
-    border: 1px solid #ddd;
+/*scrollbar estilizada para webkit (chrome, edge, safari*/
+.grid-pontos::-webkit-scrollbar {
+    height: 10px;
+}
+.grid-pontos::-webkit-scrollbar-thumb {
+    background: #007bff;
     border-radius: 10px;
+}
+.grid-pontos::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+/*estilos dos cartões*/
+.ponto-turistico {
+    flex: 0 0 300px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
     text-align: center;
-    background-color: #f9f9f9;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
 }
 .ponto-turistico h3 {
     color: #007bff;
-    margin-bottom: 10px;
+    margin: 10px;
+    text-align: center;
 }
 .ponto-turistico p {
     font-size: 0.9rem;
-    margin-bottom: 15px;
+    text-align: center;
+    padding: 0 10px;
     color: #666;
 }
 .ponto-turistico img {
     width: 100%;
-    height: auto;
-    border-bottom: 1px solid #ddd;
+    height: 200px;
+    object-fit: cover;
 }
+/*botoes de ajustes finais*/
 .ponto-turistico button {
     background-color: #007bff;
+    display: block;
+    width: 100%;
     color: white;
-    padding: 10px 15px;
+    padding: 15px;
     border: none;
-    border-radius: 5px;
+    border-radius: 0 0 10px 10px;
     cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
 }
 .ponto-turistico button:hover {
     background-color: #0056b3;
 }
+
+
+
+
+
+
+
+
+/*------progresso do usuário-------*/
+.container-container {
+    margin-top: 80px; /* Para evitar sobreposição com a navbar */
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+/* 🌟 Estilização dos Cartões (Glassmorphism) */
+.card {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* 🏆 Layout Flexbox para Melhor Organização */
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* 👤 Avatar e Informações do Usuário */
+.perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.perfil img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid white;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.perfil img:hover {
+    transform: scale(1.1);
+}
+
+.perfil h3 {
+    font-size: 1.4rem;
+    color: #ffffff;
+}
+
+.perfil p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #FFD700;
+}
+
+/* 🚀 Barra de Progresso */
+.barra-progresso {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.barra-progresso h3 {
+    color: #FFD700;
+    font-size: 1.4rem;
+}
+
+progress {
+    width: 100%;
+    height: 18px;
+    border-radius: 10px;
+    appearance: none;
+    transition: width 1s ease-in-out;
+}
+
+progress::-webkit-progress-bar {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+progress::-webkit-progress-value {
+    background: linear-gradient(90deg, #FFD700, #FFA500);
+    border-radius: 10px;
+}
+
+/* 📜 Botão de Missões */
+.btn-missoes {
+    background: linear-gradient(90deg, #FFD700, #FFA500);
+    color: black;
+    font-weight: bold;
+    padding: 12px 25px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-missoes:hover {
+    background: linear-gradient(90deg, #FFC107, #FF9800);
+    transform: scale(1.05);
+}
+
+/* 🎖️ Conquistas e Missões */
+.missoes, .conquistas {
+    list-style: none;
+    text-align: left;
+    margin: 10px 0;
+    padding: 0;
+}
+
+.missoes li, .conquistas li {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 12px;
+    margin: 5px 0;
+    border-radius: 5px;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.missoes li:hover, .conquistas li:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* 🏆 Ranking */
+.ranking {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.ranking h3 {
+    color: #FFD700;
+    font-size: 1.5rem;
+}
+
+.ranking-li {
+    list-style: none;
+    padding: 0;
+    font-size: 18px;
+}
+
+.ranking-li li {
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 5px 0;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.ranking-li li:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+/* 🎖️ Destaque para TOP 3 do Ranking */
+.ranking-li li:nth-child(1) {
+    background: gold;
+}
+
+.ranking-li li:nth-child(2) {
+    background: silver;
+}
+
+.ranking-li li:nth-child(3) {
+    background: #cd7f32;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     header.header h1 {
@@ -134,11 +328,12 @@ section h2 {
     }
 
     section {
-        width: 95%;
+        width: 98%;
+        padding: 30px;
     }
 
     #map {
-        height: 300px; /* Altura menor para telas pequenas */
+        height: 400px; /* Altura menor para telas pequenas */
     }
 
     .grid-pontos {
@@ -146,14 +341,40 @@ section h2 {
     }
 
     .ponto-turistico {
-        margin: 10px 0;
+        flex: 0 0 250px;
     }
-
     .ponto-turistico h3 {
         font-size: 1.2rem;
+    }
+    .ponto-turistico img {
+        height: 180px;
+    }
+    .ponto-turistico button {
+        padding: 12px;
     }
 
     footer.footer {
         font-size: 0.8rem;
     }
+    .container-container {
+       width: 90%;
+    }
+    .perfil img {
+        width: 90px;
+        height: 90px;
+    }
+    .perfil h3, .barra-progresso h3 {
+        font-size: 1.2rem;
+    }
+    .card {
+        padding: 15px;
+    }
+    .btn-missoes {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    .row {
+        flex-direction: row;
+    }
 }
+  

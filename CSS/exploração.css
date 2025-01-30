@@ -9,18 +9,6 @@
 .menu-toggle {
     display: none;
 }
-.btn-cadastrar {
-    background-color: #007bff; 
-    color: #fff; 
-    padding: 8px 15px;                    
-    border-radius: 20px;                   
-    text-decoration: none;                 
-    transition: background-color 0.3s ease; /*animação suave ao passar o mouse*/
-}
-.btn-cadastrar:hover {
-    background-color: #0056b3; 
-}
-
 /*header*/
 .header {
     background: linear-gradient(to bottom, #004085, #007bff);
