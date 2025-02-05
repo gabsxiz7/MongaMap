@@ -86,7 +86,7 @@ body {
     width: 50%;
     z-index: 2;
 }
-.container.active .sig-in {
+.container.active .sign-in {
     transform: translateX(100%);
 }
 .sign-up {
@@ -191,31 +191,22 @@ footer.footer {
     margin: 20px 0px 0px;
 }
 
+/*reduz o tamanho do layout inteiro de forma proporcional em telas menores*/
+@media (max-width: 1024px) {
+    .container {
+        transform: scale(0.85); 
+        transform-origin: center; 
+    }
+}
+
 @media (max-width: 768px) {
     .container {
-        width: 90%;
-        min-height: 400px;
-        padding: 20px;
+        transform: scale(0.75);
     }
-    form h1 {
-        font-size: 20px;
-    }
+}
 
-    form input,
-    form button {
-        max-width: 100%;
-        max-width: 300px;
-        padding: 8px;
-        font-size: 14px;
-    }
-    a {
-        font-size: 14px;
-    }
-    .toggle-container {
-        display: none;
-    }
-    .sig-in
-    .sign-up {
-        width: 100%;
+@media (max-width: 480px) {
+    .container {
+        transform: scale(0.50);
     }
 }

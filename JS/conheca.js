@@ -141,7 +141,7 @@ coords: [-24.10203, -46.63637]
 //variavel p armazenar o mapa
 let modalMap = null;
 
-// Função para adicionar o mapa ao modal
+//função para adicionar o mapa ao modal
 function adicionarMapa(coords, titulo) {
     const mapElement = document.getElementById("modal-map");
 
@@ -153,44 +153,44 @@ function adicionarMapa(coords, titulo) {
     //inicializa o mapa com as coordenadas fornecidas
     modalMap = L.map(mapElement).setView(coords, 15);
 
-    // Adiciona o tile layer do OpenStreetMap
+    //adiciona o tile layer do OpenStreetMap
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(modalMap);
 
-    // Adiciona um marcador no local
+    //adiciona um marcador no local
     L.marker(coords).addTo(modalMap).bindPopup(titulo).openPopup();
 
-    // Ajusta o tamanho do mapa após o modal ser exibido
+    //ajusta o tamanho do mapa após o modal ser exibido
     setTimeout(() => {
         modalMap.invalidateSize(); //recalibra o tamanho do mapa
     }, 300);
 }
-// Função para abrir o modal com informações do ponto turístico
+//função para abrir o modal com informações do ponto turístico
 function abrirModal(index) {
     const ponto = pontosTuristicos[index];
 
-    // Atualiza título e descrição
+    //atualiza título e descrição
     document.getElementById("modal-title").textContent = ponto.titulo;
     document.getElementById("modal-description").innerHTML = ponto.descricao;
 
-    // Exibe o modal
+    //exibe o modal
     const modal = document.getElementById("modal");
     modal.style.display = "block";
 
-    // Aguarda o modal estar visível antes de inicializar o mapa
+    //aguarda o modal estar visível antes de inicializar o mapa
     setTimeout(() => {
         if (ponto.coords) {
             adicionarMapa(ponto.coords, ponto.titulo);
         }
-    }, 300); // Atraso para garantir que o modal esteja completamente renderizado
+    }, 300); //atraso para garantir que o modal esteja completamente renderizado
 }
-// Fecha o modal
+//fecha o modal
 document.querySelector('.close').addEventListener('click', () => {
     const modal = document.getElementById("modal");
     modal.style.display = "none";
 
-    // Remove o mapa ao fechar o modal
+//remove o mapa ao fechar o modal
     if (modalMap) {
         modalMap.remove(); //remove o mapa
         modalMap = null; //limpa a referencia

@@ -10,4 +10,9 @@ registerButton.addEventListener('click', () => {
     container.classList.add('active');
 });
 
-//javascript da tela de cadastro 
+/* impede erro no botão se a responsividade estiver ativada */
+window.addEventListener("resize", function () {
+    if (window.innerWidth <= 768) {
+        container.classList.remove('active');
+    }
+});
