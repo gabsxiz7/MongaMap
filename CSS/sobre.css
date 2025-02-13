@@ -204,53 +204,61 @@ body {
     position: absolute;
     left: 0;
 }
-  @media (max-width: 768px) {f
-    /*elimina o sanduiche das telas computacionais*/
-     .sobre-nos-detalhes {
-      grid-template-columns: 1fr; /*detalhes empilhados*/
+ 
+@media (max-width: 1024px) {
+    /* Garante que os elementos tenham mais respiro em telas médias */
+    .sobre-nos-detalhes, .team-container, .mvv-detalhes {
+        grid-template-columns: 1fr; /* Empilha os itens */
+        gap: 15px;
     }
-    .team {
-        text-align: center;
-        margin: 20px;
-    }
-    .team-container {
-      grid-template-columns: 1fr; /*cada membro ocupa a largura toda*/
-      gap: 10px;
-    }
-  
-    .team-member img {
-      width: 80px; /*reduz tamanho das fotos da equipe*/
-      height: 80px;
-    }
-  
-    .team-member h3 {
-      font-size: 1.2rem;
-    }
-  
-    .team-member p {
-      font-size: 0.9rem;
-    }
-  
-    .mvv-detalhes {
-      grid-template-columns: 1fr; /*empilha os itens*/
-      gap: 10px;
-    }
-  
-    .mvv-item {
-      padding: 15px;
-    }
-  
-    .footer {
-      font-size: 0.8rem; /*texto menor no rodapé*/
-    }
-    .header {
-      padding: 120px 50px; /*espaço maior*/
-    }
-  
-    .header h1 {
-      font-size: 2rem; /*reduz o tamanho do título*/
-    }
-    
-  }
 
-  
+    .team-member {
+        max-width: 100%; /* Evita que o tamanho fique fixo demais */
+        padding: 15px;
+    }
+
+    .team-member img {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Corrigindo e otimizando para telas pequenas */
+
+    .sobre-nos-detalhes {
+        grid-template-columns: 1fr;
+    }
+
+    .team-container {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .team-member img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .team-member h3 {
+        font-size: 1rem;
+    }
+
+    .team-member p {
+        font-size: 0.85rem;
+    }
+
+    .mvv-detalhes {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .mvv-item {
+        padding: 12px;
+    }
+
+}
+
+
+
+
