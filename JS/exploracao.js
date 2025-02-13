@@ -6,16 +6,16 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 const pontosTuristicos = [
-    { coords: [-24.134243, -46.692596], nome: 'Plataforma de Pesca' },
-    { coords: [-24.134406, -46.695230], nome: 'Parque Ecológico' },
-    { coords: [-24.094984, -46.620291], nome: 'Paróquia Nossa Senhora Aparecida' },
+    { coords: [-24.134216042883118, -46.69265213033479], nome: 'Plataforma de Pesca' },
+    { coords: [-24.134516224770405, -46.695151685425], nome: 'Parque Ecológico' },
+    { coords: [-24.095138463208592, -46.62037791866331], nome: 'Paróquia Nossa Senhora Aparecida' },
     { coords: [-24.132455, -46.711498], nome: 'Praia Flórida Mirim' },
-    { coords: [-24.09606, -46.62045], nome: 'Praça de Eventos Dudu Samba'},
-    { coords: [-24.08973, -46.62292], nome: 'Poço das Antas'},
-    { coords: [-24.09462, -46.61961], nome: 'Feira de Artesanato'},
-    { coords: [-24.09119, -46.61684], nome: 'Morro da Padroeira'},
+    { coords: [-24.096386442762434, -46.62107197890569], nome: 'Praça de Eventos Dudu Samba'},
+    { coords: [-24.08729494736329, -46.6238897572014], nome: 'Poço das Antas'},
+    { coords: [-24.094795333617636, -46.619581244856235], nome: 'Feira de Artesanato'},
+    { coords: [-24.091398678382347, -46.616823139729384], nome: 'Morro da Padroeira'},
     { coords: [-24.13087, -46.68704], nome: 'Praia Agenor de Campos'},
-    { coords: [-24.10203, -46.63637], nome: 'Centro Cultural Raul Cortez'}
+    { coords: [-24.10218063114339, -46.63634087856133], nome: 'Centro Cultural Raul Cortez'}
 
 ];
 pontosTuristicos.forEach(ponto => {

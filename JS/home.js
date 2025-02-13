@@ -8,7 +8,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 //adiciona marcadores para pontos turísticos
 const pontosTuristicos = [
-    { coords: [-24.093180, -46.620378], nome: 'Etec Adolpho Berezin', descricao: 'Educação técnica de qualidade.' },
+    { coords: [-24.12206, -46.67868], nome: 'Etec Adolpho Berezin', descricao: 'Educação técnica de qualidade.' },
 ];
 
 pontosTuristicos.forEach(ponto => {

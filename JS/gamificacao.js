@@ -1,85 +1,97 @@
 let h2 = document.querySelector('h2');
 let coordenadasElemento = document.getElementById("coordenadas");
 var map;
-//inicializa o mapa
+var userMarker; // Variável global para o marcador do usuário
+
+// Inicializa o mapa
 function success(pos) {
-    console.log(pos.coords.latitude, pos.coords.longitude);
+    console.log("📍 Nova localização recebida:");
+    console.log("Latitude:", pos.coords.latitude);
+    console.log("Longitude:", pos.coords.longitude);
+    console.log("Precisão (metros):", pos.coords.accuracy);
 
-    // Atualiza as coordenadas no <p> correto, sem mexer no <h2>
-    coordenadasElemento.textContent = `Latitude: ${pos.coords.latitude.toFixed(6)}, Longitude: ${pos.coords.longitude.toFixed(6)}`;
+    const latitude = pos.coords.latitude;
+    const longitude = pos.coords.longitude;
 
-    //criação ou atualização do mapa
-    if (map === undefined) {
-        map = L.map('map').setView([pos.coords.latitude, pos.coords.longitude], 13);
+    // Atualiza as coordenadas na <p> correto
+    coordenadasElemento.textContent = `Latitude: ${latitude.toFixed(6)}, Longitude: ${longitude.toFixed(6)}`;
+
+    if (!map) {
+        // Se o mapa ainda não foi criado, cria agora
+        map = L.map('map').setView([latitude, longitude], 13);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Adiciona o marcador inicial
+        userMarker = L.marker([latitude, longitude]).addTo(map)
+            .bindPopup('📍 Você está aqui!')
+            .openPopup();
     } else {
-        map.remove();
-        map = L.map('map').setView([pos.coords.latitude, pos.coords.longitude], 13);
+        // Apenas move o marcador para a nova posição
+        userMarker.setLatLng([latitude, longitude]);
+        map.setView([latitude, longitude], 13);
     }
 
-    //tile layer
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+    // Adiciona os pontos turísticos apenas uma vez
+    if (!map.pontosTuristicosAdicionados) {
+        const pontosTuristicos = [
+            { coords: [-24.134243, -46.692596], nome: 'Plataforma de Pesca', descricao: 'Local incrível para pesca e lazer.' },
+            { coords: [-24.134406, -46.695230], nome: 'Parque Ecológico', descricao: 'Contato direto com a natureza.' },
+            { coords: [-24.094984, -46.620291], nome: 'Paróquia Nossa Senhora Aparecida', descricao: 'Uma das construções mais antigas de Mongaguá.' },
+            { coords: [-24.132455, -46.711498], nome: 'Praia Flórida Mirim', descricao: 'Praia de águas limpas, ideal para famílias.' },
+            { coords: [-24.09606, -46.62045], nome: 'Praça de Eventos Dudu Samba', descricao: 'Famosa praça de eventos culturais.' },
+            { coords: [-24.08973, -46.62292], nome: 'Poço das Antas', descricao: 'Área natural para relaxar e explorar.' },
+            { coords: [-24.09462, -46.61961], nome: 'Feira de Artesanato', descricao: 'Feira de produtos locais e artesanais.' },
+            { coords: [-24.09119, -46.61684], nome: 'Morro da Padroeira', descricao: 'Vista panorâmica incrível da cidade.' },
+            { coords: [-24.13087, -46.68704], nome: 'Praia Agenor de Campos', descricao: 'Praia estruturada com quiosques e atividades.' },
+            { coords: [-24.10203, -46.63637], nome: 'Centro Cultural Raul Cortez', descricao: 'Tem seu nome em homenagem ao ator Raul Cortez e é o coração da cena cultural de Mongaguá.' }
+        ];
 
-    //marcador no ponto atual
-    L.marker([pos.coords.latitude, pos.coords.longitude]).addTo(map)
-        .bindPopup('Você está aqui!')
-        .openPopup();
+        pontosTuristicos.forEach(ponto => {
+            L.marker(ponto.coords).addTo(map)
+                .bindPopup(`<b>${ponto.nome}</b><br>${ponto.descricao}`);
+        });
 
-    //adicione mais marcadores dos pontos turísticos
-    const pontosTuristicos = [
-        { coords: [-24.134243, -46.692596], nome: 'Plataforma de Pesca', descricao: 'Local incrível para pesca e lazer.'},
-        { coords: [-24.134406, -46.695230], nome: 'Parque Ecológico', descricao: 'Contato direto com a natureza.'},
-        { coords: [-24.094984, -46.620291], nome: 'Paróquia Nossa Senhora Aparecida', descricao: 'Uma das construções mais antigas de Mongaguá.'},
-        { coords:[-24.132455, -46.711498], nome: 'Praia Flórida Mirim', descricao: 'Praia de aguas limpas, ideal para famílias.'},
-        { coords: [-24.09606, -46.62045], nome: 'Praça de Eventos Dudu Samba', descricao: 'Famosa praça de eventos culturais.'},
-        { coords: [-24.08973, -46.62292], nome: 'Poço das Antas', descricao: 'Área natural para relaxar e explorar.'},
-        { coords: [-24.09462, -46.61961], nome: 'Feira de Artesanato', descricao: 'Feira de produtos locais e artesanais.'},
-        { coords: [-24.09119, -46.61684], nome: 'Morro da Padroeira', descricao: 'Vista panorâmica incrível da cidade.'},
-        { coords: [-24.13087, -46.68704], nome: 'Praia Agenor de Campos', descricao: 'Praia estruturada com quiosques e atividades.'},
-        { coords: [-24.10203, -46.63637], nome: 'Centro Cultural Raul Cortez', descricao: 'Tem seu nome em homenagem ao ator Raul Cortez e é o coração da cena cultural de Mongaguá.'}
-    ];
-
-    pontosTuristicos.forEach(ponto => {
-        L.marker(ponto.coords).addTo(map)
-            .bindPopup(`<b>${ponto.nome}</b><br>${ponto.descricao}`);
-    });
+        map.pontosTuristicosAdicionados = true; // Evita adicionar múltiplas vezes
+    }
 }
-//tratamento de erro
+
+// Tratamento de erro
 function error(err) {
     console.error(err);
     h2.textContent = 'Não foi possível obter sua localização.';
 }
 
-//solicita localização do usuário
-navigator.geolocation.watchPosition(success, error, {
+// Solicita localização do usuário
+navigator.geolocation.getCurrentPosition(success, error, {
     enableHighAccuracy: true,
-    timeout: 5000
+    timeout: 10000, // Tempo máximo para resposta (10s)
+    maximumAge: 0   // Força atualização e evita cache antigo
 });
-function marcarMapa(latitude, longitude) {
-//centraliza o mapa no ponto turístico
-    map.setView([latitude, longitude], 16); 
 
-//adiciona um marcador no ponto selecionado   
+// Função para marcar pontos turísticos no mapa
+function marcarMapa(latitude, longitude) {
+    map.setView([latitude, longitude], 16); // Centraliza o mapa no ponto turístico
     L.marker([latitude, longitude]).addTo(map)
         .bindPopup('<strong>Ponto Selecionado</strong>')
         .openPopup();
 }
-//pequeno atraso para garantir que o mapa foi atualizado antes da rolagem
+
+// Pequeno atraso para garantir que o mapa foi atualizado antes da rolagem
 setTimeout(() => {
     let mapaElemento = document.getElementById("map");
 
-//verifica se o mapa existe e tem altura suficiente antes de rolar
     if (mapaElemento && mapaElemento.offsetHeight > 0) {
-        //aplica um scroll suave até o mapa
         window.scrollTo({
-            top: mapaElemento.offsetTop - 100, //ajuste para evitar sobreposição com a navbar
+            top: mapaElemento.offsetTop - 100,
             behavior: "smooth"
         });
     }
-}, 300); //300ms para garantir que o mapa foi renderizado
+}, 300);
 
-//definição dos dados do usuário
+// Dados do usuário
 let usuario = {
     nome: "BlackN444",
     foto: "IMG/icon.png",
@@ -95,13 +107,12 @@ let usuario = {
     ]
 };
 
-//função para atualizar a exibição do usuário
+// Atualiza a exibição do usuário
 function atualizarUsuario() {
     document.getElementById("nomeUsuario").textContent = usuario.nome;
     document.getElementById("fotoUsuario").src = usuario.foto;
     document.getElementById("pontuacaoUsuario").textContent = `Pontuação: ${usuario.pontos} ⭐`;
 
-    //atualiza o nível do usuário conforme a pontuação
     if (usuario.pontos >= 500) {
         usuario.nivel = "Mestre do Mapa";
     } else if (usuario.pontos >= 200) {
@@ -111,13 +122,11 @@ function atualizarUsuario() {
     }
     document.getElementById("nivelUsuario").textContent = `Nível: ${usuario.nivel}`;
 
-    //atualiza a barra de progresso
     let progressBar = document.querySelector(".barra-progresso progress");
     progressBar.value = usuario.pontos;
-    progressBar.max = 500; // Define um máximo para progressão
+    progressBar.max = 500;
     document.getElementById("progressText").textContent = `${usuario.pontos} / 500 pontos`;
 
-    //atualiza a seção de conquistas
     let listaConquistas = document.getElementById("listaConquistas");
     listaConquistas.innerHTML = "";
     usuario.conquistas.forEach(conquista => {
@@ -126,7 +135,6 @@ function atualizarUsuario() {
         listaConquistas.appendChild(li);
     });
 
-    //atualiza a seção de missões
     let listaMissoes = document.getElementById("listaMissoes");
     listaMissoes.innerHTML = "";
     usuario.missoes.forEach(missao => {
@@ -135,27 +143,12 @@ function atualizarUsuario() {
         listaMissoes.appendChild(li);
     });
 
-    //salva os dados no localStorage
     localStorage.setItem("usuario", JSON.stringify(usuario));
 }
 
-//função para completar missões
-function completarMissao(index) {
-    if (!usuario.missoes[index].concluida) {
-        usuario.pontos += usuario.missoes[index].pontos;
-        usuario.missoes[index].concluida = true;
-        usuario.conquistas.push({ nome: `Missão: ${usuario.missoes[index].nome}`, pontos: usuario.missoes[index].pontos });
-        atualizarUsuario();
-        alert(`Missão "${usuario.missoes[index].nome}" concluída!`);
-    } else {
-        alert("Esta missão já foi concluída.");
-    }
-}
-
-//verifica se há dados salvos no localStorage
+// Verifica se há dados salvos no localStorage
 if (localStorage.getItem("usuario")) {
     usuario = JSON.parse(localStorage.getItem("usuario"));
 }
 
-//atualiza a interface com os dados do usuário ao carregar a página
 atualizarUsuario();

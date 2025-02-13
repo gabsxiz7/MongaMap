@@ -20,86 +20,148 @@ body {
     font-size: 1.2rem;
     color: #ffffff;
 }
-/*container principal*/
+
+/*container principal */
 .comentarios-container {
-    padding: 20px;
-    max-width: 1200px;
+    padding: 30px;
+    max-width: 1100px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 30px;
 }
-/*formulário de comentários*/
+
+/*estilização do formulário */
 .comentarios-form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.2); /* Transparente */
+    backdrop-filter: blur(10px); /* Efeito de vidro */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 .comentarios-form h2 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin-bottom: 20px;
-    color: #333;
-}
-.comentarios-form label {
-    display: block;
-    margin: 10px 0 5px;
+    color: #003366;
+    text-align: center;
     font-weight: bold;
-    color: #555;
 }
+/*grupo de entrada (campos com ícones) */
+.input-group {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 🔹 Ícones dentro dos campos */
+.input-group i {
+    font-size: 1.2rem;
+    color: #007bff;
+    margin-right: 10px;
+}
+
+
 .comentarios-form input,
 .comentarios-form textarea {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-.comentarios-form textarea {
-    resize: none;
-    height: 100px;
-}
-.btn-enviar {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    background: transparent;
+    padding: 10px;
     font-size: 1rem;
-    transition: background-color 0.3s ease;
-}
-.btn-enviar:hover {
-    background-color: #0056b3;
-}
-/*lista de comentários*/
-.comentarios-lista {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.comentarios-lista h2 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
+    outline: none;
     color: #333;
 }
+/* 🔹 Placeholder moderno */
+.comentarios-form input::placeholder,
+.comentarios-form textarea::placeholder {
+    color: #666;
+    font-style: italic;
+}
+
+/*botao*/
+.btn-enviar {
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+.btn-enviar:hover {
+    background: linear-gradient(90deg, #0056b3, #003366);
+    transform: scale(1.05);
+}
+.btn-enviar i {
+    font-size: 1.2rem;
+}
+
+
+
+/*estilização dos comentários */
+.comentarios-lista {
+    background: rgba(255, 255, 255, 0.2); /* Transparente */
+    backdrop-filter: blur(10px); /* Efeito de vidro */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.comentarios-lista h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #003366;
+}
+
+/*estilização individual de cada comentário */
 .comentario {
+    background: #f8f9fa;
     padding: 15px;
-    border-bottom: 1px solid #ccc;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border-left: 4px solid #007bff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 .comentario:last-child {
-    border-bottom: none;
+    margin-bottom: 0;
+}
+.comentario-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #003366;
+    margin-bottom: 5px;
+}
+.comentario-data {
+    font-size: 0.8rem;
+    color: #666;
 }
 .comentario p {
-    margin: 0 0 10px;
     font-size: 1rem;
+    color: #333;
+    line-height: 1.5;
 }
+
+/*reações */
 .reacoes {
     display: flex;
-    gap: 10px;
+    gap: 12px;
     align-items: center;
+    margin-top: 10px;
 }
 .reacoes span {
     display: flex;
@@ -107,13 +169,26 @@ body {
     gap: 5px;
     font-size: 1rem;
     color: #555;
-}
-.reacoes i {
-    font-size: 1.2rem;
     cursor: pointer;
     transition: color 0.3s ease;
+}
+.reacoes i {
+    font-size: 1.3rem;
 }
 .reacoes i:hover {
     color: #007bff;
 }
- 
+
+@media (max-width: 768px) {
+    .comentarios-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .comentarios-form,
+    .comentarios-lista {
+        padding: 20px;
+    }
+    .btn-enviar {
+       font-size: 1rem;
+    }
+}

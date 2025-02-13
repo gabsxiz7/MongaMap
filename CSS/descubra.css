@@ -1,0 +1,12 @@
+body {
+    background: linear-gradient(to bottom, #004085, #007bff);
+}
+
+header {
+    background: linear-gradient(to bottom, #004085, #007bff);
+    text-align: center;
+    padding: 90px 0;
+    position: relative;
+    z-index: 1;
+    color: white;
+}

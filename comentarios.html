@@ -35,41 +35,59 @@
         <p>Deixe seu comentário sobre os pontos turísticos e ajude outros visitantes a descobrir mais!</p>
     </header>
     <main class="comentarios-container">
-        <!-------FORM DE COMENTÁRIOS------->
+        <!------- FORMULÁRIO DE COMENTÁRIOS ------->
         <section class="comentarios-form">
             <h2>Deixe seu Comentário</h2>
             <form>
-                <label for="usuario">Nome:</label>
-                <input type="text" id="usuario" name="usuario" placeholder="Seu nome" required>
-
-                <label for="comentario">Comentário:</label>
-                <textarea id="comentario" name="comentario" placeholder="Escreva seu comentário aqui..." required></textarea>
-
-                <button type="submit" class="btn-enviar">Enviar</button>
+                <div class="input-group">
+                    <i class="fa fa-user"></i>
+                    <input type="text" id="usuario" name="usuario" placeholder="Seu nome" required>
+                </div>
+        
+                <div class="input-group">
+                    <i class="fa fa-comment"></i>
+                    <textarea id="comentario" name="comentario" placeholder="Escreva seu comentário aqui..." required></textarea>
+                </div>
+        
+                <button type="submit" class="btn-enviar">
+                    <i class="fa fa-paper-plane"></i> Enviar
+                </button>
             </form>
         </section>
-        <!--------SEÇÃO DOS COMENT--------->
+        <!------- SEÇÃO DE COMENTÁRIOS RECENTES ------->
         <section class="comentarios-lista">
             <h2>Comentários Recentes</h2>
+            
             <div class="comentario">
-                <p><strong>João:</strong> Adorei a visita ao Parque Ecológico! A natureza é incrível e o ambiente muito bem cuidado.</p>
+                <div class="comentario-header">
+                    <strong>Pedro Antônio</strong>
+                    <span class="comentario-data">08/02/2025</span>
+                </div>
+                <p>Adorei a visita ao Parque Ecológico! A natureza é incrível e o ambiente muito bem cuidado.</p>
                 <div class="reacoes">
                     <span><i class="fa fa-thumbs-up"></i> 15</span>
                     <span><i class="fa fa-thumbs-down"></i> 2</span>
                     <span><i class="fa fa-smile"></i> 5</span>
                 </div>
             </div>
+    
             <div class="comentario">
-                <p><strong>Maria:</strong> A plataforma de pesca é um lugar maravilhoso! Ideal para relaxar e aproveitar a vista do mar.</p>
+                <div class="comentario-header">
+                    <strong>Emerson</strong>
+                    <span class="comentario-data">07/02/2025</span>
+                </div>
+                <p>A plataforma de pesca é um lugar maravilhoso! Ideal para relaxar e aproveitar a vista do mar.</p>
                 <div class="reacoes">
                     <span><i class="fa fa-thumbs-up"></i> 12</span>
                     <span><i class="fa fa-thumbs-down"></i> 1</span>
                     <span><i class="fa fa-smile"></i> 8</span>
                 </div>
             </div>
-            <!-----------adicionar  mais comentários aqui----------->
+    
+            <!----------- Adicione mais comentários aqui ----------->
         </section>
     </main>
+    
     <footer class="footer">
         <p>&copy; 2025 MongaMap. Todos os direitos reservados.</p>
         <a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a>

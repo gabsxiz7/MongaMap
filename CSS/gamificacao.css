@@ -1,10 +1,11 @@
-body {
-    background: linear-gradient(to bottom, #004085, #007bff);;
-    font-family: Arial;
-    background-color: #f9f9f9;
-    color: #333;
-    padding-top: 80px; /* Ajuste conforme necessário */
-} 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #003366, #007bff);
+    background-attachment: fixed; /* Mantém o gradiente fixo ao rolar */
+    background-size: cover;
+}
 
 /*header*/
 .header {
@@ -36,6 +37,7 @@ section {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 section h2 {
+    font-family: 'Poppins', sans-serif;;
     font-size: 1.8rem;
     margin-bottom: 20px;
     color: #001d3c;
