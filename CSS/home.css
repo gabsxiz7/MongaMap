@@ -223,6 +223,22 @@ color: #333;
 }
 
 
+.qr-code-section {
+  text-align: center;
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.qr-code-container img {
+  width: 200px; /* Ajusta o tamanho */
+  max-width: 100%;
+  margin-top: 20px;
+}
+
+
+
     /* Tela pequena: Smartphones (até 768px) */
     @media (max-width: 768px) {
     .navbar-brand {

@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Descubra</title>
+  <title>Escanear QR code</title>
+  <script src="https://unpkg.com/html5-qrcode"></script>
   <link rel="stylesheet" href="CSS/navbar.css">
+  <link rel="stylesheet" href="CSS/qrcode.css">
 </head>
 <body>
   <nav class="navbar">
@@ -29,9 +31,24 @@
         </ul>
     </div>
   </nav>
-  <header class="header">
-    <h1>Descoberta</h1>
-    <p>Descubra pontos relevantes de mongagua </p>
-  </header>
-
-  <script src="JS/navbar.js"></script>
+  <body class="qrcode-page">
+        <main class="container qr-container">
+            <div class="qr-reader">
+                <h1>Leia seu <strong>QR Code aqui!</strong></h1>
+                <p>Apontar a câmera do celular para o QR Code do ponto turístico.</p>
+        
+                <div id="qr-reader" class="qr-scanner"></div>
+                <p id="resultado"></p>
+        
+                <button onclick="window.location.href='gamificacao.html'" class="btn-voltar">Voltar</button>
+            </div>
+        </main>
+        <footer class="footer">
+            <p>&copy; 2025 MongaMap. Todos os direitos reservados.</p>
+            <a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a>
+          </footer>
+        <script src="JS/qrcode.js"></script>
+        <script src="JS/navbar.js"></script>
+    </body>
+</body>
+</html>

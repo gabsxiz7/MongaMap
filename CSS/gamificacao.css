@@ -132,7 +132,7 @@ section h2 {
 
 /*------progresso do usuário-------*/
 .container-container {
-    margin-top: 80px; /* Para evitar sobreposição com a navbar */
+    margin-top: 80px; /*evitar sobreposição com a navbar */
     max-width: 900px;
     margin: auto;
     padding: 20px;
@@ -141,7 +141,7 @@ section h2 {
     gap: 20px;
 }
 
-/* 🌟 Estilização dos Cartões (Glassmorphism) */
+/*estilização dos Cartões (Glassmorphism) */
 .card {
     background: rgba(255, 255, 255, 0.12);
     padding: 25px;
@@ -157,14 +157,14 @@ section h2 {
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* 🏆 Layout Flexbox para Melhor Organização */
+/*layout Flexbox para Melhor Organização */
 .row {
     display: flex;
     justify-content: space-between;
     gap: 20px;
 }
 
-/* 👤 Avatar e Informações do Usuário */
+/*avatar e Informações do Usuário */
 .perfil {
     display: flex;
     flex-direction: column;
@@ -196,7 +196,7 @@ section h2 {
     color: #FFD700;
 }
 
-/* 🚀 Barra de Progresso */
+/*barra de Progresso */
 .barra-progresso {
     background: rgba(255, 255, 255, 0.2);
     padding: 15px;
@@ -228,7 +228,7 @@ progress::-webkit-progress-value {
     border-radius: 10px;
 }
 
-/* 📜 Botão de Missões */
+/*botão de Missões */
 .btn-missoes {
     background: linear-gradient(90deg, #FFD700, #FFA500);
     color: black;
@@ -246,7 +246,7 @@ progress::-webkit-progress-value {
     transform: scale(1.05);
 }
 
-/* 🎖️ Conquistas e Missões */
+/*conquistas e Missões */
 .missoes, .conquistas {
     list-style: none;
     text-align: left;
@@ -270,7 +270,19 @@ progress::-webkit-progress-value {
     background: rgba(255, 255, 255, 0.3);
 }
 
-/* 🏆 Ranking */
+.missao-concluida {
+    color: green;
+    font-weight: bold;
+}
+.missao-concluida::before {
+    content: "✔️";
+}
+.missao-nao-concluida {
+    color: red;
+    font-style: italic;
+}
+
+/*ranking */
 .ranking {
     background: rgba(255, 255, 255, 0.15);
     padding: 15px;
@@ -303,7 +315,7 @@ progress::-webkit-progress-value {
     transform: scale(1.05);
 }
 
-/* 🎖️ Destaque para TOP 3 do Ranking */
+/*destaque para TOP 3 do Ranking */
 .ranking-li li:nth-child(1) {
     background: gold;
 }

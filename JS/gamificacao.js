@@ -99,11 +99,13 @@ let usuario = {
     nivel: "Explorador",
     conquistas: [
         { nome: "Visitou a Plataforma de Pesca", pontos: 50 },
+        {nome: "Visitou o Parque Ecológico A Tribuna", pontos: 50},
+        {nome: "Visitou a Paróquia Nossa Senhora Aparecida", pontos: 50},
         { nome: "Completou o desafio 'Explorador'", pontos: 100 }
     ],
     missoes: [
-        { nome: "Visite 5 pontos turísticos", pontos: 100, concluida: false },
-        { nome: "Compartilhe sua experiência", pontos: 50, concluida: false }
+        { nome: "Visite 5 pontos turísticos", pontos: 100, concluida: true },
+        { nome: "Compartilhe sua experiência", pontos: 50, concluida: false },
     ]
 };
 
@@ -113,7 +115,8 @@ function atualizarUsuario() {
     document.getElementById("fotoUsuario").src = usuario.foto;
     document.getElementById("pontuacaoUsuario").textContent = `Pontuação: ${usuario.pontos} ⭐`;
 
-    if (usuario.pontos >= 500) {
+    //atualiza o nivel do usuario de acordo cm a pontuacao
+    if (usuario.pontos >= 5000) {
         usuario.nivel = "Mestre do Mapa";
     } else if (usuario.pontos >= 200) {
         usuario.nivel = "Explorador";
@@ -122,11 +125,13 @@ function atualizarUsuario() {
     }
     document.getElementById("nivelUsuario").textContent = `Nível: ${usuario.nivel}`;
 
+    //atualiza a barra de progresso
     let progressBar = document.querySelector(".barra-progresso progress");
     progressBar.value = usuario.pontos;
-    progressBar.max = 500;
-    document.getElementById("progressText").textContent = `${usuario.pontos} / 500 pontos`;
-
+    progressBar.max = 5000;
+    document.getElementById("progressText").textContent = `${usuario.pontos} / 5000 pontos`;
+    
+    //atualiza a lista de conquistas
     let listaConquistas = document.getElementById("listaConquistas");
     listaConquistas.innerHTML = "";
     usuario.conquistas.forEach(conquista => {
@@ -134,21 +139,98 @@ function atualizarUsuario() {
         li.innerHTML = `🏆 ${conquista.nome} <strong>+${conquista.pontos} pontos</strong>`;
         listaConquistas.appendChild(li);
     });
-
+    
+    //atualiza lista de missoes cm eventos de clique
     let listaMissoes = document.getElementById("listaMissoes");
     listaMissoes.innerHTML = "";
-    usuario.missoes.forEach(missao => {
+
+    usuario.missoes.forEach((missao, index) => {
         let li = document.createElement("li");
         li.innerHTML = `${missao.concluida ? "✅" : "📜"} ${missao.nome} - <strong>+${missao.pontos} pontos</strong>`;
+        
+        if (!missao.concluida) {
+            li.style.cursor = "pointer";
+            li.style.color = "blue"; // Indica que é clicável
+            
+            li.addEventListener("click", function () {
+                concluirMissao(index);
+            });
+        }
+        
         listaMissoes.appendChild(li);
     });
-
+    //salva os dados atualizados no localStorage
     localStorage.setItem("usuario", JSON.stringify(usuario));
 }
 
+//função para concluir uma missão
+function concluirMissao(index) {
+    console.log("Clicou na missão:", index); //testando p ve c ta funcionando o click
+    let missao = usuario.missoes[index];
+
+    if (!missao.concluida) {
+        missao.concluida = true;  //aqui marca a missao como concluida
+        usuario.pontos += missao.pontos;
+
+        //adiciona a missão às conquistas
+        usuario.conquistas.push({
+            nome: missao.nome,
+            pontos: missao.pontos
+        });
+
+        console.log("Missão concluída:", missao); //testando se a missão foi atualizada certo
+        console.log("Usuário atualizado:", usuario.pontos);
+
+      //importante: re-salvar o objt atualizado no localStorage
+      usuario.missoes[index] = missao; //esta linha é pra garantir q o objt no array seja atualizado corretamente
+       localStorage.setItem("usuario", JSON.stringify(usuario));
+        
+        atualizarUsuario(); //atualiza a tela
+
+        //força a atualizar a tela
+        setTimeout(() => {
+            location.reload();
+        }, 500);
+    }
+}
 // Verifica se há dados salvos no localStorage
 if (localStorage.getItem("usuario")) {
     usuario = JSON.parse(localStorage.getItem("usuario"));
+
+    usuario.missoes = usuario.missoes.map(missao => ({
+        ...missao,
+        concluida: missao.concluida || false //c nao existir é p definir false
+    }));
+
+    //salva de volta no localStorage para corrigir os dados
+    localStorage.setItem("Usuario", JSON.stringify(usuario));
 }
 
-atualizarUsuario();
+
+//qr code
+document.addEventListener("DOMContentLoaded", function () {
+    let usuario = JSON.parse(localStorage.getItem("usuario")) || {
+        nome: "Usuário",
+        pontos: 0,
+        conquistas: []
+    };
+
+    document.getElementById("nomeUsuario").textContent = usuario.nome;
+    document.getElementById("pontuacaoUsuario").textContent = `Pontuação: ${usuario.pontos} ⭐`;
+
+    let listaConquistas = document.getElementById("listaConquistas");
+    listaConquistas.innerHTML = "";
+
+    usuario.conquistas.forEach(conquista => {
+        let li = document.createElement("li");
+        li.innerHTML = `🏆 ${conquista.nome} <strong>+${conquista.pontos} pontos</strong>`;
+        listaConquistas.appendChild(li);
+    });
+
+    // Verifica se veio da página de QR Code
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get("recompensa") === "1") {
+        alert("🎊 Você recebeu uma nova recompensa pelo QR Code!");
+    }
+});
+
