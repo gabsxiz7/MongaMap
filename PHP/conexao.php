@@ -1,7 +1,7 @@
 <?php
 
     $dbHost = 'localhost';
-    $dbUsername = 'gabs';
+    $dbUsername = 'root';
     $dbPassword = '';
     $Name = 'bd_mongamap';
 
