@@ -180,6 +180,53 @@ body {
     text-decoration: underline;
 }
 
+/*qr code*/
+/* Centraliza a seção do QR Code */
+#qr-reader-container {
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+/* Estiliza o leitor de QR Code */
+.qr-reader {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Área do scanner */
+.qr-scanner {
+    width: 100%;
+    min-height: 300px;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+}
+
+/* Botão de fechar scanner */
+.btn-fechar {
+    margin-top: 15px;
+    background: #dc3545;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-fechar:hover {
+    background: #c82333;
+}
+
+
 
 
 @media (max-width: 768px) {

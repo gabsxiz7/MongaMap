@@ -6,6 +6,7 @@
   <title>Conheça - MongaMap</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/html5-qrcode"></script>
   <link rel="stylesheet" href="CSS/navbar.css">
   <link rel="stylesheet" href="CSS/conheca.css">
 </head>
@@ -22,9 +23,9 @@
             <span class="menu-bar"></span>
         </button>
         <ul class="navbar-links" id="navbarLinks">
-            <li><a href="index.html">Início</a></li>
+            <li><a href="index.html" class="active">Início</a></li>
             <li><a href="sobre.html">Sobre</a></li>
-            <li><a href="conheca.html" class="active">Conheça</a></li>
+            <li><a href="conheca.html">Conheça</a></li>
             <li><a href="trofeus.html">Troféus</a></li>
             <li><a href="comentarios.html">Feedback</a></li>
             <li><a href="qrcode.html">QR code</a></li>
@@ -92,22 +93,39 @@
       <!--adicionar mais cards-->
     </section>
   </main>
-  <!-----------MODAL------------>
-  <div id="modal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2 id="modal-title"></h2>
-        <p id="modal-description"></p>
-        <div id="modal-map" style="height: 400px; margin-top: 20px; border-radius: 10px;"></div>
-    </div>
+ <!----------- MODAL ------------>
+<div id="modal" class="modal">
+  <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modal-title"></h2>
+      <p id="modal-description"></p>
+
+      <!------ MAPA ------->
+      <div id="modal-map" style="height: 400px; margin-top: 20px; border-radius: 10px;"></div>
+
+      <!------ SCANNER DE QR Code -------->
+      <div id="qr-reader-container">
+          <div class="qr-reader">
+              <h2>📷 Leia seu <strong>QR Code aqui!</strong></h2>
+              <p>Apontar a câmera do celular para o QR Code do ponto turístico.</p>
+
+              <div id="qr-reader" class="qr-scanner"></div>
+              <p id="qr-result"></p>
+
+              <button id="btn-fechar-qr" class="btn-fechar">Fechar Scanner</button>
+          </div>
+      </div>
+  </div>
 </div>
-     <footer class="footer">
-        <p>&copy; 2025 MongaMap. Todos os direitos reservados.</p>
-        <a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a>
-      </footer>
+
       <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
       <script src="JS/navbar.js"></script>
       <script src="JS/conheca.js"></script>
+
+   <footer class="footer">
+        <p>&copy; 2025 MongaMap. Todos os direitos reservados.</p>
+        <a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a>
+      </footer>
       
 </body>
 </html>
