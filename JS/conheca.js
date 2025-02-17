@@ -16,6 +16,7 @@ const pontosTuristicos = [
        Com sua relevância histórica e cultural, a Plataforma de Pesca de Mongaguá não é apenas um ponto turístico, mas também um símbolo de identidade para a população local, representando a relação intrínseca da cidade com o mar e a pesca.</p>`,
     coords:[-24.134243, -46.692596]
     },
+
     {
         titulo: "Parque Ecológico",
         descricao: `
@@ -138,61 +139,137 @@ coords: [-24.13087, -46.68704]
 coords: [-24.10203, -46.63637]
     }
 ];
-//variavel p armazenar o mapa
-let modalMap = null;
 
-//função para adicionar o mapa ao modal
+
+
+
+// Variáveis globais para o mapa e QR Code scanner
+let modalMap = null;
+let qrScanner = null;
+
+// Função para adicionar o mapa ao modal
 function adicionarMapa(coords, titulo) {
     const mapElement = document.getElementById("modal-map");
 
-    //verifica se o mapa já foi inicializado e remova-o
+    // Remove o mapa anterior se já existir
     if (modalMap) {
-        modalMap.remove();  //remove o mapa do contâiner
-        modalMap = null; //limpa a referência do mapa
+        modalMap.remove();
+        modalMap = null;
     }
-    //inicializa o mapa com as coordenadas fornecidas
+
+    // Inicializa o mapa com as coordenadas fornecidas
     modalMap = L.map(mapElement).setView(coords, 15);
 
-    //adiciona o tile layer do OpenStreetMap
+    // Adiciona o tile layer do OpenStreetMap
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(modalMap);
 
-    //adiciona um marcador no local
+    // Adiciona um marcador no local
     L.marker(coords).addTo(modalMap).bindPopup(titulo).openPopup();
 
-    //ajusta o tamanho do mapa após o modal ser exibido
+    // Ajusta o tamanho do mapa após o modal ser exibido
     setTimeout(() => {
-        modalMap.invalidateSize(); //recalibra o tamanho do mapa
+        modalMap.invalidateSize();
     }, 300);
 }
-//função para abrir o modal com informações do ponto turístico
+
+// Função para abrir o modal com informações do ponto turístico
 function abrirModal(index) {
     const ponto = pontosTuristicos[index];
 
-    //atualiza título e descrição
+    // Atualiza título e descrição
     document.getElementById("modal-title").textContent = ponto.titulo;
     document.getElementById("modal-description").innerHTML = ponto.descricao;
 
-    //exibe o modal
+    // Exibe o modal
     const modal = document.getElementById("modal");
     modal.style.display = "block";
 
-    //aguarda o modal estar visível antes de inicializar o mapa
+    // Aguarda o modal estar visível antes de inicializar o mapa e QR Code
     setTimeout(() => {
         if (ponto.coords) {
             adicionarMapa(ponto.coords, ponto.titulo);
         }
-    }, 300); //atraso para garantir que o modal esteja completamente renderizado
+
+        // Inicia o scanner de QR Code corretamente
+        iniciarLeitorQRCode();
+    }, 500);
 }
-//fecha o modal
+
+// Função para iniciar o leitor de QR Code
+function iniciarLeitorQRCode() {
+    const qrElement = document.getElementById("qr-reader");
+
+    // Se já houver um scanner ativo, limpar antes de iniciar um novo
+    if (qrScanner) {
+        qrScanner.clear();
+        qrScanner = null;
+    }
+
+    // Cria um novo scanner de QR Code
+    qrScanner = new Html5QrcodeScanner("qr-reader", { fps: 10, qrbox: 250 });
+    qrScanner.render(onScanSuccess, onScanError);
+}
+
+// Função executada ao escanear um QR Code com sucesso
+function onScanSuccess(decodedText) {
+    document.getElementById("qr-result").innerHTML = `✅ QR Code Detectado: ${decodedText}`;
+
+    if (decodedText.includes("MongaMap")) {
+        alert("🎉 Parabéns! Você encontrou um QR Code válido e ganhou pontos!");
+
+        let usuario = JSON.parse(localStorage.getItem("usuario")) || {
+            nome: "Usuário",
+            pontos: 0,
+            conquistas: []
+        };
+
+        let pontosGanhados = 100; // Define quantos pontos o usuário ganha
+        usuario.pontos += pontosGanhados;
+
+        usuario.conquistas.push({
+            nome: `QR Code escaneado em ${new Date().toLocaleDateString()}`,
+            pontos: pontosGanhados
+        });
+
+        localStorage.setItem("usuario", JSON.stringify(usuario));
+
+        setTimeout(() => {
+            window.location.href = "gamificacao.html?recompensa=1";
+        }, 2000);
+    } else {
+        alert("❌ QR Code inválido. Tente outro.");
+    }
+}
+
+// Função executada se houver erro na leitura do QR Code
+function onScanError(errorMessage) {
+    console.warn(`Erro no scan: ${errorMessage}`);
+}
+
+// Fecha o modal e para os scanners ativos
 document.querySelector('.close').addEventListener('click', () => {
     const modal = document.getElementById("modal");
     modal.style.display = "none";
 
-//remove o mapa ao fechar o modal
+    // Remove o mapa ao fechar o modal
     if (modalMap) {
-        modalMap.remove(); //remove o mapa
-        modalMap = null; //limpa a referencia
+        modalMap.remove();
+        modalMap = null;
+    }
+
+    // Para a leitura do QR Code ao fechar o modal
+    if (qrScanner) {
+        qrScanner.clear();
+        qrScanner = null;
+    }
+});
+
+// Botão para fechar apenas o scanner (sem fechar o modal)
+document.getElementById("btn-fechar-qr").addEventListener("click", () => {
+    if (qrScanner) {
+        qrScanner.clear();
+        qrScanner = null;
     }
 });
