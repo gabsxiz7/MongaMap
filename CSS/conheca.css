@@ -226,7 +226,6 @@ body {
     background: #c82333;
 }
 
-
 @media (max-width: 768px) {
    .menu-toggle {
         display: flex; /*mostra o botão sanduíche no mobile*/

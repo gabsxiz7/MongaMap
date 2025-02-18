@@ -17,14 +17,14 @@ function success(pos) {
     coordenadasElemento.textContent = `Latitude: ${latitude.toFixed(6)}, Longitude: ${longitude.toFixed(6)}`;
 
     if (!map) {
-        // Se o mapa ainda não foi criado, cria agora
+        //se o mapa ainda não foi criado, cria agora
         map = L.map('map').setView([latitude, longitude], 13);
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        // Adiciona o marcador inicial
+        //adiciona o marcador inicial
         userMarker = L.marker([latitude, longitude]).addTo(map)
             .bindPopup('📍 Você está aqui!')
             .openPopup();
