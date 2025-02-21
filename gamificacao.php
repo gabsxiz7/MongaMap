@@ -1,3 +1,17 @@
+<?php
+    include 'php/conexao.php';
+    session_start();
+    if (isset($_SESSION['id'])) {
+    $id = $_SESSION['id'];
+    $sql = "SELECT * FROM tb_usuario WHERE nm_usuario = $name";
+    $query = $conexao->query($sql);
+    $resultado = $query->fetch_assoc();
+    echo $resultado['nome']."! ";
+    }else{
+        echo "<script> alert('Você não está logado!'); history.back(); </script>"; 
+    }
+    ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -28,7 +42,7 @@
                 <li><a href="trofeus.html">Troféus</a></li>
                 <li><a href="feedback.html">Feedback</a></li>
                 <li><a href="qrcode.html">QR Code</a></li>
-                <li><a href="cadastro.html" class="btn-cadastrar">Cadastre-se</a></li>
+                <li><a href="cadastro.php" class="btn-cadastrar">Cadastre-se</a></li>
             </ul>
         </div>
     </nav>

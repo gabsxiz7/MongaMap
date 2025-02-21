@@ -1,11 +1,9 @@
 <?php
 
-$email = $_POST['email'];
-$password = $_POST['senha'];
-
-
 include 'conexao.php';
 
+$email = $_POST['email'];
+$password = $_POST['senha'];
  
 $sql = "SELECT * FROM tb_user WHERE email = '$email'";
 

@@ -1,8 +1,3 @@
-<?php 
-include $conexao
-
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -45,7 +40,7 @@ include $conexao
                 <h1>Criar Conta</h1>
                 <input type="text" placeholder="Nome" name="nome" required>
                 <input type="email" placeholder="Email" name="email" required>
-                <input type="text" id="telefone" placeholder="Telefone" name="telefone" required>
+                <input type="text" placeholder="Telefone" name="telefone" required>
                 <input type="password" placeholder="Senha" name="senha" required>
                 <button type="submit">Cadastre-se</button>
             </form>

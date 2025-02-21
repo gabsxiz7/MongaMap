@@ -1,19 +1,22 @@
 <?php
-    $dbHost = 'localhost';
-    $dbUsername = 'root';
-    $dbPassword = '';
-    $Name = 'bd_mongamap';
 
-    //Teste de Conectividade
+// Conectando no Banco de Dados
 
-    if($conexao->connect_errno)
-    {
-        echo "Erro";
-    }
+$servidor = 'localhost';
+$usuario = 'root';
+$senha = 'root';
+$db = 'bd_mongamap';
 
-    else
-    {
-        echo "Conectado com Sucesso";
-    }
+$conexao = new mysqli($servidor, $usuario, $senha, $db);
+
+if ($conexao ->connect_error){
+    die('falha na conexão'. $conexao -> connect_error);
+}
+else{
+    echo "✔ Conectado com Sucesso!";
+}
+
+
+
 
 ?>

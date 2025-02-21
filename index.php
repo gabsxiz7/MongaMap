@@ -32,7 +32,7 @@
             <li><a href="trofeus.html">Troféus</a></li>
             <li><a href="comentarios.html">Feedback</a></li>
             <li><a href="qrcode.html">QR code</a></li>
-            <li><a href="cadastro.html" class="btn-cadastrar">Cadastre-se</a></li>
+            <li><a href="cadastro.php" class="btn-cadastrar">Cadastre-se</a></li>
             </ul>
         </div>
 </nav>
@@ -103,7 +103,7 @@
 </a>
 </div>
   <div class="card">
-    <a href="gamificacao.html">
+    <a href="gamificacao.php">
     <img src="IMG/praiaflorida.png" alt="Gamificação">
     <div class="card-body">
     <h3>Gamificação</h3>
