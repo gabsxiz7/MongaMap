@@ -1,12 +1,123 @@
-body {
-    background: linear-gradient(to bottom, #004085, #007bff);
+/* Reset Geral */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-header {
-    background: linear-gradient(to bottom, #004085, #007bff);
+/* Corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
     text-align: center;
-    padding: 90px 0;
-    position: relative;
-    z-index: 1;
+}
+
+/* Cabeçalho */
+.header {
+    background: linear-gradient(to right, #004085, #007bff);
     color: white;
+    padding: 100px 20px;
+}
+
+/* Depoimentos */
+.depoimentos {
+    padding: 50px 20px;
+    background: white;
+}
+
+.depoimentos h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Slider */
+.slider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider {
+    display: flex;
+    overflow: hidden;
+    width: 300px;
+}
+
+.depoimento {
+    min-width: 100%;
+    transition: transform 0.5s ease-in-out;
+    text-align: center;
+    padding: 20px;
+}
+
+.depoimento img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.prev-btn, .next-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Formulário */
+.form-experiencia {
+    background: white;
+    padding: 50px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: auto;
+}
+
+form input, form textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+form button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Galeria */
+.galeria {
+    padding: 50px 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .slider {
+        width: 250px;
+    }
 }

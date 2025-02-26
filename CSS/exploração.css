@@ -1,10 +1,11 @@
 .body-page {
     font-family: 'Poppins', sans-serif;
-    background-color: #f9f9f9;
     color: #333;
-    line-height: 1.6;
-    font-size: 16px;
+    line-height: 1.8;
+    font-size: 17px;
+    min-height: 100vh;
 }
+
 /*elimina o sanduiche das telas computacionais*/
 .menu-toggle {
     display: none;
@@ -14,18 +15,24 @@
     background: linear-gradient(to bottom, #004085, #007bff);
     color: white;
     text-align: center;
-    padding: 90px 0px;
-    margin: 0;
+    padding: 60px 0;
     position: relative;
     z-index: 1;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
+
 .header h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-family: 'Poppins', sans-serif;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
+
 .header p {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    opacity: 0.9;
+    line-height: 1.6;
 }
 /*mapa*/
 #map {
@@ -36,137 +43,135 @@
   }
     
 
+/* Adicionar FontAwesome */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
 /* seções */
 section {
-    width: 100%;                               /*a section ocupa 100% da largura do elemento pai */
-    max-width: 1200px;                        /*limita a largura máxima para telas maiores */
-    margin: 0 auto;                          /*centraliza a section horizontalmente */
-    padding: 20px;                          /*espaçamento interno */
-    box-sizing: border-box;                /* inclui padding na largura total */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
 }
+
 section h2 {
     font-size: 1.8rem;
     margin-bottom: 15px;
-    color: #007bff;
+    color: #000000;
     text-align: center;
 }
 
 section form {
     display: flex;
     flex-direction: column;
-    gap: 15px;                             /*espaçamento entre campos */
+    gap: 15px;
     width: 90%;
-    max-width: 600px;                      /*limite de largura */
-    margin: 20px auto;                     /*centraliza na página */
-  }
-  
-  section form label {
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+section form label {
     font-weight: bold;
-    margin-bottom: 5px;                    /*espaçamento do label */
-  }
-  
-  section form select {
+    margin-bottom: 5px;
+}
+
+section form select {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1rem;
-  }
-  
-  section form button {
+}
+
+section form button {
     padding: 10px 15px;
-    background-color: #007bff; 
+    background-color: #000000;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
     transition: background-color 0.3s;
-  }
-  
-  section form button:hover {
-    background-color: #0056b3; 
-  }
+}
+
+section form button:hover {
+    background-color: #0056b3;
+}
+
 /*listas*/
-.rotas-sugeridas {
+.rotas-sugeridas, .dicas-planejamento {
     list-style: none;
     padding: 0;
     margin: 10px 0;
 }
-.rotas-sugeridas li {
+
+.rotas-sugeridas li, .dicas-planejamento li {
     margin: 10px 0;
-    padding-left: 25px;
+    padding-left: 40px;
     position: relative;
     font-size: 1rem;
     color: #555;
 }
-.rotas-sugeridas li::before {
+
+.rotas-sugeridas li::before, .dicas-planejamento li::before {
     content: '\2713';
     position: absolute;
-    left: 0; 
-    color: #003366;  
-    font-size: 1.2rem; 
+    left: 0;
+    color: #003366;
+    font-size: 1.2rem;
     font-weight: bold;
 }
-.dicas-planejamento {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0;
+
+.rotas-sugeridas li i, .dicas-planejamento li i {
+    margin-right: 10px;
+    color: #007bff;
 }
-.dicas-planejamento li{
-    margin: 10px 0;
-    padding-left: 25px;
-    position: relative;
-    font-size: 1rem;
-    color: #555;
-}
-.dicas-planejamento li::before {
-    content: '\2713';                 /*código do ícone de check (✓)*/
-    position: absolute;
-    left: 0;                        /*coloca o ícone no início */
-    color: #003366; 
-    font-size: 1.2rem; 
-    font-weight: bold;
-}
+
 /* formulários */
 form {
     text-align: center;
     margin: 20px 0;
 }
+
 #calcular {
-    background-color: #007bff; 
-    color: white; 
+    background-color: #007bff;
+    color: white;
     cursor: pointer;
-    padding: 12px 20px;                        /*mais espaçamento interno */
-    border-radius: 25px;                     /*botão mais arredondado */
-    font-size: 1rem;                         /*tamanho do texto */
-    font-weight: bold;                       /*negrito */
-    border: none;                            /*remove a borda padrão */
-    transition: all 0.3s ease;             
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);       
-}
-#calcular:hover {
-    background-color: #0056b3; 
-    transform: scale(1.05);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); 
-}
-/*botao compartilhar*/
-#compartilhar-planejamento {
-    background-color: #007bff; 
-    color: white; 
-    cursor: pointer;
-    padding: 12px 20px; 
-    border-radius: 25px; 
-    font-size: 1rem; 
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 1rem;
     font-weight: bold;
     border: none;
-    transition: all 0.3s ease; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+#calcular:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+/*botao compartilhar*/
+#compartilhar-planejamento {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 #compartilhar-planejamento:hover {
     background-color: #0056b3;
     transform: scale(1.05);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
+
 /*dicas*/
 .dicas {
     background-color: #f0f8ff;
@@ -175,10 +180,27 @@ form {
     margin-bottom: 20px;
     border-radius: 10px;
 }
+
 .dicas h3 {
     color: #003366;
     font-size: 1.5rem;
     margin-bottom: 10px;
+}
+
+/*resultado*/
+#resultado-container {
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f0f8ff;
+    border-left: 5px solid #007bff;
+    border-radius: 10px;
+}
+
+#resultado {
+    font-size: 1.2rem;
+    color: #003366;
+    font-weight: bold;
 }
 @media (max-width: 768px) {
     .menu-toggle {

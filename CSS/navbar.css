@@ -40,6 +40,7 @@ nav.container-fluid {
   box-shadow: none !important; /*remove qualquer sombra*/
   border: none; /*remove possíveis bordas*/
   }
+  
   .btn-cadastrar {
     background-color: #007bff; 
     color: #fff; 
@@ -72,7 +73,7 @@ nav.container-fluid {
     display: flex;
     align-items: center;
     font-size: 1.5rem;
-    color: white;
+    color: rgb(0, 0, 0);
     text-decoration: none;
   }
   

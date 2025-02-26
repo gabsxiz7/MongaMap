@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Descubra</title>
   <link rel="stylesheet" href="CSS/navbar.css">
+  <link rel="stylesheet" href="CSS/descubra.css">
 </head>
 <body>
   <nav class="navbar">
@@ -30,8 +31,62 @@
     </div>
   </nav>
   <header class="header">
-    <h1>Descoberta</h1>
-    <p>Descubra pontos relevantes de mongagua </p>
-  </header>
+    <h1>Descubra Mais</h1>
+    <p>Explore novas histórias e compartilhe suas experiências incríveis!</p>
+</header>
 
+<main>
+    <section class="depoimentos">
+        <h2>O que as pessoas estão dizendo?</h2>
+        <div class="slider-container">
+            <button class="prev-btn">&#10094;</button>
+            <div class="slider">
+                <div class="depoimento">
+                    <img src="IMG/icon.png" alt="Usuário 1">
+                    <p>"A experiência foi incrível! Conheci lugares que nem imaginava!"</p>
+                    <h4>- João Silva</h4>
+                </div>
+                <div class="depoimento">
+                    <img src="IMG/icon.png" alt="Usuário 2">
+                    <p>"O MongaMap tornou minha viagem muito mais especial."</p>
+                    <h4>- Maria Souza</h4>
+                </div>
+            </div>
+            <button class="next-btn">&#10095;</button>
+        </div>
+    </section>
+
+    <!-- Formulário para envio de experiências -->
+    <section class="form-experiencia">
+        <h2>Compartilhe sua experiência</h2>
+        <form id="form-experiencia">
+            <label for="nome">Seu Nome:</label>
+            <input type="text" id="nome" placeholder="Digite seu nome" required>
+
+            <label for="foto">Escolha uma Foto:</label>
+            <input type="file" id="foto" accept="image/*" required>
+
+            <label for="mensagem">Descreva sua experiência:</label>
+            <textarea id="mensagem" rows="4" placeholder="Conte sobre sua experiência..." required></textarea>
+
+            <button type="submit">Enviar Depoimento</button>
+        </form>
+    </section>
+
+    <section class="galeria">
+        <h2>Experiências Visuais</h2>
+        <div class="grid" id="galeria-container">
+            <img src="IMG/paisagem.jpg" alt="Lugar 1">
+            <img src="IMG/paisagem.jpg" alt="Lugar 2">
+            <img src="IMG/paisagem.jpg" alt="Lugar 3">
+            <img src="IMG/paisagem.jpg" alt="Lugar 4">
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <p>&copy; 2025 MongaMap. Todos os direitos reservados.</p>
+</footer>
+
+<script src="JS/descubra.js"></script>
   <script src="JS/navbar.js"></script>
