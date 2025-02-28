@@ -36,7 +36,7 @@
     <div class="container" id="container">
         <!---------FORMULÁRIO DE CADASTRO----------->
         <div class="form-container sign-up">
-            <form action="processa_cadastro.php" method="POST">
+            <form action="php/processa_cadastro.php" method="POST">
                 <h1>Criar Conta</h1>
                 <input type="text" placeholder="Nome" name="nome" required>
                 <input type="email" placeholder="Email" name="email" required>
@@ -47,7 +47,7 @@
         </div>
         <!-------FORMULÁRIO DE LOGIN---------->
         <div class="form-container sign-in">
-            <form action="processa_login.php" method="POST">
+            <form action="php/processa_login.php" method="POST">
                 <h1>Entrar</h1>
                 <input type="email" placeholder="Email" name="email" required>
                 <input type="password" placeholder="Senha" name="senha" required>
@@ -71,7 +71,7 @@
                     <h1>Bem-vindo de volta!</h1>
                     <p>Insira seus dados pessoais para continuar navegando em nosso site
                     </p>
-                    <button class="hidden" id="register">Cadastrar</button>
+                    <button type="submit" class="hidden" id="register">Cadastrar</button>
                 </div>
             </div>
         </div>
