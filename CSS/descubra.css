@@ -7,117 +7,205 @@
 
 /* Corpo da página */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-color: #f8f9fa;
     text-align: center;
+    width: 100%;
+}
+
+main {
+    display: block; /* Remove qualquer layout flex/grid do main */
+    width: 100%; /* Garante que ocupe toda a largura */
 }
 
 /* Cabeçalho */
 .header {
     background: linear-gradient(to right, #004085, #007bff);
     color: white;
-    padding: 100px 20px;
+    padding: 80px 20px;
+    text-align: center;
 }
 
-/* Depoimentos */
-.depoimentos {
-    padding: 50px 20px;
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 1.2rem;
+}
+
+/* Estilização das Seções */
+section {
+    width: 90%;
+    max-width: 1000px;
+    margin: 50px auto; /* Adiciona espaçamento entre as seções */
+    padding: 40px 20px;
     background: white;
+    border-radius: 0%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ======================== */
+/* 1. SEÇÃO DE DEPOIMENTOS */
+/* ======================== */
+.depoimentos {
+    background: #fefefe;
+    border-radius: 0%;
 }
 
 .depoimentos h2 {
     font-size: 2rem;
     margin-bottom: 20px;
+    color: #004085;
 }
 
-/* Slider */
 .slider-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    overflow: hidden;
+    margin: auto;
 }
 
 .slider {
     display: flex;
-    overflow: hidden;
-    width: 300px;
+    transition: transform 0.5s ease-in-out;
 }
 
 .depoimento {
+    flex: 1;
     min-width: 100%;
-    transition: transform 0.5s ease-in-out;
-    text-align: center;
     padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .depoimento img {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     margin-bottom: 10px;
 }
 
-.prev-btn, .next-btn {
-    background: none;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
+.depoimento p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 10px;
 }
 
-/* Formulário */
-.form-experiencia {
-    background: white;
-    padding: 50px;
+.depoimento h4 {
+    font-size: 1rem;
+    color: #000000;
+}
+
+/* Botões do slider */
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+
+/* ======================== */
+/* 2. SEÇÃO DE EXPERIÊNCIAS VISUAIS */
+/* ======================== */
+.galeria h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #004085;
+}
+
+.experiencia-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.experiencia-container img {
+    width: 100%;
+    max-width: 250px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.experiencia-container img:hover {
+    transform: scale(1.05);
+}
+
+/* ======================== */
+/* 3. SEÇÃO DE FORMULÁRIO */
+/* ======================== */
+.form-experiencia h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #004085;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    max-width: 500px;
-    margin: auto;
+    gap: 15px;
+    padding: 20px;
+    background: #eef5ff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 form input, form textarea {
-    margin-bottom: 10px;
-    padding: 10px;
+    padding: 12px;
     font-size: 1rem;
     border-radius: 5px;
     border: 1px solid #ccc;
+    width: 100%;
+}
+
+form input:focus, form textarea:focus {
+    border-color: #007bff;
+    outline: none;
 }
 
 form button {
     background-color: #007bff;
     color: white;
-    padding: 10px;
+    padding: 12px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: 0.3s;
 }
 
 form button:hover {
     background-color: #0056b3;
 }
 
-/* Galeria */
-.galeria {
-    padding: 50px 20px;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 10px;
-}
-
-.grid img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-/* Responsividade */
+/* ======================== */
+/* 4. RESPONSIVIDADE */
+/* ======================== */
 @media (max-width: 768px) {
-    .slider {
-        width: 250px;
+    section {
+        padding: 30px 15px;
+    }
+
+    .prev-btn, .next-btn {
+        font-size: 1.2rem;
+        padding: 5px;
+    }
+
+    .experiencia-container img {
+        max-width: 100%;
     }
 }

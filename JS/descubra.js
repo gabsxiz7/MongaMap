@@ -1,38 +1,46 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const slider = document.querySelector(".slider");
-    const slides = document.querySelectorAll(".depoimento");
+    // Slider de Depoimentos
+    const sliderDepoimentos = document.querySelector(".slider");
+    const depoimentos = document.querySelectorAll(".depoimento");
     const prevBtn = document.querySelector(".prev-btn");
     const nextBtn = document.querySelector(".next-btn");
-    const form = document.getElementById("form-experiencia");
-    const galeriaContainer = document.getElementById("galeria-container");
 
-    let index = 0;
+    let indexDepoimentos = 0;
+    const totalDepoimentos = depoimentos.length;
 
-    function showSlide() {
-        slider.style.transform = `translateX(${-index * 100}%)`;
+    function showDepoimentos() {
+        sliderDepoimentos.style.transform = `translateX(-${indexDepoimentos * 100}%)`;
     }
 
     nextBtn.addEventListener("click", function () {
-        index = (index + 1) % slides.length;
-        showSlide();
+        indexDepoimentos = (indexDepoimentos + 1) % totalDepoimentos;
+        showDepoimentos();
     });
 
     prevBtn.addEventListener("click", function () {
-        index = (index - 1 + slides.length) % slides.length;
-        showSlide();
+        indexDepoimentos = (indexDepoimentos - 1 + totalDepoimentos) % totalDepoimentos;
+        showDepoimentos();
     });
 
-    // Adicionar nova experiência ao enviar o formulário
-    form.addEventListener("submit", function (e) {
-        e.preventDefault();
+    setInterval(() => {
+        indexDepoimentos = (indexDepoimentos + 1) % totalDepoimentos;
+        showDepoimentos();
+    }, 5000);
 
-        const nome = document.getElementById("nome").value;
-        const mensagem = document.getElementById("mensagem").value;
 
-        const novoDepoimento = document.createElement("div");
-        novoDepoimento.classList.add("depoimento");
-        novoDepoimento.innerHTML = `<p>"${mensagem}"</p><h4>- ${nome}</h4>`;
-        
-        slider.appendChild(novoDepoimento);
-    });
+    // Slider de Experiências Visuais
+    const sliderExperiencias = document.querySelector(".grid");
+    const experiencias = document.querySelectorAll(".grid img");
+
+    let indexExperiencias = 0;
+    const totalExperiencias = experiencias.length;
+
+    function showExperiencias() {
+        sliderExperiencias.style.transform = `translateX(-${indexExperiencias * 100}%)`;
+    }
+
+    setInterval(() => {
+        indexExperiencias = (indexExperiencias + 1) % totalExperiencias;
+        showExperiencias();
+    }, 4000);
 });

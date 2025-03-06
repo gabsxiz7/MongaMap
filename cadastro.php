@@ -11,10 +11,7 @@
 <body class="page-cadastro">
     <nav class="navbar">
         <div class="navbar-container">
-            <a href="index.html" class="navbar-brand">
-                <img src="IMG/logo.png" alt="Logo MongaMap" class="logo">
-                Monga📍Map
-            </a>
+            <a href="index.html" class="navbar-brand"></a>
             <button class="menu-toggle" id="menuToggle" aria-label="Menu">
                 <span class="menu-bar"></span>
                 <span class="menu-bar"></span>

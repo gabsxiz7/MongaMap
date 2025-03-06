@@ -8,7 +8,7 @@ body, section {
   justify-content: space-between;
   align-items: center;
   padding: 50px 20px;
-  background: linear-gradient(to bottom, #004085, #007bff);
+  background: linear-gradient(to bottom, #004085, #007bff, #004085);
   min-height: 350px;
 }
 .home .container {
@@ -18,26 +18,33 @@ body, section {
   text-align: center;
 }
 .home-left .logo-home {
-  max-width: 220px;
+  max-width: 160px;
   height: auto;
   margin-bottom: 5px;
   transform: scale(1.5);
   display: block;
   margin: auto;
+  margin-right: 20px;  /*espaçp entre logo e texto*/
   margin-top: 0px;
   align-items: center;
   justify-content: center;
   margin-right: 20px;
 }
+
+.home-text {
+  display: flex;
+  flex-direction: column;
+}
+
 .home-text h1 {
   margin: 0;
   font-size: 2.5rem;
-  margin-bottom: 15px;
   line-height: 1.2;
   color: white;
   text-shadow: 2px 2px 4px black;
   font-family: 'Poppins' sans-serif;
-  text-align: center;
+  text-align: left;
+  white-space: nowrap;
 }
 .home-text h2 {
   font-size: 1rem;
@@ -48,8 +55,11 @@ body, section {
   color: #ffffff;
   font-family: Arial;
   font-style: italic;
-  text-align: left;
+  text-align: center;
 }
+
+
+
 .destaques {
   display: flex;
   justify-content: space-around;
@@ -102,17 +112,7 @@ body, section {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   transition: transform 0.3 ease;
 }
-.btn-cadastrar {
-background-color: #007bff; 
-color: #fff; 
-padding: 8px 15px; 
-border-radius: 20px; 
-text-decoration: none; 
-transition: background-color 0.3s ease; 
-}
-.btn-cadastrar:hover {
-background-color: #0056b3;
-}
+
 /*carrossel de imagens*/
 .carousel-inner img {
 height: 80vh;

@@ -10,10 +10,7 @@
 <body>
   <nav class="navbar">
     <div class="navbar-container">
-        <a href="index.html" class="navbar-brand">
-            <img src="IMG/logo.png" alt="Logo MongaMap" class="logo">
-            Monga📍Map
-        </a>
+        <a href="index.html" class="navbar-brand"></a>
         <button class="menu-toggle" id="menuToggle" aria-label="Menu">
           <span class="menu-bar"></span>
           <span class="menu-bar"></span>
@@ -25,68 +22,93 @@
             <li><a href="conheca.html">Conheça</a></li>
             <li><a href="trofeus.html">Troféus</a></li>
             <li><a href="comentarios.html">Feedback</a></li>
-            <li><a href="qrcode.html">QR code</a></li>
             <li><a href="cadastro.php" class="btn-cadastrar">Cadastre-se</a></li>
         </ul>
     </div>
   </nav>
-  <header class="header">
-    <h1>Descubra Mais</h1>
-    <p>Explore novas histórias e compartilhe suas experiências incríveis!</p>
-</header>
+    <!-- HEADER -->
+    <header class="header">
+        <h1>Descubra Mais</h1>
+        <p>Explore novas histórias e compartilhe suas experiências incríveis!</p>
+    </header>
 
-<main>
-    <section class="depoimentos">
-        <h2>O que as pessoas estão dizendo?</h2>
-        <div class="slider-container">
-            <button class="prev-btn">&#10094;</button>
-            <div class="slider">
-                <div class="depoimento">
-                    <img src="IMG/icon.png" alt="Usuário 1">
-                    <p>"A experiência foi incrível! Conheci lugares que nem imaginava!"</p>
-                    <h4>- João Silva</h4>
+    <main>
+
+        <!-- SEÇÃO DE DEPOIMENTOS -->
+        <section class="depoimentos">
+            <h2>O que as pessoas estão dizendo?</h2>
+            <div class="slider-container">
+                <button class="prev-btn">&#10094;</button>
+                <div class="slider">
+                    <div class="depoimento">
+                        <img src="IMG/icon.png" alt="Usuário 1">
+                        <p>"A experiência foi incrível! Conheci lugares que nem imaginava!"</p>
+                        <h4>- Jacinto Leite Aquino Pinto</h4>
+                    </div>
+                    <div class="depoimento">
+                        <img src="IMG/icon.png" alt="Usuário 2">
+                        <p>"O MongaMap tornou minha viagem muito mais especial."</p>
+                        <h4>- Deide Costa</h4>
+                    </div>
+                    <div class="depoimento">
+                        <img src="IMG/icon.png" alt="Usuário 3">
+                        <p>"Descobri lugares incríveis usando o MongaMap!"</p>
+                        <h4>- Kelly Inguissa</h4>
+                    </div>
+                    <div class="depoimento">
+                        <img src="IMG/icon.png" alt="Usuario 4">
+                        <p>"Amei demais os pontos turísticos."</p>
+                        <h4>- Isadora Pinto</h4>
+                    </div>
+                    <div class="depoimento">
+                        <img src="IMG/icon.png" alt="Usuario 5">
+                        <p>"Achei os lugares zika."</p>
+                        <h4>- Paula Ambeno</h4>
+                    </div>
                 </div>
-                <div class="depoimento">
-                    <img src="IMG/icon.png" alt="Usuário 2">
-                    <p>"O MongaMap tornou minha viagem muito mais especial."</p>
-                    <h4>- Maria Souza</h4>
+                <button class="next-btn">&#10095;</button>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE EXPERIÊNCIAS VISUAIS -->
+        <section class="galeria">
+            <h2>Experiências Visuais</h2>
+            <div class="experiencia-container">
+                <div class="grid" id="galeria-container">
+                    <img src="IMG/poçoantas.png" alt="Lugar 1">
+                    <img src="IMG/santa.mongagua.webp" alt="Lugar 2">
+                    <img src="IMG/feira.png" alt="Lugar 3">
+                    <img src="IMG/plataformapp.png" alt="Lugar 4">
                 </div>
             </div>
-            <button class="next-btn">&#10095;</button>
-        </div>
-    </section>
+        </section>
 
-    <!-- Formulário para envio de experiências -->
-    <section class="form-experiencia">
-        <h2>Compartilhe sua experiência</h2>
-        <form id="form-experiencia">
-            <label for="nome">Seu Nome:</label>
-            <input type="text" id="nome" placeholder="Digite seu nome" required>
+        <!-- SEÇÃO DE FORMULÁRIO -->
+        <section class="form-experiencia">
+            <h2>Compartilhe sua experiência</h2>
+            <form id="form-experiencia">
+                <label for="nome">Seu Nome:</label>
+                <input type="text" id="nome" placeholder="Digite seu nome" required>
 
-            <label for="foto">Escolha uma Foto:</label>
-            <input type="file" id="foto" accept="image/*" required>
+                <label for="foto">Escolha uma Foto:</label>
+                <input type="file" id="foto" accept="image/*" required>
 
-            <label for="mensagem">Descreva sua experiência:</label>
-            <textarea id="mensagem" rows="4" placeholder="Conte sobre sua experiência..." required></textarea>
+                <label for="mensagem">Descreva sua experiência:</label>
+                <textarea id="mensagem" rows="4" placeholder="Conte sobre sua experiência..." required></textarea>
 
-            <button type="submit">Enviar Depoimento</button>
-        </form>
-    </section>
+                <button type="submit">Enviar Depoimento</button>
+            </form>
+        </section>
 
-    <section class="galeria">
-        <h2>Experiências Visuais</h2>
-        <div class="grid" id="galeria-container">
-            <img src="IMG/paisagem.jpg" alt="Lugar 1">
-            <img src="IMG/paisagem.jpg" alt="Lugar 2">
-            <img src="IMG/paisagem.jpg" alt="Lugar 3">
-            <img src="IMG/paisagem.jpg" alt="Lugar 4">
-        </div>
-    </section>
-</main>
+    </main>
 
-<footer class="footer">
-    <p>&copy; 2025 MongaMap. Todos os direitos reservados.</p>
-</footer>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2025 MongaMap. Todos os direitos reservados.</p>
+    </footer>
 
-<script src="JS/descubra.js"></script>
-  <script src="JS/navbar.js"></script>
+    <script src="JS/descubra.js"></script>
+    <script src="JS/navbar.js"></script>
+
+</body>
+</html>
