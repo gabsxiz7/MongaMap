@@ -18,7 +18,7 @@
                 <span class="menu-bar"></span>
             </button>
             <ul class="navbar-links" id="navbarLinks">
-                <li><a href="index.html">Início</a></li>
+                <li><a href="index.php">Início</a></li>
                 <li><a href="sobre.html" class="active">Sobre</a></li>
                 <li><a href="conheca.html">Conheça</a></li>
                 <li><a href="trofeus.html" class="active">Troféus</a></li>

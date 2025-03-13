@@ -11,8 +11,8 @@ $query = $conexao->query($sql);
 
 $resultado = $query->fetch_assoc();
 
-$email_banco = $resultado['email'];
-$senha_banco = $resultado['senha'];
+$email_banco = $resultado['nm_email'];
+$senha_banco = $resultado['nm_senha'];
 
 if ($email == $email_banco &&  $password == $senha_banco) {
     session_start();

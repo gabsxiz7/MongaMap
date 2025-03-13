@@ -1,5 +1,5 @@
 <?php
-/*
+
     include 'php/conexao.php';
     session_start();
     if (isset($_SESSION['id'])) {
@@ -11,7 +11,7 @@
     }else{
         echo "<script> alert('Você não está logado!'); history.back(); </script>"; 
     }
-    */    
+     
     ?>
 
 <!DOCTYPE html>
