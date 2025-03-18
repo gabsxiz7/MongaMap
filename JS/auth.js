@@ -16,3 +16,11 @@ window.addEventListener("resize", function () {
         container.classList.remove('active');
     }
 });
+
+document.getElementById('telefone').addEventListener('input', function (e) {
+    var x = e.target.value.replace(/\D/g, '').match(/(\d{2})(\d{0,5})(\d{0,4})/); // Corrige a captura do DDD e os números
+    if (x) {
+      e.target.value = '(' + x[1] + ') ' + (x[2] ? x[2] : '') + (x[3] ? '-' + x[3] : ''); // Formatação final
+    }
+  });
+  

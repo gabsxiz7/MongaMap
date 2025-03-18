@@ -37,7 +37,7 @@
                 <h1>Criar Conta</h1>
                 <input type="text" placeholder="Nome" name="nome" required>
                 <input type="email" placeholder="Email" name="email" required>
-                <input type="text" placeholder="Telefone" name="telefone" required>
+                <input type="text" placeholder="(13) 99999-9999" id="telefone" name="telefone" required>
                 <input type="password" placeholder="Senha" name="senha" required>
                 <button type="submit">Cadastre-se</button>
             </form>

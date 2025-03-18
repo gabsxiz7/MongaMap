@@ -1,3 +1,4 @@
+
 <?php
 
 //Conectando no Banco de Dados
@@ -10,8 +11,10 @@ $nome = $_POST['nome'];
 $email = $_POST ['email'];
 $telefone = $_POST ['telefone'];
 $senha = $_POST ['senha'];
+$caracte = ["(",")","-"," "];
 
-$sql = "INSERT INTO tb_usuario VALUES (null, '$nome', '$email', '$telefone', '$senha')";
+$telefones = str_replace($caracte, "", $telefone);
+$sql = "INSERT INTO tb_usuario VALUES (null, '$nome', '$email', '$telefones', '$senha')";
 
 // Executar o Insert no Banco de Dados
 
