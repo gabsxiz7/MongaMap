@@ -39,6 +39,10 @@
                 <input type="email" placeholder="Email" name="email" required>
                 <input type="text" placeholder="(13) 99999-9999" id="telefone" name="telefone" required>
                 <input type="password" placeholder="Senha" name="senha" required>
+
+                   <!-- reCAPTCHA -->
+        <div class="g-recaptcha" data-sitekey="6LeRF_oqAAAAALag1sMQ1Xuouq_X9DRsj-EUYkiP"></div>
+
                 <button type="submit">Cadastre-se</button>
             </form>
         </div>
@@ -49,6 +53,10 @@
                 <input type="email" placeholder="Email" name="email" required>
                 <input type="password" placeholder="Senha" name="senha" required>
                 <a href="#">Esqueceu sua senha?</a>
+
+                  <!-- reCAPTCHA -->
+        <div class="g-recaptcha" data-sitekey="6LeRF_oqAAAAALag1sMQ1Xuouq_X9DRsj-EUYkiP"></div>
+
                 <button type="submit">Entrar</button>
             </form>
         </div>
@@ -74,6 +82,8 @@
         </div>
     </div>
     </main>
+    <!-- script do google reCAPTCHA--->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="JS/auth.js"></script>
     <script src="JS/navbar.js"></script>
     <footer class="footer">
