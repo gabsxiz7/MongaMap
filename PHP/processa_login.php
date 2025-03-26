@@ -33,7 +33,7 @@ $senha_banco = $resultado['nm_senha'];
 if ($resultado && $password == $resultado['nm_senha']) {
     session_start();
     $_SESSION['id'] = $resultado['cd_usuario'];
-    header('location: ../index.php');
+    header('location: ../inicio.php');
 }else {
     echo "<script> alert('Usuario ou senha Invalida'); history.back(); </script>"; 
 }

@@ -39,7 +39,7 @@ if (!$responseKeys["success"]) {
 $sql = "INSERT INTO tb_usuario VALUES (null, '$nome', '$email', '$telefones', '$senha')";
 
 if ($conexao -> query($sql)){
-    echo "<script> alert('✔ Cadastro realizado com Sucesso!'); document.location.href = '../index.php' </script>";
+    echo "<script> alert('✔ Cadastro realizado com Sucesso!'); document.location.href = '../inicio.php' </script>";
 }
 
 else{

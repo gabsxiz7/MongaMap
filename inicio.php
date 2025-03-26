@@ -1,3 +1,8 @@
+<?php 
+include 'php/conexao.php';
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -22,19 +27,20 @@
             <span class="menu-bar"></span>
         </button>
         <ul class="navbar-links" id="navbarLinks">
-            <li><a href="index.php">Início</a></li>
+            <li><a href="gamificacao.php">Perfil</a></li>
             <li><a href="sobre.php">Sobre</a></li>
             <li><a href="conheca.php">Conheça</a></li>
             <li><a href="comentarios.php">Feedback</a></li>
-            <li><a href="cadastro.php" class="btn-cadastrar">Cadastre-se</a></li>
+            <li><a href="php/logout.php" class="btn-cadastrar">Sair</a></li>
             </ul>
         </div>
 </nav>
+
     <!--------------SEÇÃO PRINCIPAL--------------->
     <section class="home">
       <div class="container">
         <div class="home-left">
-          <a href="sobre.php">
+          <a href="sobre.html">
           <img src="IMG/logo.png" alt="Logo Monga Map" class="logo-home">
           </a>
         </div>
@@ -88,7 +94,7 @@
   <!-- SEÇÃO DE DESTAQUES -->
 <section class="destaques">
   <div class="card">
-    <a href="exploração.php">
+    <a href="exploração.html">
     <img src="IMG/santa.png" alt="Exploração">
     <div class="card-body">
     <h3>Exploração Fácil</h3>
@@ -106,7 +112,7 @@
   </a>
 </div>
   <div class="card">
-    <a href="descubra.php">
+    <a href="descubra.html">
     <img src="IMG/antas.png" alt="Descubra">
       <div class="card-body">
       <h3>Descubra Mais</h3>

@@ -1,19 +1,7 @@
-<?php
-/*
-
-    include 'php/conexao.php';
-    session_start();
-    if (isset($_SESSION['id'])) {
-    $id = $_SESSION['id'];
-    $sql = "SELECT * FROM tb_usuario WHERE nm_usuario = $name";
-    $query = $conexao->query($sql);
-    $resultado = $query->fetch_assoc();
-    echo $resultado['nome']."! ";
-    }else{
-        echo "<script> alert('Você não está logado!'); history.back(); </script>"; 
-    }
-     */
-    ?>
+<?php 
+include 'php/conexao.php';
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -36,11 +24,11 @@
                 <span class="menu-bar"></span>
             </button>
             <ul class="navbar-links" id="navbarLinks">
-                <li><a href="index.html" class="active">Início</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="conheca.html">Conheça</a></li>
-                <li><a href="feedback.html">Feedback</a></li>
-                <li><a href="cadastro.php" class="btn-cadastrar">Cadastre-se</a></li>
+                <li><a href="inicio.php" class="active">Início</a></li>
+                <li><a href="sobre.php">Sobre</a></li>
+                <li><a href="conheca.php">Conheça</a></li>
+                <li><a href="comentarios.php">Feedback</a></li>
+                <li><a href="php/logout.php" class="btn-cadastrar">Sair</a></li>
             </ul>
         </div>
     </nav>

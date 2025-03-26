@@ -1,3 +1,8 @@
+<?php 
+include 'php/conexao.php';
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -18,10 +23,10 @@
                 <span class="menu-bar"></span>
             </button>
             <ul class="navbar-links" id="navbarLinks">
-                <li><a href="index.html" class="active">Início</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="conheca.html">Conheça</a></li>
-                <li><a href="comentarios.html">Feedback</a></li>
+                <li><a href="index.php" class="active">Início</a></li>
+                <li><a href="sobre.php">Sobre</a></li>
+                <li><a href="conheca.php">Conheça</a></li>
+                <li><a href="comentarios.php">Feedback</a></li>
 
                 <li><a href="cadastro.php" class="btn-cadastrar">Cadastre-se</a></li>
             </ul>
