@@ -21,9 +21,7 @@
                 <li><a href="index.php">Início</a></li>
                 <li><a href="sobre.html" class="active">Sobre</a></li>
                 <li><a href="conheca.html">Conheça</a></li>
-                <li><a href="trofeus.html" class="active">Troféus</a></li>
                 <li><a href="comentarios.html" class="active">Feedback</a></li>
-                <li><a href="qrcode.html">QR code</a></li>
                 <li><a href="cadastro.html" class="btn-cadastrar">Cadastre-se</a></li>
             </ul>
         </div>
