@@ -13,8 +13,8 @@ $telefone = $_POST ['telefone'];
 $senha = $_POST ['senha'];
 $captcha = $_POST['g-recaptcha-response'];
 
-$caracte = ["(",")","-"," "];
-$telefones = str_replace($caracte, "", $telefone);
+$caractere = ["(", ")", "-", " "];
+$telefones = str_replace($caractere, "", $telefone);
 
 
 //só p verificar se o reCAPTCHA foi resolvido
@@ -33,17 +33,27 @@ if (!$responseKeys["success"]) {
     exit;
 }
 
+//criptografar a senha antes de armazenar
+$senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
-// Executar o Insert no Banco de Dados
 
-$sql = "INSERT INTO tb_usuario VALUES (null, '$nome', '$email', '$telefones', '$senha')";
+//inserir usuário no banco de dados usando Prepared Statement
+$sql = "INSERT INTO tb_usuario (nm_usuario, nm_email, nr_telefone, nm_senha) VALUES (?, ?, ?, ?)";
+$stmt = $conexao->prepare($sql);
+$stmt->bind_param("ssss", $nome, $email, $telefones, $senhaHash);
 
-if ($conexao -> query($sql)){
-    echo "<script> alert('✔ Cadastro realizado com Sucesso!'); document.location.href = '../index.php' </script>";
-}
-
-else{
+if ($stmt->execute()) {
+    echo "<script> alert('✔ Cadastro realizado com sucesso!'); document.location.href = '../index.php'; </script>";
+} else {
     echo "<script> alert('❌ Erro ao cadastrar.'); history.back(); </script>";
 }
 
+$stmt->close();
+$conexao->close();
 ?>
+
+
+<!--//evita sql Injection --- prepare() e bind_param()
+evita erro ao acesar um usuario inexistente
+compara senhas com seguranca utilizando password_verify()
+criptografa senha com password_hash()*/

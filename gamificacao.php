@@ -1,19 +1,41 @@
 <?php
-/*
+include 'php/conexao.php'; 
+session_start();
 
-    include 'php/conexao.php';
-    session_start();
-    if (isset($_SESSION['id'])) {
-    $id = $_SESSION['id'];
-    $sql = "SELECT * FROM tb_usuario WHERE nm_usuario = $name";
-    $query = $conexao->query($sql);
-    $resultado = $query->fetch_assoc();
-    echo $resultado['nome']."! ";
-    }else{
-        echo "<script> alert('Você não está logado!'); history.back(); </script>"; 
-    }
-     */
-    ?>
+if (!isset($_SESSION['id'])) {
+    echo "<script> alert('Você não está logado!'); history.back(); </script>";
+    exit();
+}
+
+$id = $_SESSION['id']; 
+
+
+$sql = "SELECT 
+            u.cd_usuario, 
+            u.nm_usuario, 
+            u.nm_email, 
+            u.nr_telefone, 
+            p.nm_patente, 
+            p.nr_parente 
+        FROM tb_usuario u
+        LEFT JOIN tb_patente p ON u.cd_usuario = p.fk_cd_usuario
+        WHERE u.cd_usuario = ?";
+
+$stmt = $conexao->prepare($sql);
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$resultado = $stmt->get_result();
+
+if ($resultado->num_rows > 0) {
+    $usuario = $resultado->fetch_assoc();
+} else {
+    echo "<script> alert('Usuário não encontrado!'); history.back(); </script>";
+    exit();
+}
+
+$stmt->close();
+?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -36,11 +58,17 @@
                 <span class="menu-bar"></span>
             </button>
             <ul class="navbar-links" id="navbarLinks">
-                <li><a href="index.html" class="active">Início</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="conheca.html">Conheça</a></li>
-                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="index.php" class="active">Início</a></li>
+                <li><a href="sobre.php">Sobre</a></li>
+                <li><a href="conheca.php">Conheça</a></li>
+                <li><a href="feedback.php">Feedback</a></li>
+    <?php if (isset($_SESSION['id'])):?> 
+            <li><a href="gamificacao.php">Perfil</a></li>
+            <li><a href="php/logout.php" class="btn-sair">Sair</a></li>
+            <?php else: ?>
+              
                 <li><a href="cadastro.php" class="btn-cadastrar">Cadastre-se</a></li>
+                <?php endif; ?>
             </ul>
         </div>
     </nav>
@@ -54,9 +82,9 @@
            <section class="card perfil">
            <h2>Minha Jornada 🎮</h2>
            <img id="fotoUsuario" src="IMG/icon.png" alt="Avatar">
-           <h3>Usuário: <strong id="nomeUsuario">BlackN444</strong></h3>
-        <p id="nivelUsuario">Nível: Explorador</p>
-        <p id="pontuacaoUsuario">Pontuação: 320 ⭐</p>
+           <h3>Usuário: <strong id="nomeUsuario"><?php echo htmlspecialchars($usuario['nm_usuario']);?></strong></h3>
+        <p id="nivelUsuario">Patente: <?php echo htmlspecialchars($usuario['nm_patente'] ?? 'Sem patente');?></p>
+        <p id="pontuacaoUsuario">Parente:<?php echo htmlspecialchars($usuario['nr_parente'] ?? '0');?></p>
     </section>
         <!-- seção 2: Barra de Progresso -->
            <section class="card barra-progresso">

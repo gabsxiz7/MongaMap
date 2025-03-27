@@ -1,6 +1,7 @@
 <?php
 
 include 'conexao.php';
+session_start();
 
 $email = $_POST['email'];
 $password = $_POST['senha'];
@@ -22,21 +23,29 @@ if (!$responseKeys["success"]) {
     exit;
 }
 
-//verifica no banco de dados
-$sql = "SELECT * FROM tb_usuario WHERE nm_email = '$email'";
-$query = $conexao->query($sql);
-$resultado = $query->fetch_assoc();
+// Prepara a consulta SQL para evitar SQL Injection
+$sql = "SELECT cd_usuario, nm_senha FROM tb_usuario WHERE nm_email = ?";
+$stmt = $conexao->prepare($sql);
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$resultado = $stmt->get_result()->fetch_assoc();
 
-$email_banco = $resultado['nm_email'];
-$senha_banco = $resultado['nm_senha'];
-
-if ($resultado && $password == $resultado['nm_senha']) {
-    session_start();
-    $_SESSION['id'] = $resultado['cd_usuario'];
-    header('location: ../index.php');
-}else {
-    echo "<script> alert('Usuario ou senha Invalida'); history.back(); </script>"; 
+if (!$resultado) {
+    echo "<script> alert('❌ Usuário não encontrado!'); history.back(); </script>";
+    exit;
 }
 
 
+// Verifica a senha de forma segura
+if (password_verify($password, $resultado['nm_senha'])) {
+    $_SESSION['id'] = $resultado['cd_usuario'];
+    header('location: ../index.php');
+    exit;
+} else {
+    echo "<script> alert('❌ Usuário ou senha inválida!'); history.back(); </script>";
+    exit;
+}
+
+$stmt->close();
+$conexao->close();
 ?>

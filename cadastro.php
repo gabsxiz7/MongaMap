@@ -1,3 +1,7 @@
+<<?php 
+ session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -18,13 +22,21 @@
                 <span class="menu-bar"></span>
             </button>
             <ul class="navbar-links" id="navbarLinks">
+    <?php
+            if (isset($_SESSION['id'])) {
+         // c o usuário estiver logado
+            echo '
+            <li><a href="gamificacao.php">Perfil</a></li>
+            <li><a href="php/logout.php" class="btn-sair">Sair</a></li>
+            ';
+            }
+    ?>
                 <li><a href="index.php">Início</a></li>
                 <li><a href="sobre.html" class="active">Sobre</a></li>
                 <li><a href="conheca.html">Conheça</a></li>
                 <li><a href="trofeus.html" class="active">Troféus</a></li>
                 <li><a href="comentarios.html" class="active">Feedback</a></li>
-                <li><a href="qrcode.html">QR code</a></li>
-                <li><a href="cadastro.html" class="btn-cadastrar">Cadastre-se</a></li>
+           
             </ul>
         </div>
     </nav>
