@@ -30,9 +30,21 @@ $stmt->bind_param("s", $email);
 $stmt->execute();
 $resultado = $stmt->get_result()->fetch_assoc();
 
+<<<<<<< HEAD
 if (!$resultado) {
     echo "<script> alert('❌ Usuário não encontrado!'); history.back(); </script>";
     exit;
+=======
+$email_banco = $resultado['nm_email'];
+$senha_banco = $resultado['nm_senha'];
+
+if ($resultado && $password == $resultado['nm_senha']) {
+    session_start();
+    $_SESSION['id'] = $resultado['cd_usuario'];
+    header('location: ../inicio.php');
+}else {
+    echo "<script> alert('Usuario ou senha Invalida'); history.back(); </script>"; 
+>>>>>>> 1d11af47a83da4dcabcbc5178a600adc856a13b3
 }
 
 

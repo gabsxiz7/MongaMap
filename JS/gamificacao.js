@@ -109,6 +109,8 @@ let usuario = {
     ]
 };
 
+
+
 // Atualiza a exibição do usuário
 function atualizarUsuario() {
     document.getElementById("nomeUsuario").textContent = usuario.nome;

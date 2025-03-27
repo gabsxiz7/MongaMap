@@ -1,6 +1,4 @@
 <?php 
-
-
 // Recebendo Arquivo
 
 $arquivos = $_FILES['fotos'];

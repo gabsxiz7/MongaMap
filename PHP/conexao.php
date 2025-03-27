@@ -4,7 +4,7 @@
 
 $servidor = 'localhost';
 $usuario = 'root';
-$senha = '';
+$senha = 'root';
 $db = 'bd_mongamap';
 
 $conexao = new mysqli($servidor, $usuario, $senha, $db);
