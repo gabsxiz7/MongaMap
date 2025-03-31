@@ -1,4 +1,4 @@
-<<?php 
+<?php 
  session_start();
 ?>
 <!DOCTYPE html>
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="CSS/navbar.css">
     <link rel="stylesheet" href="CSS/style.css">
 </head>
-<body class="sobre-page">    
+<body>    
     <nav class="navbar">
         <div class="navbar-container">
             <a href="index.html" class="navbar-brand"></a>
@@ -22,7 +22,6 @@
                 <span class="menu-bar"></span>
             </button>
             <ul class="navbar-links" id="navbarLinks">
-<<<<<<< HEAD
                 <li><a href="index.php">Início</a></li>
                 <li><a href="sobre.php">Sobre</a></li>
                 <li><a href="conheca.php">Conheça</a></li>
@@ -31,12 +30,6 @@
             <li><a href="gamificacao.php">Perfil</a></li>
             <li><a href="php/logout.php" class="btn-sair">Sair</a></li>
             <?php else: ?>
-=======
-                <li><a href="index.php" class="active">Início</a></li>
-                <li><a href="sobre.php">Sobre</a></li>
-                <li><a href="conheca.php">Conheça</a></li>
-                <li><a href="comentarios.php">Feedback</a></li>
->>>>>>> 1d11af47a83da4dcabcbc5178a600adc856a13b3
                 <li><a href="cadastro.php" class="btn-cadastrar">Cadastre-se</a></li>
               <?php endif; ?>
             </ul>

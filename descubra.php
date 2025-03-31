@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-<<?php 
- session_start();
-=======
 <?php 
-include 'php/conexao.php';
-session_start();
->>>>>>> 1d11af47a83da4dcabcbc5178a600adc856a13b3
+ session_start();
 ?>
 
 <!DOCTYPE html>
@@ -27,22 +21,16 @@ session_start();
           <span class="menu-bar"></span>
       </button>
         <ul class="navbar-links" id="navbarLinks">
-<<<<<<< HEAD
             <li><a href="index.php">Início</a></li>
             <li><a href="sobre.php">Sobre</a></li>
             <li><a href="conheca.php">Conheça</a></li>
             <li><a href="trofeus.php">Troféus</a></li>
             <li><a href="comentarios.php">Feedback</a></li>
+            
     <?php if (isset($_SESSION['id'])):?> 
             <li><a href="gamificacao.php">Perfil</a></li>
             <li><a href="php/logout.php" class="btn-sair">Sair</a></li>
             <?php else: ?>
-=======
-            <li><a href="index.php" class="active">Início</a></li>
-            <li><a href="sobre.php">Sobre</a></li>
-            <li><a href="conheca.php">Conheça</a></li>
-            <li><a href="comentarios.php">Feedback</a></li>
->>>>>>> 1d11af47a83da4dcabcbc5178a600adc856a13b3
             <li><a href="cadastro.php" class="btn-cadastrar">Cadastre-se</a></li>
             <?php endif; ?>
         </ul>
@@ -65,27 +53,27 @@ session_start();
                     <div class="depoimento">
                         <img src="IMG/icon.png" alt="Usuário 1">
                         <p>"A experiência foi incrível! Conheci lugares que nem imaginava!"</p>
-                        <h4>- Jacinto Leite Aquino Pinto</h4>
+                        <h4>- Emerson</h4>
                     </div>
                     <div class="depoimento">
                         <img src="IMG/icon.png" alt="Usuário 2">
                         <p>"O MongaMap tornou minha viagem muito mais especial."</p>
-                        <h4>- Deide Costa</h4>
+                        <h4>- Pedro Ribeiro</h4>
                     </div>
                     <div class="depoimento">
                         <img src="IMG/icon.png" alt="Usuário 3">
                         <p>"Descobri lugares incríveis usando o MongaMap!"</p>
-                        <h4>- Kelly Inguissa</h4>
+                        <h4>- Walker</h4>
                     </div>
                     <div class="depoimento">
                         <img src="IMG/icon.png" alt="Usuario 4">
                         <p>"Amei demais os pontos turísticos."</p>
-                        <h4>- Isadora Pinto</h4>
+                        <h4>- Kauê Pereira</h4>
                     </div>
                     <div class="depoimento">
                         <img src="IMG/icon.png" alt="Usuario 5">
                         <p>"Achei os lugares zika."</p>
-                        <h4>- Paula Ambeno</h4>
+                        <h4>- Sofia Santino</h4>
                     </div>
                 </div>
                 <button class="next-btn">&#10095;</button>

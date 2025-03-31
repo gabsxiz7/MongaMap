@@ -1,35 +1,44 @@
 /*css da tela inicial*/
-body, section {
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body, html {
   margin: 0;
   padding: 0;
 }
 .home {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 50px 20px;
+  padding: 60px 30px;
   background: linear-gradient(to bottom, #004085, #007bff, #004085);
   min-height: 350px;
+  text-align: center;
 }
+
+
 .home .container {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
+  max-width: 1200px;
+  width: 100%;
+  gap: 0px;
 }
-.home-left .logo-home {
-  max-width: 160px;
-  height: auto;
-  margin-bottom: 5px;
-  transform: scale(1.5);
-  display: block;
-  margin: auto;
-  margin-right: 20px;  /*espaçp entre logo e texto*/
-  margin-top: 0px;
+
+.home-left {
+  display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 20px;
 }
+
+.logo-home {
+  max-width: 230px;
+  height: auto;
+}
+
 
 .home-text {
   display: flex;
@@ -37,26 +46,24 @@ body, section {
 }
 
 .home-text h1 {
-  margin: 0;
-  font-size: 2.5rem;
-  line-height: 1.2;
+  font-size: 2.2rem;
   color: white;
   text-shadow: 2px 2px 4px black;
-  font-family: 'Poppins' sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 10px;
   text-align: left;
   white-space: nowrap;
 }
+
 .home-text h2 {
   font-size: 1rem;
-  line-height: 1.5;
-  margin-top: 5px;
-  margin-left: 10px;
-  margin-bottom: 5px;
   color: #ffffff;
-  font-family: Arial;
-  font-style: italic;
+  font-family: Arial, sans-serif;
+  font-style: normal;
   text-align: center;
+  text-shadow: 2px 2px 4px black;
 }
+
 
 
 
@@ -79,18 +86,20 @@ body, section {
   max-width: 300px;
   flex: 1;
   margin: 10px;
+  margin-top: 60px; /*espaçamento entre uma seção e outra*/
+
 }
 .card img {
   max-width: 100%;
   height: auto;
-  border-radius: 10px;
+  border-radius: 30px;
   margin-bottom: 15px;
 }
 .card-body {
   padding: 10px;
 }
 .card-body h3 {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.5rem;
   margin-bottom: 10px;
   color: #004085;
@@ -107,6 +116,11 @@ body, section {
   color: #333;
   text-align: justify;
 }
+.card a {
+  text-decoration: none;
+  color: inherit; /* mantém a cor do texto original */
+}
+
 .card:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
@@ -114,45 +128,134 @@ body, section {
 }
 
 /*carrossel de imagens*/
-.carousel-inner img {
-height: 80vh;
-transition: transform 1s ease, opacity 1s ease;
-object-fit: cover;
-}
-.carousel {
-background-color: rgb(255, 255, 255);
-padding-top: 0;
-padding-bottom: 20px;
-}
-.carousel-caption {
-background-color: rgba(0, 0, 0, 0.5);
-padding: 10px;
-border: 0;
-}
-.carousel-controlprev, .carousel-control-next {
-width: 5%;
-}
-.carousel-inner img:hover {
-transform: scale(1.05);        /* amplia levemente a imagem */
-opacity: 0.8;
+.custom-carousel {
+  position: relative;
+  max-width: 100%;
+  height: 80vh;
+  overflow: hidden;
+  margin: 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-/*FAQ*/
-.faq {
-text-align: left;
+.carousel-container {
+  margin-top: 0;
+  padding-top: 0;
 }
+
+
+.carousel-slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 100%;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+  position: relative;
+  display: none;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.caption {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;  /*posiciona o meio da caption no centro*/
+  transform: translateX(-50%); /*corrige o deslocamento */
+  background: rgba(0,0,0,0.5);
+  padding: 15px;
+  border-radius: 10px;
+  color: #fff;
+  max-width: 90%;
+  text-align: center;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent; /* sem fundo preto */
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: color 0.3s ease;
+}
+
+.prev:hover,
+.next:hover {
+  color: #ccc;
+}
+
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+
+/*FAQ*/
+.faq h2{
+  font-family: 'Montserrat', sans-serif; 
+  font-size: 1.2rem; 
+  color: #004085; 
+  text-align: center; 
+  text-transform: uppercase; /*deixa as letras maiúsculas */
+  letter-spacing: 2px; /*espaço entre as letras */
+  font-weight: bold; /*deixa o título mais forte */
+  position: relative; /*para o ícone */
+  margin-top: 60px; /*espaçamento entre uma seção e outra*/
+  padding: 20px;
+}
+.faq h2 i {
+  margin-right: 10px; /*espaço entre o ícone e o título */
+  color: #004085;
+  font-size: 1.3rem; 
+  vertical-align: middle; /*centraliza o ícone com o texto */
+}
+.faq h2::after {
+  content: ''; /*adiciona uma linha abaixo do título */
+  display: block;
+  width: 50%; /*tamanho da linha */
+  margin: 10px auto 0 auto;
+  height: 2px;
+  background-color: #007bff; /* Cor da linha */
+  border-radius: 2px;
+}
+
 .faq .pergunta {
 margin-bottom: 20px;
 padding: 10px;
-border-left: 4px solid #007bff;
+border-left: 4px solid #004085;
 background-color: #f8f9fa;
 border-radius: 5px;
 }
 .faq .pergunta h3 {
 margin: 0;
-font-size: 1.2rem;
-color: #0056b3;
+font-size: 1.1rem;
+font-family: 'Montserrat', sans-serif;
+color: #333;
 }
+.faq .pergunta h3 i {
+  margin-right: 8px;
+  color: #007bff;
+}
+
 .faq .pergunta p {
 margin: 5px 0 0;
 font-size: 1rem;
@@ -163,9 +266,9 @@ color: #333;
 text-align: center;
 }
 .contato p {
-font-size: 1rem;
+font-size: 2rem;
 color: #333;
-margin: 5px 0;
+margin: 10px 0;
 }
 .mini-mapa {
 margin: 20px auto;
@@ -176,6 +279,7 @@ box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 max-width: 90%;
 width: 800px;
 text-align: center;
+margin-top: 60px;
 }
 .mini-mapa h2 {
 font-size: 1.8rem;
@@ -207,35 +311,23 @@ border-radius: 10px;
 background-color: #f8f9fa;
 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 transition: transform 0.3s ease, box-shadow 0.3s ease;
+
 }
 .estatisticas .item:hover {
 transform: scale(1.05);
 box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 .estatisticas .item h3 {
-font-size: 2.5rem;
-color: #007bff;
+font-size: 2rem;
+color: #004085;
 margin-bottom: 10px;
+font-family: 'Poppins', sans-serif;
 }
 .estatisticas .item p {
 font-size: 1rem;
 color: #333;
 }
 
-
-.qr-code-section {
-  text-align: center;
-  background: #f8f9fa;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.qr-code-container img {
-  width: 200px; /* Ajusta o tamanho */
-  max-width: 100%;
-  margin-top: 20px;
-}
 
 
 
@@ -257,11 +349,7 @@ color: #333;
     }
     
     .home-text h1 {
-        font-size: 1.1rem; /* Reduz título */
-    }
-    
-    .home-text h2 {
-        font-size: 0.5rem; /* Subtítulo menor */
+      white-space: nowrap;
     }
     
     .carousel-inner img {

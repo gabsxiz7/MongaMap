@@ -1,16 +1,10 @@
 body {
-    font-size: 16px;
+    margin: 0;
+    padding: 0;
     font-family: Arial;
+  
 }
 
-/*css específico*/
-.sobre-page .header {
-    min-height: 250px;
-}
-.body.sobre-page {
-    overflow: hidden;
-    background-color: #fff;
-}
 /* ---------- SEÇÃO SOBRE NÓS ---------- */
 .header {
     background: linear-gradient(to bottom, #004085, #007bff); /* Mesmo gradiente para harmonizar */
@@ -23,7 +17,7 @@ body {
   }
   
   .header h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     font-family: 'Poppins', sans-serif;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   }

@@ -1,14 +1,6 @@
-<<<<<<< HEAD
-<<?php 
+<?php 
  session_start();
 ?>
-=======
-<?php 
-include 'php/conexao.php';
-session_start();
-?>
-
->>>>>>> 1d11af47a83da4dcabcbc5178a600adc856a13b3
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -33,14 +25,11 @@ session_start();
                 <li><a href="sobre.php">Sobre</a></li>
                 <li><a href="conheca.php">Conheça</a></li>
                 <li><a href="comentarios.php">Feedback</a></li>
-<<<<<<< HEAD
+
     <?php if (isset($_SESSION['id'])):?> 
             <li><a href="gamificacao.php">Perfil</a></li>
             <li><a href="php/logout.php" class="btn-sair">Sair</a></li>
             <?php else: ?>
-=======
-
->>>>>>> 1d11af47a83da4dcabcbc5178a600adc856a13b3
                 <li><a href="cadastro.php" class="btn-cadastrar">Cadastre-se</a></li>
                 <?php endif; ?>
             </ul>

@@ -1,4 +1,4 @@
-<<?php 
+<?php 
  session_start();
 ?>
 
@@ -32,14 +32,10 @@
             }
     ?>
                 <li><a href="index.php">Início</a></li>
-                <li><a href="sobre.html" class="active">Sobre</a></li>
-                <li><a href="conheca.html">Conheça</a></li>
-                <li><a href="comentarios.html" class="active">Feedback</a></li>
-<<<<<<< HEAD
-           
-=======
-                <li><a href="cadastro.html" class="btn-cadastrar">Cadastre-se</a></li>
->>>>>>> 1d11af47a83da4dcabcbc5178a600adc856a13b3
+                <li><a href="sobre.php" class="active">Sobre</a></li>
+                <li><a href="conheca.php">Conheça</a></li>
+                <li><a href="comentarios.php">Feedback</a></li>
+
             </ul>
         </div>
     </nav>

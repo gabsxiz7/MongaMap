@@ -29,3 +29,33 @@ function centralizarMapa() {
 
 //adiciona um evento de rolagem para verificar quando o usuário chega ao mapa
 window.addEventListener('scroll', centralizarMapa);
+
+//carrousel de slide
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const nextBtn = document.querySelector('.next');
+const prevBtn = document.querySelector('.prev');
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === index);
+  });
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}
+
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  showSlide(currentSlide);
+}
+
+nextBtn.addEventListener('click', nextSlide);
+prevBtn.addEventListener('click', prevSlide);
+
+showSlide(currentSlide); // inicializa
+
+// Auto-slide a cada 2 segundos
+setInterval(nextSlide, 2000);

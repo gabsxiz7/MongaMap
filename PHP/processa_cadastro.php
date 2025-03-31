@@ -42,17 +42,11 @@ $sql = "INSERT INTO tb_usuario (nm_usuario, nm_email, nr_telefone, nm_senha) VAL
 $stmt = $conexao->prepare($sql);
 $stmt->bind_param("ssss", $nome, $email, $telefones, $senhaHash);
 
-<<<<<<< HEAD
+
 if ($stmt->execute()) {
     echo "<script> alert('✔ Cadastro realizado com sucesso!'); document.location.href = '../index.php'; </script>";
 } else {
-=======
-if ($conexao -> query($sql)){
-    echo "<script> alert('✔ Cadastro realizado com Sucesso!'); document.location.href = '../inicio.php' </script>";
-}
 
-else{
->>>>>>> 1d11af47a83da4dcabcbc5178a600adc856a13b3
     echo "<script> alert('❌ Erro ao cadastrar.'); history.back(); </script>";
 }
 
