@@ -43,7 +43,7 @@
         <!------- FORMULÁRIO DE COMENTÁRIOS ------->
         <section class="comentarios-form">
             <h2>Deixe seu Comentário</h2>
-            <form>
+            <form action="PHP/processa_comentario.php" method="$_POST">
                 <div class="input-group">
                     <i class="fa fa-user"></i>
                     <input type="text" id="usuario" name="usuario" placeholder="Seu nome" required>
