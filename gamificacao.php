@@ -60,7 +60,7 @@ $stmt->close();
                 <li><a href="index.php" class="active">Início</a></li>
                 <li><a href="sobre.php">Sobre</a></li>
                 <li><a href="conheca.php">Conheça</a></li>
-                <li><a href="feedback.php">Feedback</a></li>
+                <li><a href="comentarios.php">Feedback</a></li>
     <?php if (isset($_SESSION['id'])):?> 
             <li><a href="gamificacao.php">Perfil</a></li>
             <li><a href="php/logout.php" class="btn-sair">Sair</a></li>

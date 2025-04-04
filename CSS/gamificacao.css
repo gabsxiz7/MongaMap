@@ -1,10 +1,7 @@
 html, body {
-    height: 100%;
     margin: 0;
     padding: 0;
     background: linear-gradient(to bottom, #004085, #007bff);
-    background-attachment: fixed; /* Mantém o gradiente fixo ao rolar */
-    background-size: cover;
 }
 
 /*header*/
@@ -12,9 +9,10 @@ html, body {
     color: white;
     text-align: center;
     padding: 50px 0;
+    margin-top: 60px;
 }
 .header h1 {
-    font-size: 5rem;
+    font-size: 2.5rem;
     font-family: 'Poppins', sans-serif;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }

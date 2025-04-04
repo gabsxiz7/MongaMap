@@ -1,6 +1,9 @@
-body {
-    font-size: 16px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
 .header {
     background: linear-gradient(to bottom, #004085, #007bff);
     text-align: center;
@@ -11,23 +14,22 @@ body {
     
 }
 .header h1 {
-    font-size: 3rem;
+    margin-top: 60px;
+    font-size: 2.5rem;
     font-family: 'Poppins', sans-serif;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 .header p {
     font-family: Arial;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #ffffff;
 }
 
 /*container principal */
 .comentarios-container {
     padding: 30px;
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    display: block;
     gap: 30px;
 }
 
@@ -112,6 +114,7 @@ body {
 
 /*estilização dos comentários */
 .comentarios-lista {
+    margin-top: 60px;
     background: rgba(255, 255, 255, 0.2); /* Transparente */
     backdrop-filter: blur(10px); /* Efeito de vidro */
     padding: 30px;

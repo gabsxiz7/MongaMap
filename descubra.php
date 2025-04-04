@@ -24,7 +24,6 @@
             <li><a href="index.php">Início</a></li>
             <li><a href="sobre.php">Sobre</a></li>
             <li><a href="conheca.php">Conheça</a></li>
-            <li><a href="trofeus.php">Troféus</a></li>
             <li><a href="comentarios.php">Feedback</a></li>
             
     <?php if (isset($_SESSION['id'])):?> 
