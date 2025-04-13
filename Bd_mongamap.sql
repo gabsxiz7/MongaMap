@@ -47,3 +47,10 @@ fk_cd_local int,
     path varchar(100) not null,
     data_upload datetime default current_timestamp
     );
+
+   create table tb_depoimento (
+    id_depoimento int auto_increment primary key,
+    nome_usuario varchar(60) not null,
+    mensagem text not null,
+    data_envio datetime default CURRENT_TIMESTAMP
+);

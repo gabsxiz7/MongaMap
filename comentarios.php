@@ -43,12 +43,7 @@
         <!------- FORMULÁRIO DE COMENTÁRIOS ------->
         <section class="comentarios-form">
             <h2>Deixe seu Comentário</h2>
-            <form action="PHP/processa_comentario.php" method="$_POST">
-                <div class="input-group">
-                    <i class="fa fa-user"></i>
-                    <input type="text" id="usuario" name="usuario" placeholder="Seu nome" required>
-                </div>
-        
+            <form action="PHP/processa_comentario.php" method="POST">
                 <div class="input-group">
                     <i class="fa fa-comment"></i>
                     <textarea id="comentario" name="comentario" placeholder="Escreva seu comentário aqui..." required></textarea>
@@ -61,37 +56,36 @@
         </section>
         <!------- SEÇÃO DE COMENTÁRIOS RECENTES ------->
         <section class="comentarios-lista">
-            <h2>Comentários Recentes</h2>
-            
-            <div class="comentario">
-                <div class="comentario-header">
-                    <strong>Pedro Antônio</strong>
-                    <span class="comentario-data">08/02/2025</span>
-                </div>
-                <p>Adorei a visita ao Parque Ecológico! A natureza é incrível e o ambiente muito bem cuidado.</p>
-                <div class="reacoes">
-                    <span><i class="fa fa-thumbs-up"></i> 15</span>
-                    <span><i class="fa fa-thumbs-down"></i> 2</span>
-                    <span><i class="fa fa-smile"></i> 5</span>
-                </div>
-            </div>
+    <h2>Comentários Recentes</h2>
     
-            <div class="comentario">
-                <div class="comentario-header">
-                    <strong>Emerson</strong>
-                    <span class="comentario-data">07/02/2025</span>
-                </div>
-                <p>A plataforma de pesca é um lugar maravilhoso! Ideal para relaxar e aproveitar a vista do mar.</p>
-                <div class="reacoes">
-                    <span><i class="fa fa-thumbs-up"></i> 12</span>
-                    <span><i class="fa fa-thumbs-down"></i> 1</span>
-                    <span><i class="fa fa-smile"></i> 8</span>
-                </div>
+    <?php
+    include 'PHP/conexao.php';
+    $sql = "SELECT c.ds_comentario, u.nm_usuario, c.cd_comentario
+            FROM tb_comentario c
+            JOIN tb_usuario u ON c.fk_cd_usuario = u.cd_usuario
+            ORDER BY c.cd_comentario DESC
+            LIMIT 10";
+
+    $result = $conexao->query($sql);
+
+    while ($linha = $result->fetch_assoc()) {
+        echo '
+        <div class="comentario">
+            <div class="comentario-header">
+                <strong>' . htmlspecialchars($linha['nm_usuario']) . '</strong>
+                <span class="comentario-data">Agora mesmo</span>
             </div>
-    
-            <!----------- Adicione mais comentários aqui ----------->
-        </section>
-    </main>
+            <p>' . htmlspecialchars($linha['ds_comentario']) . '</p>
+            <div class="reacoes">
+                <span><i class="fa fa-thumbs-up"></i> 0</span>
+                <span><i class="fa fa-thumbs-down"></i> 0</span>
+                <span><i class="fa fa-smile"></i> 0</span>
+            </div>
+        </div>';
+    }
+         ?>
+     </section>
+</main>
     
     <footer class="footer">
         <p>&copy; 2025 MongaMap. Todos os direitos reservados.</p>

@@ -8,6 +8,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Descubra</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="CSS/navbar.css">
   <link rel="stylesheet" href="CSS/descubra.css">
 </head>
@@ -43,78 +44,101 @@
 
     <main>
 
-        <!-- SEÇÃO DE DEPOIMENTOS -->
-        <section class="depoimentos">
-            <h2>O que as pessoas estão dizendo?</h2>
-            <div class="slider-container">
-                <button class="prev-btn">&#10094;</button>
-                <div class="slider">
-                    <div class="depoimento">
-                        <img src="IMG/icon.png" alt="Usuário 1">
-                        <p>"A experiência foi incrível! Conheci lugares que nem imaginava!"</p>
-                        <h4>- Emerson</h4>
-                    </div>
-                    <div class="depoimento">
-                        <img src="IMG/icon.png" alt="Usuário 2">
-                        <p>"O MongaMap tornou minha viagem muito mais especial."</p>
-                        <h4>- Pedro Ribeiro</h4>
-                    </div>
-                    <div class="depoimento">
-                        <img src="IMG/icon.png" alt="Usuário 3">
-                        <p>"Descobri lugares incríveis usando o MongaMap!"</p>
-                        <h4>- Walker</h4>
-                    </div>
-                    <div class="depoimento">
-                        <img src="IMG/icon.png" alt="Usuario 4">
-                        <p>"Amei demais os pontos turísticos."</p>
-                        <h4>- Kauê Pereira</h4>
-                    </div>
-                    <div class="depoimento">
-                        <img src="IMG/icon.png" alt="Usuario 5">
-                        <p>"Achei os lugares zika."</p>
-                        <h4>- Sofia Santino</h4>
-                    </div>
-                </div>
-                <button class="next-btn">&#10095;</button>
-            </div>
-        </section>
+       <!-- SEÇÃO DE DEPOIMENTOS -->
+<section class="depoimentos">
+    <h2>
+        O que as pessoas estão dizendo?
+        <i class="fa-solid fa-users"></i>
+    </h2>
+    <div class="depoimentos-marquee">
+        <div class="depoimentos-track">
+            <?php
+            include "PHP/conexao.php";
+            $query = "SELECT * FROM tb_depoimento ORDER BY id_depoimento DESC";
+            $result = mysqli_query($conexao, $query);
 
-        <!-- SEÇÃO DE EXPERIÊNCIAS VISUAIS -->
-        <section class="galeria">
-            <h2>Experiências Visuais</h2>
-            <div class="experiencia-container">
-                <div class="grid" id="galeria-container">
-                    <img src="IMG/poçoantas.png" alt="Lugar 1">
-                    <img src="IMG/santa.mongagua.webp" alt="Lugar 2">
-                    <img src="IMG/feira.png" alt="Lugar 3">
-                    <img src="IMG/plataformapp.png" alt="Lugar 4">
-                </div>
-            </div>
-        </section>
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<div class='depoimento'>";
+                    echo "<img src='IMG/icon.png' alt='Usuário'>";
+                    echo "<p>\"" . $row['mensagem'] . "\"</p>";
+                    echo "<h4>- " . $row['nome_usuario'] . "</h4>";
+                    echo "</div>";
+                }
+            } else {
+                echo "<p>Ninguém deixou um depoimento ainda. Seja o primeiro!</p>";
+            }
+            ?>
+        </div>
+    </div>
+</section>
+
+
+      <!-- SEÇÃO DE EXPERIÊNCIAS VISUAIS -->
+<section class="galeria">
+    <h2>Experiências Visuais</h2>
+    <div class="experiencia-grid">
+        <?php
+        include "PHP/conexao.php";
+        $query = "SELECT * FROM tb_arquivos ORDER BY id_arquivo DESC";
+        $result = mysqli_query($conexao, $query);
+
+        if (!$result) {
+            die("Erro na consulta SQL: " . mysqli_error($conexao));
+        }
+
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<div class='card-exp'>";
+                echo "<img src='" . substr($row['path'], 3) . "' alt='Imagem de " . $row['nome_usuario'] . "'>";
+                echo "<p>\"" . $row['descricao'] . "\"</p>";
+                echo "<h4>- " . $row['nome_usuario'] . "</h4>";
+                echo "</div>";
+            }
+        } else {
+            echo "<p>Seja o primeiro a compartilhar uma experiência!</p>";
+        }
+        ?>
+    </div>
+</section>
+
+
+
 
         <!-- SEÇÃO DE FORMULÁRIO -->
         <section class="form-experiencia">
-            <h2>Compartilhe sua experiência</h2>
-            <form action="PHP/upload.php" method="post" id="form-experiencia" enctype="multipart/form-data">
-                <label for="nome">Seu Nome:</label>
-                <input type="text" id="nome" placeholder="Digite seu nome" required>
+    <h2>Compartilhe sua experiência</h2>
+    <form action="PHP/upload.php" method="post" enctype="multipart/form-data">
+        
+        <div class="form-group">
+            <input type="text" name="nome_usuario" id="nome" placeholder="Digite seu nome" required>
+            <span class="tooltip" data-tooltip="Insira seu primeiro nome ou apelido!">ℹ <i class="fa-solid fa-user"></i>
+        </span>
+        </div>
 
-                <label for="foto">Escolha uma Foto:</label>
-                <input type="file" id="foto" name="fotos" accept="image/*" required>
+        <div class="form-group">
+            <input type="file" id="foto" name="fotos" accept="image/*">
+            <span class="tooltip" data-tooltip="Selecione uma foto da sua experiência (opcional)"><i class="fa-solid fa-images"></i>
+        </span>
+        </div>
 
-                <label for="mensagem">Descreva sua experiência:</label>
-                <textarea id="mensagem" rows="4" placeholder="Conte sobre sua experiência..." required></textarea>
+        <div class="form-group">
+            <textarea name="descricao" id="mensagem" rows="3" placeholder="Conte sobre sua experiência..." required></textarea>
+            <span class="tooltip" data-tooltip="Fale brevemente sobre o que você viveu!"> <i class="fa-solid fa-comment-dots"></i>
+        </span>
+        </div>
 
-                <button type="submit">Enviar Depoimento</button>
-            </form>
-        </section>
+        <button type="submit">Enviar Depoimento</button>
+    </form>
+</section>
 
     </main>
 
     <!-- FOOTER -->
     <footer class="footer">
         <p>&copy; 2025 MongaMap. Todos os direitos reservados.</p>
-    </footer>
+        <a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a>
+      </footer>
 
     <script src="JS/descubra.js"></script>
     <script src="JS/navbar.js"></script>

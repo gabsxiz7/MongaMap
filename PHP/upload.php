@@ -1,31 +1,58 @@
 <?php 
-// Recebendo Arquivo
+//recebendo arquivo
+include 'conexao.php';
 
-$arquivos = $_FILES['fotos'];
+$nome_usuario = $_POST['nome_usuario'] ?? '';
+$descricao = $_POST['descricao'] ?? '';
+$arquivo = $_FILES['fotos'] ?? null;
 
-if (isset($_FILES['fotos'])) {
-
+if ($arquivo && $arquivo['error'] === UPLOAD_ERR_OK) {
+    //envia imagem + insere na tb_arquivos
     $pasta = "../arquivos/";
-    $NomedoArquivo = $arquivos['name'];
-    $NovoNomedoArquivo = uniqid();
-    $extensao = strtolower(pathinfo($NomedoArquivo, PATHINFO_EXTENSION));
-    $path = $pasta . $NovoNomedoArquivo . "." . $extensao;
-    $deu_certo = move_uploaded_file($arquivos['tmp_name'], $path);
+    $nomeOriginal = $arquivo['name'];
+    $novoNome = uniqid();
+    $extensao = strtolower(pathinfo($nomeOriginal, PATHINFO_EXTENSION));
+    $caminhoCompleto = $pasta . $novoNome . "." . $extensao;
 
-if($deu_certo){
-    include 'conexao.php';
+    $upload = move_uploaded_file($arquivo['tmp_name'], $caminhoCompleto);
 
-   $insert = $conexao->query("INSERT INTO tb_arquivos (nome, path) VALUES('$NomedoArquivo', '$path')") or
-    die($conexao->error);
+    if ($upload) {
+        $query = "INSERT INTO tb_arquivos (nome, path, nome_usuario, descricao)
+                  VALUES ('$nomeOriginal', '$caminhoCompleto', '$nome_usuario', '$descricao')";
+        $inserir = mysqli_query($conexao, $query);
 
-    if($insert){
-        echo"<script> alert('imagem inserida'); history.back();</script>";
+        echo "<script>
+            alert('Imagem e experiência salvas com sucesso!');
+            window.location.href = '../descubra.php';
+        </script>";
+        exit();
+
+    } else {
+        echo "<script>
+            alert('Erro ao mover o arquivo para a pasta.');
+            window.location.href = '../descubra.php';
+        </script>";
+        exit();
+    }
+
+} else {
+    //salvando apenas depoimento sem imagem
+    if (!empty($nome_usuario) && !empty($descricao)) {
+        $query = "INSERT INTO tb_depoimento (nome_usuario, mensagem)
+                  VALUES ('$nome_usuario', '$descricao')";
+        $inserir = mysqli_query($conexao, $query);
+
+        echo "<script>
+            alert('Depoimento enviado com sucesso!');
+            window.location.href = '../descubra.php';
+        </script>";
+        exit();
+    } else {
+        echo "<script>
+            alert('Por favor, preencha todos os campos.');
+            window.location.href = '../descubra.php';
+        </script>";
+        exit();
     }
 }
-}else{
-    echo "falha";
-}
-
-
-
 ?>
