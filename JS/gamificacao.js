@@ -1,9 +1,9 @@
 let h2 = document.querySelector('h2');
 let coordenadasElemento = document.getElementById("coordenadas");
 var map;
-var userMarker; // Variável global para o marcador do usuário
+var userMarker; //variável global para o marcador do usuário
 
-// Inicializa o mapa
+
 function success(pos) {
     console.log("📍 Nova localização recebida:");
     console.log("Latitude:", pos.coords.latitude);
@@ -13,11 +13,9 @@ function success(pos) {
     const latitude = pos.coords.latitude;
     const longitude = pos.coords.longitude;
 
-    // Atualiza as coordenadas na <p> correto
     coordenadasElemento.textContent = `Latitude: ${latitude.toFixed(6)}, Longitude: ${longitude.toFixed(6)}`;
 
     if (!map) {
-        //se o mapa ainda não foi criado, cria agora
         map = L.map('map').setView([latitude, longitude], 13);
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -29,12 +27,10 @@ function success(pos) {
             .bindPopup('📍 Você está aqui!')
             .openPopup();
     } else {
-        // Apenas move o marcador para a nova posição
         userMarker.setLatLng([latitude, longitude]);
         map.setView([latitude, longitude], 13);
     }
 
-    // Adiciona os pontos turísticos apenas uma vez
     if (!map.pontosTuristicosAdicionados) {
         const pontosTuristicos = [
             { coords: [-24.134243, -46.692596], nome: 'Plataforma de Pesca', descricao: 'Local incrível para pesca e lazer.' },
@@ -54,48 +50,35 @@ function success(pos) {
                 .bindPopup(`<b>${ponto.nome}</b><br>${ponto.descricao}`);
         });
 
-        map.pontosTuristicosAdicionados = true; // Evita adicionar múltiplas vezes
+        map.pontosTuristicosAdicionados = true; //evita adicionar múltiplas vezes
     }
 }
 
-// Tratamento de erro
+//tratamento de erro
 function error(err) {
     console.error(err);
     h2.textContent = 'Não foi possível obter sua localização.';
 }
 
-// Solicita localização do usuário
-navigator.geolocation.getCurrentPosition(success, error, {
+//solicita localização do usuário
+navigator.geolocation.watchPosition(success, error, {
     enableHighAccuracy: true,
-    timeout: 10000, // Tempo máximo para resposta (10s)
-    maximumAge: 0   // Força atualização e evita cache antigo
+    timeout: 10000,
+    maximumAge: 0
 });
 
-// Função para marcar pontos turísticos no mapa
+//função para marcar pontos turísticos no mapa
 function marcarMapa(latitude, longitude) {
-    map.setView([latitude, longitude], 16); // Centraliza o mapa no ponto turístico
+    map.setView([latitude, longitude], 16); //centraliza o mapa no ponto turístico
     L.marker([latitude, longitude]).addTo(map)
         .bindPopup('<strong>Ponto Selecionado</strong>')
         .openPopup();
 }
 
-// Pequeno atraso para garantir que o mapa foi atualizado antes da rolagem
-setTimeout(() => {
-    let mapaElemento = document.getElementById("map");
-
-    if (mapaElemento && mapaElemento.offsetHeight > 0) {
-        window.scrollTo({
-            top: mapaElemento.offsetTop - 100,
-            behavior: "smooth"
-        });
-    }
-}, 300);
-
-// Dados do usuário
+//dados do usuário
 let usuario = {
-    nome: "BlackN444",
     foto: "IMG/icon.png",
-    pontos: 320,
+    pontos: 0,
     nivel: "Explorador",
     conquistas: [
         { nome: "Visitou a Plataforma de Pesca", pontos: 50 },
@@ -109,18 +92,19 @@ let usuario = {
     ]
 };
 
+//remover patente
+localStorage.removeItem("usuario");
 
 
-// Atualiza a exibição do usuário
+//atualiza a exibição do usuário
 function atualizarUsuario() {
-    document.getElementById("nomeUsuario").textContent = usuario.nome;
     document.getElementById("fotoUsuario").src = usuario.foto;
     document.getElementById("pontuacaoUsuario").textContent = `Pontuação: ${usuario.pontos} ⭐`;
 
     //atualiza o nivel do usuario de acordo cm a pontuacao
     if (usuario.pontos >= 5000) {
         usuario.nivel = "Mestre do Mapa";
-    } else if (usuario.pontos >= 200) {
+    } else if (usuario.pontos >= 0) {
         usuario.nivel = "Explorador";
     } else {
         usuario.nivel = "Iniciante";
@@ -131,7 +115,7 @@ function atualizarUsuario() {
     let progressBar = document.querySelector(".barra-progresso progress");
     progressBar.value = usuario.pontos;
     progressBar.max = 5000;
-    document.getElementById("progressText").textContent = `${usuario.pontos} / 5000 pontos`;
+    document.getElementById("progressText").textContent = `${usuario.pontos} / 500 pontos`;
     
     //atualiza a lista de conquistas
     let listaConquistas = document.getElementById("listaConquistas");
@@ -152,7 +136,7 @@ function atualizarUsuario() {
         
         if (!missao.concluida) {
             li.style.cursor = "pointer";
-            li.style.color = "blue"; // Indica que é clicável
+            li.style.color = "blue"; 
             
             li.addEventListener("click", function () {
                 concluirMissao(index);
@@ -195,7 +179,7 @@ function concluirMissao(index) {
         }, 500);
     }
 }
-// Verifica se há dados salvos no localStorage
+//verifica se há dados salvos no localStorage
 if (localStorage.getItem("usuario")) {
     usuario = JSON.parse(localStorage.getItem("usuario"));
 
@@ -216,8 +200,6 @@ document.addEventListener("DOMContentLoaded", function () {
         pontos: 0,
         conquistas: []
     };
-
-    document.getElementById("nomeUsuario").textContent = usuario.nome;
     document.getElementById("pontuacaoUsuario").textContent = `Pontuação: ${usuario.pontos} ⭐`;
 
     let listaConquistas = document.getElementById("listaConquistas");
@@ -229,7 +211,7 @@ document.addEventListener("DOMContentLoaded", function () {
         listaConquistas.appendChild(li);
     });
 
-    // Verifica se veio da página de QR Code
+    //verifica se veio da página de QR Code
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get("recompensa") === "1") {
         alert("🎊 Você recebeu uma nova recompensa pelo QR Code!");

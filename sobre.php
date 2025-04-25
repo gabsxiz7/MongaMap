@@ -124,7 +124,7 @@
                     <div class="sobre-nos-item">
                        <a href="contato.html" class="link-saiba-mais">
                         Saiba Mais
-                        <img src="IMG/equipe.png" alt="Ícone da equipe" class="icon-saiba-mais">
+                        <img src="IMG/equipe.png.jpeg" alt="Ícone da equipe" class="icon-saiba-mais">
                     </a>
                 </div>
         </section>

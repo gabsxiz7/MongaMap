@@ -71,7 +71,7 @@
         </div>
       </div>
       <div class="slide">
-        <img src="IMG/praia.linda.png" alt="Morro da Padroeira">
+        <img src="IMG/padroeira2.png" alt="Morro da Padroeira">
         <div class="caption">
           <h5>Morro da Padroeira</h5>
           <p>Com 139 degraus e 15 metros de altura, proporciona uma vista incrível da cidade.</p>

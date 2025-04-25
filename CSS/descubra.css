@@ -1,11 +1,9 @@
-/* Reset Geral */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Corpo da página */
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #f8f9fa;
@@ -18,7 +16,6 @@ main {
     width: 100%; /* Garante que ocupe toda a largura */
 }
 
-/* Cabeçalho */
 .header {
     background: linear-gradient(to right, #004085, #007bff);
     color: white;
@@ -40,16 +37,14 @@ main {
 section {
     width: 90%;
     max-width: 1000px;
-    margin: 50px auto; /* Adiciona espaçamento entre as seções */
+    margin: 50px auto; 
     padding: 40px 20px;
     background-color: #f8f9fa;
     border-radius: 0;
     box-shadow: 0;
 }
 
-/* ======================== */
-/* 1. SEÇÃO DE DEPOIMENTOS */
-/* ======================== */
+
 .depoimentos {
     min-width: 1300px;
     background-color: #f8f9fa;
@@ -88,7 +83,7 @@ section {
 
 @keyframes scroll {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-150%); }
+    100% { transform: translateX(-80%); }
 }
 .titulo-depoimentos {
     display: flex;
@@ -100,15 +95,19 @@ section {
 }
 
 
-/* ======================== */
-/* 2. SEÇÃO DE EXPERIÊNCIAS VISUAIS */
-/* ======================== */
+/*exper visuais*/
 section.galeria {
     padding: 60px 20px;
     min-width: 1300px;
     background-color: transparent;
     border-radius: 0;
     overflow: hidden;
+}
+
+.galeria h2 {
+    font-size: 1.8rem;
+    color: #004085;
+    margin-bottom: 30px;
 }
 
 .experiencia-grid {

@@ -1,8 +1,6 @@
 <?php
-
 include 'conexao.php';
 session_start();
-
 $email = $_POST['email'];
 $password = $_POST['senha'];
 $captcha = $_POST['g-recaptcha-response'];
@@ -24,7 +22,7 @@ if (!$responseKeys["success"]) {
 }
 
 // Prepara a consulta SQL para evitar SQL Injection
-$sql = "SELECT cd_usuario, nm_senha FROM tb_usuario WHERE nm_email = ?";
+$sql = "SELECT cd_usuario, nm_usuario, ds_descricao, nm_foto, nm_senha FROM tb_usuario WHERE nm_email = ?";
 $stmt = $conexao->prepare($sql);
 $stmt->bind_param("s", $email);
 $stmt->execute();
@@ -46,6 +44,13 @@ if (password_verify($password, $resultado['nm_senha'])) {
     exit;
 }
 
+$_SESSION['id'] = $resultado['cd_usuario'];
+$_SESSION['nome'] = $resultado['nm_usuario'];
+$_SESSION['descricao'] = $resultado['ds_descricao'];
+$_SESSION['foto'] = $resultado['nm_foto'];
+
+
 $stmt->close();
 $conexao->close();
 ?>
+

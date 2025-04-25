@@ -1,10 +1,6 @@
-
 <?php
-
-//Conectando no Banco de Dados
-
+//conectando no Banco de Dados
 include 'conexao.php';
-
 //Receber os Dados do Formulário
 
 $nome = $_POST['nome'];

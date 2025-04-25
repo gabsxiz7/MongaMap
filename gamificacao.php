@@ -15,6 +15,8 @@ $sql = "SELECT
             u.nm_usuario, 
             u.nm_email, 
             u.nr_telefone, 
+            u.ds_descricao,
+            u.nm_foto,
             p.nm_patente, 
             p.nr_parente 
         FROM tb_usuario u
@@ -75,30 +77,45 @@ $stmt->close();
         <h1>Gamificação</h1>
         <p>Explore os pontos turísticos de Mongaguá e acompanhe seu progresso.</p>
     </header>
+
+
     <!--secao do user-->
        <main class="container-container">
            <!-- seção 1: informações do usuário -->
            <section class="card perfil">
            <h2>Minha Jornada 🎮</h2>
-           <img id="fotoUsuario" src="IMG/icon.png" alt="Avatar">
-           <h3>Usuário: <strong id="nomeUsuario"><?php echo htmlspecialchars($usuario['nm_usuario']);?></strong></h3>
-        <p id="nivelUsuario">Patente: <?php echo htmlspecialchars($usuario['nm_patente'] ?? 'Sem patente');?></p>
-        <p id="pontuacaoUsuario">Parente:<?php echo htmlspecialchars($usuario['nr_parente'] ?? '0');?></p>
-    </section>
+        <!-- Avatar real -->
+        <img id="fotoUsuario" src="IMG/<?php echo htmlspecialchars($usuario['nm_foto'] ?? 'icon.png'); ?>" alt="Avatar">
+
+        <!-- Nome do usuário -->
+        <h3>Usuário: <span id="nomeUsuario"><?php echo htmlspecialchars($usuario['nm_usuario']); ?></span></h3>
+
+         <!-- Patente e pontuação -->
+        <p id="nivelUsuario">Patente: <span style="color: white;"><?php echo htmlspecialchars($usuario['nm_patente'] ?? 'Sem patente'); ?></span></p>
+        <p id="pontuacaoUsuario">Pontuação: <span style="color: white;"><?php echo htmlspecialchars($usuario['nr_parente'] ?? '0'); ?>⭐</span></p>
+
+        <!--descrição -->
+        <?php if (!empty($usuario['ds_descricao'])): ?>
+        <div class="descricao-perfil">
+        <p><?php echo nl2br(htmlspecialchars($usuario['ds_descricao'])); ?></p>
+            </div>
+       <?php endif; ?>
+     </section>
+
         <!-- seção 2: Barra de Progresso -->
            <section class="card barra-progresso">
-           <h3>Nível 2 🚀</h3>
-           <progress value="320" max="5000"></progress>
-        <p id="progressText">320 / 5000 pontos</p>
+           <h3>Nível 1 🚀</h3>
+           <progress value="0" max="5000"></progress>
+        <p id="progressText">0 / 5000 pontos</p>
     </section>
-        <!-- Seção 3: Conquistas Recentes -->
+        <!--conquistas Recentes -->
            <section class="card conquistas">
            <h3>Últimas Conquistas 🎉</h3>
         <ul id="listaConquistas">
           <!--conquistas aparece aq pelo js-->
         </ul>
     </section>
-        <!-- seção 4: Missões-->
+        <!-- missões-->
     <section class="card">
         <h3>Missões 📜</h3>
         <ul id="listaMissoes">

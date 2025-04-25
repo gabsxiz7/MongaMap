@@ -73,8 +73,8 @@
             </select>
             <label for="ponto2">Destino:</label>
             <select id="ponto2">
-                <option value="-24.0911,-46.6218">Plataforma de Pesca</option>
                 <option value="-24.0941,-46.6195">Parque Ecológico</option>
+                <option value="-24.0911,-46.6218">Plataforma de Pesca</option>
                 <option value="-24.0920,-46.6233">Igreja Matriz</option>
                 <option value="-24.0950,-46.6240">Praia Flórida Mirim</option>
                 <option value="-24.0975,-46.6210">Praça Dudu Samba</option>
@@ -89,7 +89,7 @@
     </section>
     <!-- dicas...-->
     <section>
-        <h2>Dicas para um Bom Planejamento</h2>
+        <h2>Dicas para um bom planejamento</h2>
         <ul class="dicas-planejamento">
             <li>Verifique as condições climáticas antes de planejar sua rota.</li>
             <li>Evite horários de pico para aproveitar ao máximo cada ponto turístico.</li>

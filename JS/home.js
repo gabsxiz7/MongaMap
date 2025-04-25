@@ -37,10 +37,10 @@ const nextBtn = document.querySelector('.next');
 const prevBtn = document.querySelector('.prev');
 
 function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.classList.toggle('active', i === index);
-  });
+  const slideWidth = slides[0].clientWidth;
+  document.querySelector('.carousel-slides').style.transform = `translateX(-${index * slideWidth}px)`;
 }
+
 
 function nextSlide() {
   currentSlide = (currentSlide + 1) % slides.length;
@@ -57,5 +57,5 @@ prevBtn.addEventListener('click', prevSlide);
 
 showSlide(currentSlide); // inicializa
 
-// Auto-slide a cada 2 segundos
-setInterval(nextSlide, 2000);
+// Auto-slide a cada 3 segundos
+setInterval(nextSlide, 3000);
