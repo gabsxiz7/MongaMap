@@ -25,6 +25,7 @@
             if (isset($_SESSION['id'])) {
          // c o usuário estiver logado
             echo '
+            <li><a href="quiz.php">Quiz</a></li>
             <li><a href="gamificacao.php">Perfil</a></li>
             <li><a href="php/logout.php" class="btn-sair">Sair</a></li>
             ';
@@ -62,7 +63,7 @@
                 <h1>Entrar</h1>
                 <input type="email" placeholder="Email" name="email" required>
                 <input type="password" placeholder="Senha" name="senha" required>
-                <a href="#">Esqueceu sua senha?</a>
+                <a href="esqueci_senha.php">Esqueceu sua senha?</a>
 
                   <!-- reCAPTCHA -->
         <div class="g-recaptcha" data-sitekey="6LeRF_oqAAAAALag1sMQ1Xuouq_X9DRsj-EUYkiP"></div>

@@ -14,7 +14,10 @@
 <body>
   <nav class="navbar">
     <div class="navbar-container">
-        <a href="index.html" class="navbar-brand"></a>
+        <a href="#" class="navbar-brand">
+             <img src="IMG/mglogo.png" alt="Mini Logo" class="mongamap">
+        </a>
+        
         <button class="menu-toggle" id="menuToggle" aria-label="Menu">
           <span class="menu-bar"></span>
           <span class="menu-bar"></span>
@@ -26,7 +29,8 @@
             <li><a href="conheca.php">Conheça</a></li>
             <li><a href="comentarios.php">Feedback</a></li>
             
-    <?php if (isset($_SESSION['id'])):?> 
+    <?php if (isset($_SESSION['id'])):?>
+            <li><a href="quiz.php">Quiz</a></li> 
             <li><a href="gamificacao.php">Perfil</a></li>
             <li><a href="php/logout.php" class="btn-sair">Sair</a></li>
             <?php else: ?>

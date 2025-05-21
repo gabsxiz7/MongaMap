@@ -39,9 +39,20 @@ main {
   background: linear-gradient(to right, #004085, #007bff, #004085); /* Gradiente azul */
   }
   
+.mongamap {
+  display: flex;
+    width: 60px !important;
+    height: auto !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: contain;
+}
+
+
 
   .btn-cadastrar {
-    color: #fff; 
+    background: linear-gradient(to right, #ffffff, #757779, #ffffff );
+    color: #ffffff; 
     padding: 8px 15px;                    
     border-radius: 20px; 
     box-sizing: border-box;                  
@@ -49,9 +60,8 @@ main {
     transition: background-color 0.3s ease; /*animação suave ao passar o mouse*/
 }
 .btn-cadastrar:hover {
-    background-color: #0056b3; 
+    background-color: #5bc900; 
 }
-
 
 
   .navbar-container {
@@ -62,9 +72,14 @@ main {
     padding: 0 20px;
   }
   
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    margin-right: auto; 
+}
 
   .navbar-brand img {
-    max-width: 40px; /* Tamanho da logo */
+    max-width: 40px; 
     margin-right: 8px;
   }
   
@@ -172,6 +187,9 @@ main {
         }
         .navbar-links a:hover {
             background-color: rgba(255, 255, 255, 0.2);
+        }
+        .mongamap {
+          width: 60px;
         }
     }    
 
