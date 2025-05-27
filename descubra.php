@@ -1,5 +1,10 @@
 <?php 
  session_start();
+
+ if (!isset($_SESSION['id'])) {
+    echo "<script> alert('Você não está logado!'); history.back(); </script>";
+    exit();
+ }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -30,7 +35,7 @@
             <li><a href="comentarios.php">Feedback</a></li>
             
     <?php if (isset($_SESSION['id'])):?>
-            <li><a href="quiz.php">Quiz</a></li> 
+            <li><a href="quiz.php?id=1">Quiz</a></li> 
             <li><a href="gamificacao.php">Perfil</a></li>
             <li><a href="php/logout.php" class="btn-sair">Sair</a></li>
             <?php else: ?>
@@ -50,22 +55,25 @@
        <!-- SEÇÃO DE DEPOIMENTOS -->
 <section class="depoimentos">
     <h2>
-        O que as pessoas estão dizendo?
         <i class="fa-solid fa-users"></i>
+        O que as pessoas estão dizendo?
     </h2>
     <div class="depoimentos-marquee">
         <div class="depoimentos-track">
             <?php
             include "PHP/conexao.php";
-            $query = "SELECT * FROM tb_depoimento ORDER BY id_depoimento DESC";
+            $query = "SELECT d.mensagem, d.data_envio, u.nm_usuario, u.nm_foto
+            FROM tb_depoimento d
+            JOIN tb_usuario u ON d.cd_usuario = u.cd_usuario
+            ORDER BY d.data_envio DESC";
             $result = mysqli_query($conexao, $query);
 
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<div class='depoimento'>";
-                    echo "<img src='IMG/icon.png' alt='Usuário'>";
+                    echo "<img src='" . $row['nm_foto'] . "' alt='Foto do usuário'>";
                     echo "<p>\"" . $row['mensagem'] . "\"</p>";
-                    echo "<h4>- " . $row['nome_usuario'] . "</h4>";
+                    echo "<h4>- " . $row['nm_usuario'] . "</h4>";
                     echo "</div>";
                 }
             } else {
@@ -114,7 +122,7 @@
     <form action="PHP/upload.php" method="post" enctype="multipart/form-data">
         
         <div class="form-group">
-            <input type="text" name="nome_usuario" id="nome" placeholder="Digite seu nome" required>
+            <input type="text" name="" id="nome" placeholder="Digite seu nome" required>
             <span class="tooltip" data-tooltip="Insira seu primeiro nome ou apelido!">ℹ <i class="fa-solid fa-user"></i>
         </span>
         </div>

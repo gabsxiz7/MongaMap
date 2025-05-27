@@ -30,7 +30,7 @@
                 <li><a href="conheca.php">Conheça</a></li>
                 <li><a href="comentarios.php">Feedback</a></li>
     <?php if (isset($_SESSION['id'])):?> 
-            <li><a href="quiz.php">Quiz</a></li>
+            <li><a href="quiz.php?id=1">Quiz</a></li>
             <li><a href="gamificacao.php">Perfil</a></li>
             <li><a href="php/logout.php" class="btn-sair">Sair</a></li>
             <?php else: ?>
@@ -41,7 +41,7 @@
     </nav>
         <!------------SEÇÃOZINHA SOBRE NOIS------------>
         <header class="header">
-         <h1>Sobre nós</h1>
+         <h1>Sobre Nós</h1>
         </header>
            <section class="sobre-nos fade-in">
         <div class="container">
@@ -70,29 +70,29 @@
                 <h2>Nosso Time</h2>
                 <div class="team-container">
                  <div class="team-member">
-                   <img src="IMG/icon.png" alt="Membro 1">
+                   <img src="IMG/ft.emerson.jpeg" alt="Membro 1">
                     <h3>Emerson</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus ut nam quibusdam tempora cupiditate voluptatem atque odit quia facilis necessitatibus ab sequi voluptate impedit, fugiat, sint voluptatibus officia earum minus.</p>
+                    <p>20 Anos<br>Atuei como representante da equipe, contribuindo com a organização, liderança e execução das tarefas. Sou uma pessoa dedicada, gosto de aprender coisas novas e tenho grande interese pela área de tecnologia.</p>
                 </div>
                 <div class="team-member">
-                   <img src="IMG/icon.png" alt="membro 2">
+                   <img src="IMG/ft.emily.jpeg" alt="membro 2">
                     <h3>Emily</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis aliquam ad pariatur magni quae sapiente in? Harum possimus nemo, voluptatum nobis autem neque sunt exercitationem totam in, atque soluta aliquam.</p>
+                    <p>18 Anos<br>Responsável pela modelagem do banco de dados (entidades, relacionamentos e estrutura lógica) e pela documentação técnica do projeto, assegurando padronização e clareza para o desenvolvimento.</p>
                 </div>
                 <div class="team-member">
-                    <img src="IMG/icon.png" alt="membro 3">
+                    <img src="IMG/ft.gabriella.jpeg" alt="membro 3">
                     <h3>Gabriella</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo nobis aliquam similique, architecto eum, beatae ratione consequatur, blanditiis fuga vel dolorum culpa sequi nostrum veniam alias commodi voluptas expedita facilis!</p>
+                    <p>17 Anos<br>Responsável pelo desenvolvimento completo do site, atuei tanto na criação do design quanto na implementação de seu funcionamento com o banco de dados.</p>
                 </div>
                 <div class="team-member">
-                    <img src="IMG/icon.png" alt="membro4">
+                    <img src="IMG/ft.guilherme.jpeg" alt="membro4">
                     <h3>Guilherme</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium quia eligendi debitis accusamus voluptates iusto vitae delectus doloremque in, fugit molestias. Mollitia beatae, praesentium laudantium voluptate iste enim commodi atque.</p>
+                    <p>17 Anos<br>Contribui com algumas tarefas de design e documentação do projeto. Sou uma pessoa muito disposta a aprender na área da tecnologia e anseio em evoluir a cada dia.</p>
                 </div>
                 <div class="team-member">
-                    <img src="IMG/icon.png" alt="membro5">
+                    <img src="IMG/ft.thayane.jpeg" alt="membro5">
                     <h3>Thayane</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, consequatur quidem accusantium soluta dolor, necessitatibus fugit quisquam doloribus aliquam sapiente deleniti illum omnis! Dolor veritatis modi inventore dolorem, iste rem.</p>
+                    <p>17 Anos<br>Responsável pela modelagem do banco de dados, pela criação do manual do usuário e pela elaboração de algumas partes da documentação.</p>
                 </div>
                 </div>
             </section>
@@ -124,7 +124,6 @@
                         </div>
                     </div>
                 </section>
-            <!--link saiba mais e icon da equipe-->
         </section>
             <footer class="footer">
                 <p>&copy; 2025 MongaMap. Todos os direitos reservados.</p>

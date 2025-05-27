@@ -67,7 +67,7 @@ $stmt->close();
                 <li><a href="conheca.php">Conheça</a></li>
                 <li><a href="comentarios.php">Feedback</a></li>
     <?php if (isset($_SESSION['id'])):?> 
-            <li><a href="quiz.php">Quiz</a></li>
+            <li><a href="quiz.php?id=1">Quiz</a></li>
             <li><a href="gamificacao.php">Perfil</a></li>
             <li><a href="php/logout.php" class="btn-sair">Sair</a></li>
             <?php else: ?>

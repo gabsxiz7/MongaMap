@@ -14,7 +14,9 @@
 <body class="page-cadastro">
     <nav class="navbar">
         <div class="navbar-container">
-            <a href="index.html" class="navbar-brand"></a>
+            <a href="index.html" class="navbar-brand">
+                <img src="IMG/mglogo.png" alt="Mini Logo" class="mongamap">
+            </a>
             <button class="menu-toggle" id="menuToggle" aria-label="Menu">
                 <span class="menu-bar"></span>
                 <span class="menu-bar"></span>
@@ -25,7 +27,7 @@
             if (isset($_SESSION['id'])) {
          // c o usuário estiver logado
             echo '
-            <li><a href="quiz.php">Quiz</a></li>
+            <li><a href="quiz.php?id=1">Quiz</a></li>
             <li><a href="gamificacao.php">Perfil</a></li>
             <li><a href="php/logout.php" class="btn-sair">Sair</a></li>
             ';
@@ -66,8 +68,10 @@
                 <a href="esqueci_senha.php">Esqueceu sua senha?</a>
 
                   <!-- reCAPTCHA -->
-        <div class="g-recaptcha" data-sitekey="6LeRF_oqAAAAALag1sMQ1Xuouq_X9DRsj-EUYkiP"></div>
-
+                <div class="recaptcha-container">
+                  <div class="g-recaptcha" data-sitekey="6LeRF_oqAAAAALag1sMQ1Xuouq_X9DRsj-EUYkiP"></div>
+                </div>
+          
                 <button type="submit">Entrar</button>
             </form>
         </div>

@@ -33,18 +33,35 @@ if (!$responseKeys["success"]) {
 $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
 
-//inserir usuário no banco de dados usando Prepared Statement
-$sql = "INSERT INTO tb_usuario (nm_usuario, nm_email, nr_telefone, nm_senha) VALUES (?, ?, ?, ?)";
+$tipo = 'usuario'; // define o tipo de usuário
+
+$sql = "INSERT INTO tb_usuario (nm_usuario, nm_email, nr_telefone, nm_senha, tipo_usuario) 
+        VALUES (?, ?, ?, ?, ?)";
 $stmt = $conexao->prepare($sql);
-$stmt->bind_param("ssss", $nome, $email, $telefones, $senhaHash);
+
+if (!$stmt) {
+    die("Erro na preparação da query: " . $conexao->error);
+}
+
+$stmt->bind_param("sssss", $nome, $email, $telefones, $senhaHash, $tipo);
+
 
 
 if ($stmt->execute()) {
-    echo "<script> alert('✔ Cadastro realizado com sucesso!'); document.location.href = '../index.php'; </script>";
-} else {
+    // Recupera o ID do usuário recém-cadastrado
+    $id_usuario = $stmt->insert_id;
 
-    echo "<script> alert('❌ Erro ao cadastrar.'); history.back(); </script>";
+    // Inicia sessão e armazena dados na sessão
+    session_start();
+    $_SESSION['id'] = $id_usuario;
+    $_SESSION['nome'] = $nome;
+    $_SESSION['email'] = $email;
+
+    // Redireciona para a home logado
+    header("Location: ../index.php");
+    exit();
 }
+
 
 $stmt->close();
 $conexao->close();

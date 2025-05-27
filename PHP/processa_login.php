@@ -22,7 +22,7 @@ if (!$responseKeys["success"]) {
 }
 
 // Prepara a consulta SQL para evitar SQL Injection
-$sql = "SELECT cd_usuario, nm_usuario, ds_descricao, nm_foto, nm_senha FROM tb_usuario WHERE nm_email = ?";
+$sql = "SELECT cd_usuario, nm_usuario, ds_descricao, nm_foto, nm_senha, tipo_usuario FROM tb_usuario WHERE nm_email = ?";
 $stmt = $conexao->prepare($sql);
 $stmt->bind_param("s", $email);
 $stmt->execute();
@@ -37,18 +37,19 @@ if (!$resultado) {
 // Verifica a senha de forma segura
 if (password_verify($password, $resultado['nm_senha'])) {
     $_SESSION['id'] = $resultado['cd_usuario'];
+    $_SESSION['nome'] = $resultado['nm_usuario'];
+    $_SESSION['descricao'] = $resultado['ds_descricao'];
+    $_SESSION['foto'] = $resultado['nm_foto'];
+    $_SESSION['tipo_usuario'] = $resultado['tipo_usuario'];
+
+    
+    
     header('location: ../index.php');
     exit;
 } else {
     echo "<script> alert('❌ Usuário ou senha inválida!'); history.back(); </script>";
     exit;
 }
-
-$_SESSION['id'] = $resultado['cd_usuario'];
-$_SESSION['nome'] = $resultado['nm_usuario'];
-$_SESSION['descricao'] = $resultado['ds_descricao'];
-$_SESSION['foto'] = $resultado['nm_foto'];
-
 
 $stmt->close();
 $conexao->close();

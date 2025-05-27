@@ -1,5 +1,12 @@
-<<?php 
+<?php
+include 'php/conexao.php'; 
  session_start();
+
+ if (!isset($_SESSION['id'])) {
+    echo "<script> alert('Você não está logado!'); history.back(); </script>";
+    exit();
+ }
+ 
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -31,7 +38,7 @@
                 <li><a href="comentarios.php">Feedback</a></li>
                 
     <?php if (isset($_SESSION['id'])):?> 
-            <li><a href="quiz.php">Quiz</a></li>
+            <li><a href="quiz.php?id=1">Quiz</a></li>
             <li><a href="gamificacao.php">Perfil</a></li>
             <li><a href="php/logout.php" class="btn-sair">Sair</a></li>
             <?php else: ?>
@@ -40,13 +47,13 @@
             </ul>
         </div>
     </nav>
-  
+
     <header class="header">
         <h1>Planejamento Simplificado</h1>
         <p>Crie rotas personalizadas e visualize os melhores caminhos para explorar Mongaguá com praticidade.</p>
     </header>
     <!----------mapa interativo-------->
-    <section>
+    <section class="map-section">
         <h2>Planeje sua Rota</h2>
         <div id="map"></div>
     </section>

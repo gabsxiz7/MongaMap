@@ -28,15 +28,22 @@
             <span class="menu-bar"></span>
         </button>
         <ul class="navbar-links" id="navbarLinks">
-            <li><a href="index.php">Início</a></li>
-            <li><a href="sobre.php">Sobre</a></li>
-            <li><a href="conheca.php">Conheça</a></li>
-            <li><a href="comentarios.php">Feedback</a></li>
+            <li><a href="index.php" class="ativo">Início</a></li>
+            <li><a href="sobre.php" class="ativo">Sobre</a></li>
+            <li><a href="conheca.php" class="ativo">Conheça</a></li>
+            <li><a href="comentarios.php" class="ativo">Feedback</a></li>
 
     <?php if (isset($_SESSION['id'])):?>   
-            <li><a href="quiz.php">Quiz</a></li>
+            <li><a href="quiz.php?id=1">Quiz</a></li>
             <li><a href="gamificacao.php">Perfil</a></li>
-            <li><a href="php/logout.php" class="btn-sair">Sair</a></li>
+           
+            <!---login para dms acessar--->
+        <?php if (isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] === 'admin'): ?>
+            <li><a href="adicionar_pergunta.php">Adicionar Pergunta</a></li>
+            <li><a href="adicionar_local.php">Adicionar Local</a></li>
+        <?php endif; ?>
+
+         <li><a href="php/logout.php" class="btn-sair">Sair</a></li>
             <?php else: ?>
             <li><a href="cadastro.php" class="btn-cadastrar">Cadastre-se</a></li>
             <?php endif; ?>
@@ -57,8 +64,25 @@
         </div>
       </div>
     </section>    
+      <!-- Vídeo de abertura -->
+  <section id="videoContainer" class="video-container">
+    <video
+      id="introVideo"
+      width="100%"
+      autoplay
+      muted
+      playsinline
+    >
+      <source src="VIDEO/plataforma.video.mp4" type="video/mp4" />
+      Seu navegador não suporta vídeo HTML5.
+    </video>
+    <!-- overlay de texto -->
+  <div class="video-overlay">
+    <h1>Mongaguá</h1>
+  </div>
+  </section>
       <!--CARROSSEL INICIAL-->
-      <section class="carousel-container">
+      <section class="carousel-container" style="display: none;">
   <div class="custom-carousel">
     <div class="carousel-slides">
       <div class="slide active">

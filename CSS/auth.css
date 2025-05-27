@@ -191,6 +191,34 @@ footer.footer {
     margin: 20px 0px 0px;
 }
 
+/*qr code*/
+.recaptcha-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.g-recaptcha {
+  transform: scale(0.88); /* pode ajustar para 0.85 ou 0.9 se quiser */
+  transform-origin: center;
+}
+
+.container a {
+    color: #007bff;         /* azul estilo link */
+    font-size: 13px;
+    text-decoration: none;  /* remove o sublinhado */
+    margin: 15px 0 10px;
+    transition: color 0.3s ease;
+}
+
+.container a:hover {
+    color: #0056b3;          /* azul mais escuro no hover */
+    text-decoration: underline; /* opcional: sublinhado só no hover */
+    cursor: pointer;
+}
 
 
 /*reduz o tamanho do layout inteiro de forma proporcional em telas menores*/

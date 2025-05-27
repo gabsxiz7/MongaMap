@@ -59,3 +59,18 @@ showSlide(currentSlide); // inicializa
 
 // Auto-slide a cada 3 segundos
 setInterval(nextSlide, 3000);
+
+
+// ------ lógica de troca vídeo → carousel ------
+const introVideo = document.getElementById('introVideo');
+introVideo.addEventListener('ended', () => {
+  // esconde o vídeo
+  document.getElementById('videoContainer').style.display = 'none';
+  // mostra o carrossel
+  const carSec = document.querySelector('.carousel-container');
+  carSec.style.display = 'block';
+  // reinicia posição e auto-slide
+  currentSlide = 0;
+  showSlide(currentSlide);
+  // já existe setInterval, então ele passa a rodar normalmente
+});

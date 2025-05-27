@@ -30,7 +30,7 @@
                 <li><a href="comentarios.php">Feedback</a></li>
 
     <?php if (isset($_SESSION['id'])):?> 
-            <li><a href="quiz.php">Quiz</a></li>
+            <li><a href="quiz.php?id=1">Quiz</a></li>
             <li><a href="gamificacao.php">Perfil</a></li>
             <li><a href="php/logout.php" class="btn-sair">Sair</a></li>
             <?php else: ?>
@@ -40,8 +40,8 @@
         </div>
     </nav>
     <header class="header">
-        <h1>Compartilhe Sua Experiência</h1>
-        <p>Deixe seu comentário sobre os pontos turísticos e ajude outros visitantes a descobrir mais!</p>
+        <h1>Avalie o MongaMap</h1>
+        <p>Ajude-nos a melhorar sua experiência com o MongaMap.</p>
     </header>
     <main class="comentarios-container">
         <!------- FORMULÁRIO DE COMENTÁRIOS ------->
