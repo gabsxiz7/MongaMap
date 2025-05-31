@@ -72,7 +72,7 @@
                  <div class="team-member">
                    <img src="IMG/ft.emerson.jpeg" alt="Membro 1">
                     <h3>Emerson</h3>
-                    <p>20 Anos<br>Atuei como representante da equipe, contribuindo com a organização, liderança e execução das tarefas. Sou uma pessoa dedicada, gosto de aprender coisas novas e tenho grande interese pela área de tecnologia.</p>
+                    <p>20 Anos<br>Atuei como representante da equipe, contribuindo com a organização, liderança e execução das tarefas.</p>
                 </div>
                 <div class="team-member">
                    <img src="IMG/ft.emily.jpeg" alt="membro 2">
@@ -87,7 +87,7 @@
                 <div class="team-member">
                     <img src="IMG/ft.guilherme.jpeg" alt="membro4">
                     <h3>Guilherme</h3>
-                    <p>17 Anos<br>Contribui com algumas tarefas de design e documentação do projeto. Sou uma pessoa muito disposta a aprender na área da tecnologia e anseio em evoluir a cada dia.</p>
+                    <p>17 Anos<br>Contribui com algumas tarefas de design e documentação do projeto.</p>
                 </div>
                 <div class="team-member">
                     <img src="IMG/ft.thayane.jpeg" alt="membro5">

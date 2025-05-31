@@ -1,28 +1,39 @@
 let h2 = document.querySelector('h2');
 let coordenadasElemento = document.getElementById("coordenadas");
 var map;
-var userMarker; //variável global para o marcador do usuário
+var userMarker;
 
+function carregarUsuarioDoBanco() {
+    fetch("php/pegar_usuario.php")
+        .then(response => response.json())
+        .then(dados => {
+            if (dados.sucesso) {
+                usuario = {
+                    id: dados.id,
+                    foto: dados.foto || "IMG/icon.png",
+                    pontos: dados.pontos || 0,
+                    nivel: "",
+                    conquistas: dados.conquistas || [],
+                    missoes: gerarMissoes(dados.visitas || [])
+                };
+                atualizarUsuario();
+            } else {
+                console.error("Erro ao carregar usuário:", dados.erro);
+            }
+        })
+        .catch(err => console.error("Erro de rede:", err));
+}
 
 function success(pos) {
-    console.log("📍 Nova localização recebida:");
-    console.log("Latitude:", pos.coords.latitude);
-    console.log("Longitude:", pos.coords.longitude);
-    console.log("Precisão (metros):", pos.coords.accuracy);
-
     const latitude = pos.coords.latitude;
     const longitude = pos.coords.longitude;
 
-    coordenadasElemento.textContent = `Latitude: ${latitude.toFixed(6)}, Longitude: ${longitude.toFixed(6)}`;
-
     if (!map) {
-        map = L.map('map').setView([latitude, longitude], 13);
-
+        map = L.map('map').setView([-24.0911, -46.6206], 13);
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            attribution: '&copy; OpenStreetMap contributors'
         }).addTo(map);
 
-        //adiciona o marcador inicial
         userMarker = L.marker([latitude, longitude]).addTo(map)
             .bindPopup('📍 Você está aqui!')
             .openPopup();
@@ -50,74 +61,45 @@ function success(pos) {
                 .bindPopup(`<b>${ponto.nome}</b><br>${ponto.descricao}`);
         });
 
-        map.pontosTuristicosAdicionados = true; //evita adicionar múltiplas vezes
+        map.pontosTuristicosAdicionados = true;
     }
 }
 
-//tratamento de erro
 function error(err) {
     console.error(err);
-    h2.textContent = 'Não foi possível obter sua localização.';
+    if (coordenadasElemento) coordenadasElemento.remove();
 }
 
-//solicita localização do usuário
 navigator.geolocation.watchPosition(success, error, {
     enableHighAccuracy: true,
     timeout: 10000,
     maximumAge: 0
 });
 
-//função para marcar pontos turísticos no mapa
 function marcarMapa(latitude, longitude) {
-    map.setView([latitude, longitude], 16); //centraliza o mapa no ponto turístico
+    map.setView([latitude, longitude], 16);
     L.marker([latitude, longitude]).addTo(map)
         .bindPopup('<strong>Ponto Selecionado</strong>')
         .openPopup();
 }
 
-//dados do usuário
-let usuario = {
-    foto: "IMG/icon.png",
-    pontos: 0,
-    nivel: "Explorador",
-    conquistas: [
-        { nome: "Visitou a Plataforma de Pesca", pontos: 50 },
-        {nome: "Visitou o Parque Ecológico A Tribuna", pontos: 50},
-        {nome: "Visitou a Paróquia Nossa Senhora Aparecida", pontos: 50},
-        { nome: "Completou o desafio 'Explorador'", pontos: 100 }
-    ],
-    missoes: [
-        { nome: "Visite 5 pontos turísticos", pontos: 100, concluida: true },
-        { nome: "Compartilhe sua experiência", pontos: 50, concluida: false },
-    ]
-};
+function calcularNivel(pontos) {
+    if (pontos >= 5000) return "Mestre do Mapa";
+    if (pontos >= 1000) return "Explorador Avançado";
+    return "Explorador";
+}
 
-//remover patente
-localStorage.removeItem("usuario");
-
-
-//atualiza a exibição do usuário
 function atualizarUsuario() {
     document.getElementById("fotoUsuario").src = usuario.foto;
     document.getElementById("pontuacaoUsuario").textContent = `Pontuação: ${usuario.pontos} ⭐`;
-
-    //atualiza o nivel do usuario de acordo cm a pontuacao
-    if (usuario.pontos >= 5000) {
-        usuario.nivel = "Mestre do Mapa";
-    } else if (usuario.pontos >= 0) {
-        usuario.nivel = "Explorador";
-    } else {
-        usuario.nivel = "Iniciante";
-    }
+    usuario.nivel = calcularNivel(usuario.pontos);
     document.getElementById("nivelUsuario").textContent = `Nível: ${usuario.nivel}`;
 
-    //atualiza a barra de progresso
     let progressBar = document.querySelector(".barra-progresso progress");
     progressBar.value = usuario.pontos;
     progressBar.max = 5000;
-    document.getElementById("progressText").textContent = `${usuario.pontos} / 500 pontos`;
-    
-    //atualiza a lista de conquistas
+    document.getElementById("progressText").textContent = `${usuario.pontos} / 5000 pontos`;
+
     let listaConquistas = document.getElementById("listaConquistas");
     listaConquistas.innerHTML = "";
     usuario.conquistas.forEach(conquista => {
@@ -125,96 +107,49 @@ function atualizarUsuario() {
         li.innerHTML = `🏆 ${conquista.nome} <strong>+${conquista.pontos} pontos</strong>`;
         listaConquistas.appendChild(li);
     });
-    
-    //atualiza lista de missoes cm eventos de clique
+
     let listaMissoes = document.getElementById("listaMissoes");
     listaMissoes.innerHTML = "";
-
     usuario.missoes.forEach((missao, index) => {
         let li = document.createElement("li");
         li.innerHTML = `${missao.concluida ? "✅" : "📜"} ${missao.nome} - <strong>+${missao.pontos} pontos</strong>`;
-        
         if (!missao.concluida) {
             li.style.cursor = "pointer";
-            li.style.color = "blue"; 
-            
-            li.addEventListener("click", function () {
-                concluirMissao(index);
-            });
+            li.style.color = "blue";
+            li.addEventListener("click", () => concluirMissao(index));
         }
-        
         listaMissoes.appendChild(li);
     });
-    //salva os dados atualizados no localStorage
-    localStorage.setItem("usuario", JSON.stringify(usuario));
 }
 
-//função para concluir uma missão
 function concluirMissao(index) {
-    console.log("Clicou na missão:", index); //testando p ve c ta funcionando o click
     let missao = usuario.missoes[index];
-
     if (!missao.concluida) {
-        missao.concluida = true;  //aqui marca a missao como concluida
+        missao.concluida = true;
         usuario.pontos += missao.pontos;
-
-        //adiciona a missão às conquistas
-        usuario.conquistas.push({
-            nome: missao.nome,
-            pontos: missao.pontos
+        usuario.conquistas.push({ nome: missao.nome, pontos: missao.pontos });
+        atualizarUsuario();
+        fetch("php/salvar_missao.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ id_usuario: usuario.id, missao: missao.nome, pontos: missao.pontos })
         });
-
-        console.log("Missão concluída:", missao); //testando se a missão foi atualizada certo
-        console.log("Usuário atualizado:", usuario.pontos);
-
-      //importante: re-salvar o objt atualizado no localStorage
-      usuario.missoes[index] = missao; //esta linha é pra garantir q o objt no array seja atualizado corretamente
-       localStorage.setItem("usuario", JSON.stringify(usuario));
-        
-        atualizarUsuario(); //atualiza a tela
-
-        //força a atualizar a tela
-        setTimeout(() => {
-            location.reload();
-        }, 500);
     }
 }
-//verifica se há dados salvos no localStorage
-if (localStorage.getItem("usuario")) {
-    usuario = JSON.parse(localStorage.getItem("usuario"));
 
-    usuario.missoes = usuario.missoes.map(missao => ({
-        ...missao,
-        concluida: missao.concluida || false //c nao existir é p definir false
-    }));
-
-    //salva de volta no localStorage para corrigir os dados
-    localStorage.setItem("Usuario", JSON.stringify(usuario));
+function gerarMissoes(locaisNaoVisitados) {
+    const missoes = [];
+    if (locaisNaoVisitados.length > 0) {
+        missoes.push({ nome: "Visite todos os pontos turísticos", pontos: 200, concluida: false });
+    }
+    return missoes;
 }
 
-
-//qr code
-document.addEventListener("DOMContentLoaded", function () {
-    let usuario = JSON.parse(localStorage.getItem("usuario")) || {
-        nome: "Usuário",
-        pontos: 0,
-        conquistas: []
-    };
-    document.getElementById("pontuacaoUsuario").textContent = `Pontuação: ${usuario.pontos} ⭐`;
-
-    let listaConquistas = document.getElementById("listaConquistas");
-    listaConquistas.innerHTML = "";
-
-    usuario.conquistas.forEach(conquista => {
-        let li = document.createElement("li");
-        li.innerHTML = `🏆 ${conquista.nome} <strong>+${conquista.pontos} pontos</strong>`;
-        listaConquistas.appendChild(li);
-    });
-
-    //verifica se veio da página de QR Code
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get("recompensa") === "1") {
-        alert("🎊 Você recebeu uma nova recompensa pelo QR Code!");
-    }
-});
-
+let usuario = {
+    foto: "IMG/icon.png",
+    pontos: 0,
+    nivel: "",
+    conquistas: [],
+    missoes: []
+};
+carregarUsuarioDoBanco();

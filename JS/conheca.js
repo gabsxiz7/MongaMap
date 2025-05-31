@@ -199,49 +199,49 @@ function abrirModal(index) {
 
 // Função para iniciar o leitor de QR Code
 function iniciarLeitorQRCode() {
-    const qrElement = document.getElementById("qr-reader");
-
-    // Se já houver um scanner ativo, limpar antes de iniciar um novo
     if (qrScanner) {
         qrScanner.clear();
         qrScanner = null;
     }
-
-    // Cria um novo scanner de QR Code
     qrScanner = new Html5QrcodeScanner("qr-reader", { fps: 10, qrbox: 250 });
     qrScanner.render(onScanSuccess, onScanError);
 }
 
+
 // Função executada ao escanear um QR Code com sucesso
 function onScanSuccess(decodedText) {
-    document.getElementById("qr-result").innerHTML = `✅ QR Code Detectado: ${decodedText}`;
-
-    if (decodedText.includes("MongaMap")) {
-        alert("🎉 Parabéns! Você encontrou um QR Code válido e ganhou pontos!");
-
-        let usuario = JSON.parse(localStorage.getItem("usuario")) || {
-            nome: "Usuário",
-            pontos: 0,
-            conquistas: []
-        };
-
-        let pontosGanhados = 100; // Define quantos pontos o usuário ganha
-        usuario.pontos += pontosGanhados;
-
-        usuario.conquistas.push({
-            nome: `QR Code escaneado em ${new Date().toLocaleDateString()}`,
-            pontos: pontosGanhados
-        });
-
-        localStorage.setItem("usuario", JSON.stringify(usuario));
-
-        setTimeout(() => {
-            window.location.href = "gamificacao.html?recompensa=1";
-        }, 2000);
-    } else {
-        alert("❌ QR Code inválido. Tente outro.");
+    let url;
+    try {
+        url = new URL(decodedText);
+    } catch (e) {
+        alert("❌ QR Code inválido.");
+        return;
     }
+    const id = url.searchParams.get('scan');
+    if (!id) {
+        alert("❌ QR Code inválido.");
+        return;
+    }
+    
+ 
+    // Chama o PHP que credita pontos no banco
+    fetch(`php/credita_pontos.php?id=${id}`, { method: 'GET' })
+        .then(res => res.json())
+        .then(json => {
+            if (json.sucesso) {
+                alert(`🎉 Você ganhou +${json.pontosGanhos} pontos!\nTotal: ${json.total} (${json.patente})`);
+                // Redireciona para a página de gamificação PHP
+                window.location.href = `gamificacao.php?recompensa=1`;
+            } else {
+                alert("❌ " + (json.erro || "Falha ao creditar pontos."));
+            }
+        })
+        .catch(err => {
+            console.error(err);
+            alert("❌ Erro de rede ao creditar pontos.");
+        });
 }
+
 
 // Função executada se houver erro na leitura do QR Code
 function onScanError(errorMessage) {
@@ -272,4 +272,6 @@ document.getElementById("btn-fechar-qr").addEventListener("click", () => {
         qrScanner.clear();
         qrScanner = null;
     }
+
+    
 });

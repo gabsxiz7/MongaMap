@@ -81,14 +81,11 @@ $stmt->close();
         <h1>Gamificação</h1>
         <p>Explore os pontos turísticos de Mongaguá e acompanhe seu progresso.</p>
     </header>
-
-
-    <!--secao do user-->
        <main class="container-container">
            <!-- seção 1: informações do usuário -->
            <section class="card perfil">
            <h2>Minha Jornada 🎮</h2>
-        <!-- Avatar real -->
+
         <img id="fotoUsuario" src="IMG/<?php echo htmlspecialchars($usuario['nm_foto'] ?? 'icon.png'); ?>" alt="Avatar">
 
         <!-- Nome do usuário -->
@@ -145,51 +142,51 @@ $stmt->close();
             <img src="IMG/pesca.png" alt="Plataforma de Pesca">
             <h3>Plataforma de Pesca</h3>
             <p>Local incrível para pesca e lazer.</p>
-            <button onclick="marcarMapa(-24.0911, -46.6218)">Ver no Mapa</button>
+            <button onclick="marcarMapa(-24.134243, -46.692596)">Ver no Mapa</button>
         </div>
         <div class="ponto-turistico">
             <img src="IMG/parkeco.png" alt="Parque">
             <h3>Parque Ecológico</h3>
             <p>Contato direto com a natureza.</p>
-            <button onclick="marcarMapa(-24.0941, -46.6195)">Ver no Mapa</button>
+            <button onclick="marcarMapa(-24.134406, -46.695230)">Ver no Mapa</button>
         </div>
         <div class="ponto-turistico">
             <img src="IMG/igrejamatriz.png" alt="Igreja Matriz">
             <h3>Igreja Matriz</h3>
             <p>Rica em história e arquitetura colonial.</p>
-            <button onclick="marcarMapa(-24.0920, -46.6233)">Ver no Mapa</button>
+            <button onclick="marcarMapa(-24.094984, -46.620291)">Ver no Mapa</button>
         </a>
         </div>
         <div class="ponto-turistico">
             <img src="IMG/praiaflorida.png" alt="Praia Flórida Mirim">
             <h3>Praia Flórida Mirim</h3>
             <p>Praia de aguas limpas, ideal para famílias.</p>
-            <button onclick="marcarMapa(-24.0950, -46.6240)">Ver no Mapa</button>
+            <button onclick="marcarMapa(-24.132455, -46.711498)">Ver no Mapa</button>
         </div>
         <div class="ponto-turistico">
             <img src="IMG/praça.dudu.png" alt="Praça Dudu Samba">
             <h3>Praça Dudu Samba</h3>
             <p>Famosa praça de eventos culturais.</p>
-            <button onclick="marcarMapa(-24.0975, -46.6210)">Ver no Mapa</button>
+            <button onclick="marcarMapa(-24.09606, -46.62045)">Ver no Mapa</button>
         </div>
         <div class="ponto-turistico">
             <img src="IMG/poçoantas.png" alt="Poço das Antas">
             <h3>Poço das Antas</h3>
             <p>Área natural para relaxar e explorar.</p>
-            <button onclick="marcarMapa(-24.0935, -46.6225)">Ver no Mapa</button>
+            <button onclick="marcarMapa(-24.08973, -46.62292)">Ver no Mapa</button>
         </a>
         </div>
         <div class="ponto-turistico">
             <img src="IMG/artesanato.png" alt="Feira de Artesanato">
             <h3>Feira de Artesanato</h3>
             <p>Feira de produtos locais e artesanais.</p>
-            <button onclick="marcarMapa(-24.0918, -46.6203)">Ver no Mapa</button>
+            <button onclick="marcarMapa(-24.09462, -46.61961)">Ver no Mapa</button>
         </div>
           <div class="ponto-turistico">
             <img src="IMG/santa.png" alt="Morro da Padroeira">
             <h3>Morro da Padroeira</h3>
             <p>Vista panorâmica incrível da cidade.</p>
-            <button onclick="marcarMapa(-24.0890, -46.6180)">Ver no Mapa</button>
+            <button onclick="marcarMapa(-24.09119, -46.61684)">Ver no Mapa</button>
         </div>
     </div>
 </section>

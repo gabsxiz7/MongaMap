@@ -58,7 +58,7 @@ prevBtn.addEventListener('click', prevSlide);
 showSlide(currentSlide); // inicializa
 
 // Auto-slide a cada 3 segundos
-setInterval(nextSlide, 3000);
+setInterval(nextSlide, 5000);
 
 
 // ------ lógica de troca vídeo → carousel ------

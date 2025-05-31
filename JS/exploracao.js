@@ -6,16 +6,16 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 const pontosTuristicos = [
-    { coords: [-24.134216042883118, -46.69265213033479], nome: 'Plataforma de Pesca' },
-    { coords: [-24.134516224770405, -46.695151685425], nome: 'Parque Ecológico' },
-    { coords: [-24.095138463208592, -46.62037791866331], nome: 'Paróquia Nossa Senhora Aparecida' },
+    { coords: [-24.134243, -46.692596], nome: 'Plataforma de Pesca' },
+    { coords: [-24.134406, -46.695230], nome: 'Parque Ecológico' },
+    { coords: [-24.094984, -46.620291], nome: 'Paróquia Nossa Senhora Aparecida' },
     { coords: [-24.132455, -46.711498], nome: 'Praia Flórida Mirim' },
-    { coords: [-24.096386442762434, -46.62107197890569], nome: 'Praça de Eventos Dudu Samba'},
-    { coords: [-24.08729494736329, -46.6238897572014], nome: 'Poço das Antas'},
-    { coords: [-24.094795333617636, -46.619581244856235], nome: 'Feira de Artesanato'},
-    { coords: [-24.091398678382347, -46.616823139729384], nome: 'Morro da Padroeira'},
+    { coords: [-24.09606, -46.62045], nome: 'Praça de Eventos Dudu Samba'},
+    { coords: [-24.0935, -46.6225], nome: 'Poço das Antas'},
+    { coords: [-24.09462, -46.61961], nome: 'Feira de Artesanato'},
+    { coords: [-24.0890, -46.6180], nome: 'Morro da Padroeira'},
     { coords: [-24.13087, -46.68704], nome: 'Praia Agenor de Campos'},
-    { coords: [-24.10218063114339, -46.63634087856133], nome: 'Centro Cultural Raul Cortez'}
+    { coords: [-24.10203, -46.63637], nome: 'Centro Cultural Raul Cortez'}
 
 ];
 pontosTuristicos.forEach(ponto => {
@@ -23,16 +23,35 @@ pontosTuristicos.forEach(ponto => {
 });
 //calcula as distâncias
 function calcularDistancia() {
-    event.preventDefault();   //impede o recarregamento da página
-    
-    const ponto1 = document.getElementById('ponto1').value.split(',');
-    const ponto2 = document.getElementById('ponto2').value.split(',');
+  // pega e converte
+  const [latA, lonA] = document.getElementById('ponto1').value
+                         .split(',')
+                         .map(Number);
+  const [latB, lonB] = document.getElementById('ponto2').value
+                         .split(',')
+                         .map(Number);
 
-    const distancia = Math.sqrt(
-        Math.pow(ponto1[0] - ponto2[0], 2) + Math.pow(ponto1[1] - ponto2[1], 2)
-    );
-    document.getElementById('resultado').textContent = `Distância aproximada: ${(distancia * 111).toFixed(2)} km`;
+  // cria os LatLng
+  const pA = L.latLng(latA, lonA);
+  const pB = L.latLng(latB, lonB);
+
+  // distância em metros
+  const distanciaM = pA.distanceTo(pB);
+
+  // formata pra usuário
+  let texto;
+  if (distanciaM < 1000) {
+    texto = `Distância aproximada: ${distanciaM.toFixed(0)} m`;
+  } else {
+    texto = `Distância aproximada: ${(distanciaM/1000).toFixed(2)} km`;
+  }
+
+  document.getElementById('resultado').textContent = texto;
 }
+
+document.getElementById('calcular')
+          .addEventListener('click', calcularDistancia);
+
 
 //seleciona o botão de compartilhar
 const compartilharBotao = document.getElementById('compartilhar-planejamento');

@@ -86,7 +86,7 @@
   <div class="custom-carousel">
     <div class="carousel-slides">
       <div class="slide active">
-        <img src="IMG/praia.centro.png" alt="Plataforma de Pesca">
+        <img src="IMG/plataformapp.png" alt="Plataforma de Pesca">
         <div class="caption">
           <h5>Plataforma de Pesca</h5>
           <p>Visitada por inúmeros turistas e munícipes, é um dos cenários mais bonitos e encantadores do Brasil...</p>

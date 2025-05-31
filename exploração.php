@@ -72,29 +72,29 @@ include 'php/conexao.php';
         <form>
             <label for="ponto1">Ponto de Partida:</label>
             <select id="ponto1">
-                <option value="-24.0911,-46.6218">Plataforma de Pesca</option>
-                <option value="-24.0941,-46.6195">Parque Ecológico</option>
-                <option value="-24.0920,-46.6233">Igreja Matriz</option>
-                <option value="-24.0950,-46.6240">Praia Flórida Mirim</option>
-                <option value="-24.0975,-46.6210">Praça Dudu Samba</option>
-                <option value="-24.0935,-46.6225">Poço das Antas</option>
-                <option value="-24.0918,-46.6203">Feira de Artesanato</option>
-                <option value="-24.0925,-46.6265">Praia Agenor de Campos</option>
-                <option value="-24.0935,-46.6202">Centro Cultural Raul Cortez</option>
+                <option value="-24.134243, -46.692596">Plataforma de Pesca</option>
+                <option value="-24.134406, -46.695230">Parque Ecológico</option>
+                <option value="-24.094984, -46.620291">Igreja Matriz</option>
+                <option value="-24.132455, -46.711498">Praia Flórida Mirim</option>
+                <option value="-24.09606, -46.62045">Praça Dudu Samba</option>
+                <option value="-24.0935, -46.6225">Poço das Antas</option>
+                <option value="-24.09462, -46.61961">Feira de Artesanato</option>
+                <option value="-24.13087, -46.68704">Praia Agenor de Campos</option>
+                <option value="-24.10203, -46.63637">Centro Cultural Raul Cortez</option>
             </select>
             <label for="ponto2">Destino:</label>
             <select id="ponto2">
-                <option value="-24.0941,-46.6195">Parque Ecológico</option>
-                <option value="-24.0911,-46.6218">Plataforma de Pesca</option>
-                <option value="-24.0920,-46.6233">Igreja Matriz</option>
-                <option value="-24.0950,-46.6240">Praia Flórida Mirim</option>
-                <option value="-24.0975,-46.6210">Praça Dudu Samba</option>
-                <option value="-24.0935,-46.6225">Poço das Antas</option>
-                <option value="-24.0918,-46.6203">Feira de Artesanato</option>
-                <option value="-24.0925,-46.6265">Praia Agenor de Campos</option>
-                <option value="-24.0935,-46.6202">Centro Cultural Raul Cortez</option>
+                <option value="-24.134406, -46.695230">Parque Ecológico</option>
+                <option value="-24.134243, -46.692596">Plataforma de Pesca</option>
+                <option value="-24.094984, -46.620291">Igreja Matriz</option>
+                <option value="-24.132455, -46.711498">Praia Flórida Mirim</option>
+                <option value="-24.09606, -46.62045">Praça Dudu Samba</option>
+                <option value="-24.0935, -46.6225">Poço das Antas</option>
+                <option value="-24.09462, -46.61961">Feira de Artesanato</option>
+                <option value="-24.13087, -46.68704">Praia Agenor de Campos</option>
+                <option value="-24.10203, -46.63637">Centro Cultural Raul Cortez</option>
             </select>
-            <button id="calcular" onclick="calcularDistancia()">Calcular</button>
+            <button type="button" id="calcular">Calcular</button>
         </form>
         <p id="resultado">Distância: --</p>
     </section>
