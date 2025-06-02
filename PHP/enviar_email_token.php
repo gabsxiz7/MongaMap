@@ -44,7 +44,7 @@ try {
 
     $mail->isHTML(true);
     $mail->Subject = 'Redefinir Senha - MongaMap';
-    $link = "http://localhost/MongaMap/php/redefinir_senha.php?token=$token";
+    $link = "http://localhost/MongaMap/redefinir_senha.php?token=$token";
     $mail->Body = "<p>Olá! Clique no link abaixo para redefinir sua senha:</p><a href='$link'>$link</a>";
 
     $mail->send();

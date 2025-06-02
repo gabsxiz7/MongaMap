@@ -194,7 +194,6 @@
   <p>&copy; 2025 MongaMap. Todos os direitos reservados.</p>
   <a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a>
 </footer>
-
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="JS/home.js"></script>
     <script src="JS/navbar.js"></script>
