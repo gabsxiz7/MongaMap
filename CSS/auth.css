@@ -221,6 +221,20 @@ footer.footer {
 }
 
 
+
+/* hint discreta para o campo de senha */
+.hint-senha {
+  font-size: 0.85rem;
+  color: #a5a4a4;
+  margin-top: 4px;
+  margin-bottom: 12px;
+  text-align: left; /* se quiser alinhar ao input, mantenha texto alinhado à esquerda */
+}
+
+.hint-senha small {
+  font-style: italic;
+}
+
 /*reduz o tamanho do layout inteiro de forma proporcional em telas menores*/
 @media (max-width: 1024px) {
     .container {

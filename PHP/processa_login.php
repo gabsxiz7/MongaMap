@@ -12,8 +12,9 @@ if (!$captcha) {
     exit;
 }
 
-//validar reCAPTCHA com a API do Google
+//validar reCAPTCHA com a API do Google localhost
 $secretKey = "6LeRF_oqAAAAAOtIYhuTAXzqEaPq5n5RQA39pgHS";
+//dominio--->$secretKey = "6LdLBFUrAAAAAErCdKfYZNdve3UHDIeEFlyO4Rp7";
 $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$captcha");
 $responseKeys = json_decode($response, true);
 if (!$responseKeys["success"]) {

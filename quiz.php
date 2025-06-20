@@ -9,7 +9,7 @@ $proximo_local = $id_local + 1;
 // Resetar sessão se chegou ao final
 if (isset($_GET['reset']) && $_GET['reset'] == 1) {
     unset($_SESSION['pontos'], $_SESSION['total']);
-    header("Location: quiz.php?id=1");
+    header("Location: quiz.php?id=14");
     exit();
 }
 
@@ -117,7 +117,11 @@ if ($pergunta) {
 <main class="container">
 <div class="quiz-container">
 <?php
-$imagem = $local['nm_imagem_local'] ?? 'default.jpg';
+if ($local && isset($local['nm_imagem_local']) && file_exists("IMG/" . $local['nm_imagem_local'])) {
+    $imagem = $local['nm_imagem_local'];
+} else {
+    $imagem = 'default.jpg';
+}
 echo "<img src='IMG/$imagem' alt='Imagem do Local' class='quiz-imagem'>";
 ?>
 <div class="quiz-conteudo">

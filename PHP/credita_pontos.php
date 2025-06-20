@@ -1,5 +1,4 @@
 <?php
-// php/credita_pontos.php
 session_start();
 header('Content-Type: application/json; charset=utf-8');
 
@@ -61,6 +60,32 @@ $sqlUpd = "UPDATE tb_patente
 $stmt3 = $conexao->prepare($sqlUpd);
 $stmt3->bind_param("isi", $novoTotal, $novaPatente, $cdPatente);
 $stmt3->execute();
+$sqlVis = "
+  INSERT IGNORE INTO tb_usuario_local (fk_usuario, fk_local, data_visita)
+  VALUES (?, ?, NOW())
+";
+$stmtVis = $conexao->prepare($sqlVis);
+$stmtVis->bind_param("ii", $idUsuario, $idLocal);
+$stmtVis->execute();
+
+// 3.5) Marcar missão como concluída se existir missão para esse local
+$sqlMissao = "SELECT id_missao FROM tb_missao WHERE fk_local = ?";
+$stmtMissao = $conexao->prepare($sqlMissao);
+$stmtMissao->bind_param("i", $idLocal);
+$stmtMissao->execute();
+$resMissao = $stmtMissao->get_result();
+
+if ($rowMissao = $resMissao->fetch_assoc()) {
+    $idMissao = (int)$rowMissao['id_missao'];
+
+    // Marca a missão como concluída para o usuário
+    $sqlConcluir = "INSERT INTO tb_usuario_missao (fk_usuario, fk_missao, concluida, data_conclusao)
+                    VALUES (?, ?, 1, NOW())
+                    ON DUPLICATE KEY UPDATE concluida=1, data_conclusao=NOW()";
+    $stmtConcluir = $conexao->prepare($sqlConcluir);
+    $stmtConcluir->bind_param("ii", $idUsuario, $idMissao);
+    $stmtConcluir->execute();
+}
 
 // 4) Retorna JSON
 echo json_encode([
@@ -69,3 +94,5 @@ echo json_encode([
     'total'        => $novoTotal,
     'patente'      => $novaPatente
 ]);
+exit;
+?>

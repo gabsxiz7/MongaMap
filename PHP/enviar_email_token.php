@@ -34,12 +34,12 @@ try {
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'gabscostuda10@gmail.com'; // <-- seu email aqui
-    $mail->Password = 'ckpplcrgwjjnskie';        // <-- senha de app aqui
+    $mail->Username = 'contato.equipe8bits@gmail.com';
+    $mail->Password = 'spnj tgaw quag rwfc';        
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
 
-    $mail->setFrom('gabscostuda10@gmail.com', 'MongaMap');
+    $mail->setFrom('contato.equipe8bits@gmail.com', 'MongaMap');
     $mail->addAddress($email);
 
     $mail->isHTML(true);

@@ -35,7 +35,7 @@
             <li><a href="comentarios.php">Feedback</a></li>
             
     <?php if (isset($_SESSION['id'])):?>
-            <li><a href="quiz.php?id=1">Quiz</a></li> 
+            <li><a href="quiz.php?id=14">Quiz</a></li> 
             <li><a href="gamificacao.php">Perfil</a></li>
             <li><a href="php/logout.php" class="btn-sair">Sair</a></li>
             <?php else: ?>
@@ -71,10 +71,11 @@
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<div class='depoimento'>";
-                    echo "<img src='" . $row['nm_foto'] . "' alt='Foto do usuário'>";
-                    echo "<p>\"" . $row['mensagem'] . "\"</p>";
-                    echo "<h4>- " . $row['nm_usuario'] . "</h4>";
+                    echo "<img src='IMG/" . htmlspecialchars($row['nm_foto']) . "' alt='Foto do usuário'>";
+                    echo "<p>\"" . htmlspecialchars($row['mensagem']) . "\"</p>";
+                    echo "<h4>- " . htmlspecialchars($row['nm_usuario']) . "</h4>";
                     echo "</div>";
+
                 }
             } else {
                 echo "<p>Ninguém deixou um depoimento ainda. Seja o primeiro!</p>";

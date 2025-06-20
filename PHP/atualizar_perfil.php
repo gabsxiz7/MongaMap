@@ -37,3 +37,4 @@ $stmt->close();
 
 header("Location: ../gamificacao.php");
 exit();
+?>

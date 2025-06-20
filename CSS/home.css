@@ -78,7 +78,7 @@ body, html {
 }
 .card {
   text-align: center;
-  background: white;
+  background: #F5F5F5;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -243,6 +243,7 @@ padding: 10px;
 border-left: 4px solid #004085;
 background-color: #f8f9fa;
 border-radius: 5px;
+margin: 10px;
 }
 .faq .pergunta h3 {
 margin: 0;
@@ -272,7 +273,7 @@ margin: 10px 0;
 .mini-mapa {
 margin: 20px auto;
 padding: 20px;
-background-color: #fff;
+background-color: #F5F5F5;
 border-radius: 10px;
 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 max-width: 90%;
@@ -290,8 +291,15 @@ height: 300px;
 width: 100%;
 border-radius: 10px;
 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-margin: 0 auto;
 }
+section:first-of-type {
+    padding-top: 80px; /* ou ajuste conforme a altura da sua navbar */
+}
+
+.leaflet-container {
+  z-index: 1 !important; /* Força o mapa a ficar abaixo da navbar */
+}
+
 /*estatísticas*/
 .estatisticas {
 display: flex;
@@ -307,7 +315,7 @@ text-align: center;
 flex: 1;
 padding: 15px;
 border-radius: 10px;
-background-color: #ffffff;
+background-color: #F5F5F5;
 box-shadow: 0 14px 16px rgba(0, 0, 0, 0.1);
 transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -325,17 +333,6 @@ font-family: 'Poppins', sans-serif;
 .estatisticas .item p {
 font-size: 1rem;
 color: #333;
-}
-
-/*style de bem vindo qnd o user logar*/
-.bem-vindo {
-  text-align: center;
-  background-color: #004085;
-  color: #FFD700;
-  padding: 12px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  font-family: 'Poppins', sans-serif;
 }
 
 .video-container {
@@ -368,6 +365,105 @@ color: #333;
   color: white;
   text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
 }
+/*ranking*/
+/* Ranking principal */
+.ranking-home {
+  background: none !important;        /* sem fundo */
+  border-radius: 0 !important;
+  box-shadow: none !important;        /* sem sombra, se preferir */
+  margin: 20px auto 10px auto;
+  max-width: 950px;
+  min-width: 20px;
+  padding: 10px 8px 20px 8px;         /* padding menor */
+  text-align: center;
+  overflow-x: visible;
+  padding-top: 50px;
+}
+
+/* Título */
+.ranking-home h2 {
+  color: #FFD700;
+ -webkit-text-stroke: 0.3px #000000; /* contorno preto */
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+/* Container de rolagem */
+.ranking-scroll {
+  padding-bottom: 90px;
+  overflow-x: auto;
+  padding: 8px 0 32px 0;    /* padding menor */
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Lista horizontal */
+.ranking-home ol {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 22px;
+  margin: 0;
+  padding: 0 8px;
+  justify-content: flex-start;
+}
+
+/* Card de cada ranking */
+.ranking-home li {
+  background: none;                 /* sem fundo padrão */
+  border-radius: 14px;
+  padding: 15px 25px;               /* altura mais baixa */
+  min-width: 180px;                 /* cards menores */
+  font-size: 1.14rem;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: none;
+  transition: transform .2s;
+  border: 2px solid transparent;
+}
+
+.ranking-home li.rank-1 { background: #EEE8AA; color: #000000; }
+.ranking-home li.rank-2 { background: #DCDCDC; color: #040404; }
+.ranking-home li.rank-3 { background: #D2B48C; color: #000000; }
+
+.ranking-home li.rank-1,
+.ranking-home li.rank-2,
+.ranking-home li.rank-3 {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+}
+
+.ranking-home li:hover {
+  transform: scale(1.06);
+  border: 2px solid #004085;
+}
+
+.ranking-home .pos { font-size: 1.35rem; font-weight: 700; }
+.ranking-home .nome { margin: 7px 0 0 0; font-size: 1.11rem; }
+.ranking-home .pts { font-size: 1.08rem; color: #555; margin-top: 2px; }
+
+
+/* Scroll bonito para Webkit */
+.ranking-scroll::-webkit-scrollbar {
+  height: 12px;
+}
+.ranking-scroll::-webkit-scrollbar-thumb {
+  background: #F5F5F5;
+  border-radius: 8px;
+}
+.ranking-scroll::-webkit-scrollbar-track {
+  background: #eee;
+}
+.ranking-home .medal {
+  font-size: 1.3em;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+
 
 /* keyframes para aparecer e subir */
 @keyframes overlayIn {
@@ -391,7 +487,12 @@ color: #333;
   }
 }
 
-
+/* Responsivo */
+@media (max-width: 900px) {
+  .ranking-home { max-width: 98vw; padding: 10px 3vw; }
+  .ranking-home ol { gap: 12px; padding: 0 10px;}
+  .ranking-home li { min-width: 140px; padding: 15px 6px; }
+}
 
 
     /* Tela pequena: Smartphones (até 768px) */

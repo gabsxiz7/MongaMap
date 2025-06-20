@@ -7,6 +7,7 @@ html, body {
 
 /* 2) Faz body usar flex-column para empurrar o footer para baixo */
 body {
+  background: url('../IMG/background.png') no-repeat center fixed;
   display: flex;
   flex-direction: column;
   min-height: 100vh; /* garante ocupar toda a altura da janela */
@@ -22,7 +23,6 @@ body {
   box-sizing: border-box;
 }
 
-/* 4) confirm-container mais compacto */
 .confirm-container {
   /* NÃO REMOVA o flex:1 daqui, pois usamos .main-content no lugar. */
   max-width: 480px;

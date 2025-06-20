@@ -34,7 +34,7 @@
             <li><a href="comentarios.php" class="ativo">Feedback</a></li>
 
     <?php if (isset($_SESSION['id'])):?>   
-            <li><a href="quiz.php?id=1">Quiz</a></li>
+            <li><a href="quiz.php?id=14">Quiz</a></li>
             <li><a href="gamificacao.php">Perfil</a></li>
            
             <!---login para dms acessar--->
@@ -73,7 +73,7 @@
       muted
       playsinline
     >
-      <source src="VIDEO/plataforma.video.mp4" type="video/mp4" />
+      <source src="VIDEO/plataforma.semplagio.video.mp4" type="video/mp4" />
       Seu navegador não suporta vídeo HTML5.
     </video>
     <!-- overlay de texto -->
@@ -117,7 +117,7 @@
 <section class="destaques">
   <div class="card">
     <a href="exploração.php">
-    <img src="IMG/santa.png" alt="Exploração">
+    <img src="IMG/santa.mongagua.png" alt="Exploração">
     <div class="card-body">
     <h3>Exploração Fácil</h3>
     <p>Descubra os melhores pontos turísticos de Mongaguá com poucos cliques.</p>
@@ -169,7 +169,8 @@
     <p>Sim, o MongaMap é otimizado para dispositivos móveis. Você pode acessar o site pelo navegador do seu celular sem nenhum problema.</p>
   </div>
 </section>
-<!--CONTATO-->
+<?php include 'php/ranking.php';?>
+<!--mapa-->
 <section class="mini-mapa">
   <h2>Encontre-nos</h2>
   <p>Mongaguá, São Paulo, Brasil</p>
@@ -178,11 +179,11 @@
 <!--ESTATÍSTICAS-->
 <section class="estatisticas">
   <div class="item">
-    <h3>500+</h3>
+    <h3>50+</h3>
     <p>Usuários Registrados</p>
 </div>
 <div class="item">
-    <h3>30+</h3>
+    <h3>10+</h3>
     <p>Pontos Turísticos</p>
 </div>
 <div class="item">

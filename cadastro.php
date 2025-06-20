@@ -27,7 +27,7 @@
             if (isset($_SESSION['id'])) {
          // c o usuário estiver logado
             echo '
-            <li><a href="quiz.php?id=1">Quiz</a></li>
+            <li><a href="quiz.php?id=14">Quiz</a></li>
             <li><a href="gamificacao.php">Perfil</a></li>
             <li><a href="php/logout.php" class="btn-sair">Sair</a></li>
             ';
@@ -46,15 +46,29 @@
     <div class="container" id="container">
         <!---------FORMULÁRIO DE CADASTRO----------->
         <div class="form-container sign-up">
-            <form action="php/processa_cadastro.php" method="POST">
+            <form action="php/processa_cadastro.php" method="POST" novalidate>
                 <h1>Criar Conta</h1>
                 <input type="text" placeholder="Nome" name="nome" required>
                 <input type="email" placeholder="Email" name="email" required>
                 <input type="text" placeholder="(13) 99999-9999" id="telefone" name="telefone" required>
-                <input type="password" placeholder="Senha" name="senha" required>
+                <!-- Senha com pattern e texto de dica bem minimalista -->
+          <input
+            type="password"
+            placeholder="Senha"
+            name="senha"
+            required
+            pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&]).{8,}"
+            title="Use no mínimo 8 caracteres, com 1 letra maiúscula, 1 minúscula, 1 número e 1 símbolo (@$!%*#?&)"
+          >
+          <div class="hint-senha">
+            <small>• Mín. 8 caracteres, 1 maíuscula, 1 minúscula, 1 número e 1 símbolo (@$!%*#?&)</small>
+          </div>
 
-                   <!-- reCAPTCHA -->
+
+                   <!-- reCAPTCHA localhost-->
         <div class="g-recaptcha" data-sitekey="6LeRF_oqAAAAALag1sMQ1Xuouq_X9DRsj-EUYkiP"></div>
+                   <!--dominio-->
+        <!--<div class="g-recaptcha" data-sitekey="6LdLBFUrAAAAAM3YfRf2kj0H0afscqt1flWTrbDd"></div>-->
 
                 <button type="submit">Cadastre-se</button>
             </form>
@@ -67,7 +81,7 @@
                 <input type="password" placeholder="Senha" name="senha" required>
                 <a href="esqueci_senha.php">Esqueceu sua senha?</a>
 
-                  <!-- reCAPTCHA -->
+                  <!-- reCAPTCHA domínio-->
                 <div class="recaptcha-container">
                   <div class="g-recaptcha" data-sitekey="6LeRF_oqAAAAALag1sMQ1Xuouq_X9DRsj-EUYkiP"></div>
                 </div>
@@ -81,7 +95,8 @@
                 <div class="toggle-panel toggle-left">
                     <img src="IMG/logo.png" alt="Logo MongaMap" class="logo-panel">
                     <h1>Olá, amigo!</h1>
-                    <p>Cadastre-se para acessar todos os recursos do site</p>
+                    <p>Cadastre-se para acessar todos 
+                        <br>os recursos do site</p>
                     <button class="hidden" id="login">Entrar</button>
                 </div>
                 <div class="toggle-panel toggle-right">

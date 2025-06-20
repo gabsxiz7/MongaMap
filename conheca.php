@@ -1,5 +1,10 @@
 <?php 
  session_start();
+ if (!isset($_SESSION['id'])) {
+    echo "<script> alert('Você não está logado!'); history.back(); </script>";
+    exit();
+ }
+ $local = isset($_GET['local']) ? (int)$_GET['local'] : null;
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +38,7 @@
             <li><a href="comentarios.php">Feedback</a></li>
 
   <?php if (isset($_SESSION['id'])):?> 
-            <li><a href="quiz.php?id=1">Quiz</a></li>
+            <li><a href="quiz.php?id=14">Quiz</a></li>
             <li><a href="gamificacao.php">Perfil</a></li>
             <li><a href="php/logout.php" class="btn-sair">Sair</a></li>
             <?php else: ?>

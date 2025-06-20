@@ -210,36 +210,41 @@ function iniciarLeitorQRCode() {
 
 // Função executada ao escanear um QR Code com sucesso
 function onScanSuccess(decodedText) {
-    let url;
-    try {
-        url = new URL(decodedText);
-    } catch (e) {
-        alert("❌ QR Code inválido.");
-        return;
-    }
-    const id = url.searchParams.get('scan');
-    if (!id) {
-        alert("❌ QR Code inválido.");
-        return;
-    }
-    
- 
-    // Chama o PHP que credita pontos no banco
-    fetch(`php/credita_pontos.php?id=${id}`, { method: 'GET' })
-        .then(res => res.json())
-        .then(json => {
-            if (json.sucesso) {
-                alert(`🎉 Você ganhou +${json.pontosGanhos} pontos!\nTotal: ${json.total} (${json.patente})`);
-                // Redireciona para a página de gamificação PHP
-                window.location.href = `gamificacao.php?recompensa=1`;
-            } else {
-                alert("❌ " + (json.erro || "Falha ao creditar pontos."));
-            }
-        })
-        .catch(err => {
-            console.error(err);
-            alert("❌ Erro de rede ao creditar pontos.");
-        });
+  // 1) descodifica qualquer url-encoded leftover
+  let text = decodeURIComponent(decodedText.trim());
+  let id = null;
+
+  // 2) tenta extrair scan ou id via URL
+  try {
+    const url = new URL(text);
+    id = url.searchParams.get('scan') || url.searchParams.get('id');
+  } catch {
+    // não é URL válida — cai no fallback abaixo
+  }
+
+  // 3) se ainda não encontrou, tenta extrair o número direto no texto
+  if (!id) {
+    const m = text.match(/(?:scan|id)=(\d+)/);
+    if (m) id = m[1];
+  }
+
+  if (!id) {
+    alert('❌ QR inválido');
+    return;
+  }
+
+  // 4) chama o endpoint
+  fetch(`php/credita_pontos.php?id=${id}`)
+    .then(r => r.json())
+    .then(json => {
+      if (json.sucesso) {
+        alert(`🎉 +${json.pontosGanhos} pontos! Total: ${json.total}`);
+        window.location.href = 'gamificacao.php?recompensa=1';
+      } else {
+        alert('❌ ' + (json.erro || 'Falha ao creditar'));
+      }
+    })
+    .catch(() => alert('❌ Erro de rede'));
 }
 
 
@@ -272,6 +277,15 @@ document.getElementById("btn-fechar-qr").addEventListener("click", () => {
         qrScanner.clear();
         qrScanner = null;
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const local = urlParams.get('local');
+    if (local && !isNaN(local)) {
+        // Lembrando que seu array é 0-indexado, então subtraia 1
+        abrirModal(local - 1);
+    }
+});
 
     
 });

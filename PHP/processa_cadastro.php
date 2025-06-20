@@ -6,8 +6,20 @@ include 'conexao.php';
 $nome     = trim($_POST['nome']);
 $email    = trim($_POST['email']);
 $telefone = trim($_POST['telefone']);
-$senhaRaw = $_POST['senha'];
+$senhaRaw = $_POST['senha'] ?? '';
 $captcha  = $_POST['g-recaptcha-response'];
+
+// Define o regex exatamente igual ao pattern
+$regex = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&]).{8,}$/';
+if (!preg_match($regex, $senhaRaw)) {
+    echo "<script>
+            alert('A senha deve ter no mínimo 8 caracteres, incluindo 1 maiúscula, 1 minúscula, 1 número e 1 símbolo.');
+            window.history.back();
+          </script>";
+    exit;
+}
+
+$senhaHash = password_hash($senhaRaw, PASSWORD_DEFAULT);
 
 //NORMALIZA O TELEFONE
 $caractere = ["(", ")", "-", " "];
@@ -18,7 +30,9 @@ if (!$captcha) {
     echo "<script> alert('⚠️ Confirme que você não é um robô!'); history.back(); </script>";
     exit;
 }
-$secretKey    = "6LeRF_oqAAAAAOtIYhuTAXzqEaPq5n5RQA39pgHS";
+//localhost----> 
+$secretKey = "6LeRF_oqAAAAAOtIYhuTAXzqEaPq5n5RQA39pgHS";
+//dominio--->$secretKey = "6LdLBFUrAAAAAErCdKfYZNdve3UHDIeEFlyO4Rp7";
 $response      = file_get_contents(
     "https://www.google.com/recaptcha/api/siteverify?secret={$secretKey}&response={$captcha}"
 );
@@ -91,12 +105,12 @@ try {
     $mail->isSMTP();
     $mail->Host       = 'smtp.gmail.com';
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'gabscostuda10@gmail.com';        // seu Gmail
-    $mail->Password   = 'ckpplcrgwjjnskie';               // senha de app, se tiver 2FA
+    $mail->Username   = 'contato.equipe8bits@gmail.com';        // seu Gmail
+    $mail->Password   = 'spnj tgaw quag rwfc';               // senha de app, se tiver 2FA
     $mail->SMTPSecure = 'tls';
     $mail->Port       = 587;
 
-    $mail->setFrom('gabscostuda10@gmail.com', 'MongaMap');
+    $mail->setFrom('contato.equipe8bits@gmail.com', 'MongaMap');
     $mail->addAddress($email, $nome);
 
     $mail->isHTML(true);

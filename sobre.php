@@ -30,7 +30,7 @@
                 <li><a href="conheca.php">Conheça</a></li>
                 <li><a href="comentarios.php">Feedback</a></li>
     <?php if (isset($_SESSION['id'])):?> 
-            <li><a href="quiz.php?id=1">Quiz</a></li>
+            <li><a href="quiz.php?id=14">Quiz</a></li>
             <li><a href="gamificacao.php">Perfil</a></li>
             <li><a href="php/logout.php" class="btn-sair">Sair</a></li>
             <?php else: ?>
@@ -77,12 +77,12 @@
                 <div class="team-member">
                    <img src="IMG/ft.emily.jpeg" alt="membro 2">
                     <h3>Emily</h3>
-                    <p>18 Anos<br>Responsável pela modelagem do banco de dados (entidades, relacionamentos e estrutura lógica) e pela documentação técnica do projeto, assegurando padronização e clareza para o desenvolvimento.</p>
+                    <p>18 Anos<br>Responsável pela modelagem do banco de dados e pela documentação técnica do projeto, assegurando padronização e clareza para o desenvolvimento.</p>
                 </div>
                 <div class="team-member">
                     <img src="IMG/ft.gabriella.jpeg" alt="membro 3">
                     <h3>Gabriella</h3>
-                    <p>17 Anos<br>Responsável pelo desenvolvimento completo do site, atuei tanto na criação do design quanto na implementação de seu funcionamento com o banco de dados.</p>
+                    <p>17 Anos<br>Responsável pelo desenvolvimento completo do site, desde a concepção do design até a implementação das funcionalidades e integração com o banco de dados.</p>
                 </div>
                 <div class="team-member">
                     <img src="IMG/ft.guilherme.jpeg" alt="membro4">
