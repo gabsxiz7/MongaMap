@@ -1,28 +1,39 @@
-//emojis de reação
-const emojis = document.querySelectorAll('.emoji');
-emojis.forEach((emoji) => {
-    emoji.addEventListener('click', () => {
-        alert(`Você reagiu com ${emoji.getAttribute('data-emoji')}`);
-        //enviar a reação para o backend
-    });
-});
-
-
-//estrelas de avaliacao
-const estrelas = document.querySelectorAll('.estrela');
-estrelas.forEach((estrela, index) => {
-    estrela.addEventListener('click', () => {
-        estrelas.forEach((e, i) => {
-            if (i <= index) {
-                e.classList.add('active');
-            } else {
-                e.classList.remove('active');
+document.querySelectorAll('.btn-reacao').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        const reacao = this.getAttribute('data-reacao');
+        const comentario = this.closest('.comentario').getAttribute('data-id');
+console.log({ reacao, comentario });
+        fetch('PHP/registrar_reacao.php', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                reacao: reacao,
+                comentario: comentario
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            // Atualiza contadores na interface
+            if(data.totais) {
+                const box = btn.closest('.reacoes');
+                box.querySelector('[data-reacao="like"] .contagem').textContent = data.totais.like;
+                box.querySelector('[data-reacao="dislike"] .contagem').textContent = data.totais.dislike;
+                box.querySelector('[data-reacao="smile"] .contagem').textContent = data.totais.smile;
+            }
+            
+            // Remove a classe 'ativo' de todos os botões do comentário
+            const box = btn.closest('.reacoes');
+            box.querySelectorAll('.btn-reacao').forEach(function(el) {
+                el.classList.remove('ativo');
+            });
+            // Se não foi remoção (ou seja, agora existe a reação), adiciona a classe ao botão clicado
+            if (data.mensagem === "Reação registrada") {
+                btn.classList.add('ativo');
             }
         });
-        alert(`Você avaliou com ${index + 1} estrelas!`);
-        //enviar a avaliacao para o backend
     });
 });
+
 
 
 document.getElementById('formComentario').addEventListener('submit', function (e) {
@@ -40,6 +51,8 @@ document.getElementById('formComentario').addEventListener('submit', function (e
             location.reload(); //recarrega para exibir o novo comentário
         });
 });
+
+
 
 document.querySelectorAll('.estrela').forEach((estrela, index) => {
     estrela.addEventListener('click', () => {

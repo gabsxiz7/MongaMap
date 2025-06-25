@@ -235,6 +235,10 @@ footer.footer {
   font-style: italic;
 }
 
+
+
+
+
 /*reduz o tamanho do layout inteiro de forma proporcional em telas menores*/
 @media (max-width: 1024px) {
     .container {

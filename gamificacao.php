@@ -1,5 +1,5 @@
 <?php
-include 'php/conexao.php'; 
+include 'PHP/conexao.php'; 
 session_start();
 
 if (!isset($_SESSION['id'])) {
@@ -78,6 +78,7 @@ $resMissoes = $stmtMissao->get_result();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gamificação - MongaMap</title>
+    <link rel="icon" type="image/x-icon" href="IMG/pinomark1.png">
     <link rel="stylesheet" href="CSS/navbar.css">
     <link rel="stylesheet" href="CSS/gamificacao.css">
     <link rel="stylesheet" href="CSS/style.css">
@@ -104,7 +105,7 @@ $resMissoes = $stmtMissao->get_result();
     <?php if (isset($_SESSION['id'])):?> 
             <li><a href="quiz.php?id=14">Quiz</a></li>
             <li><a href="gamificacao.php">Perfil</a></li>
-            <li><a href="php/logout.php" class="btn-sair">Sair</a></li>
+            <li><a href="PHP/logout.php" class="btn-sair">Sair</a></li>
             <?php else: ?>
               
                 <li><a href="cadastro.php" class="btn-cadastrar">Cadastre-se</a></li>
@@ -129,7 +130,7 @@ $resMissoes = $stmtMissao->get_result();
   </div>
 
          <!-- Formulário para trocar foto -->
-  <form action="php/atualiza_foto.php" method="post" enctype="multipart/form-data" class="form-foto">
+  <form action="PHP/atualiza_foto.php" method="post" enctype="multipart/form-data" class="form-foto">
     <!-- Input “invisível” apenas para pegar o arquivo -->
     <input type="file" name="novaFoto" id="inputNovaFoto" accept="image/*" required>
     <!-- Label estilizado que age como botão -->
@@ -147,7 +148,7 @@ $resMissoes = $stmtMissao->get_result();
 </div>
 
 <!-- Formulário para alterar o nome (escondido por padrão) -->
-<form action="php/atualiza_nome.php" method="post" class="form-nome" id="formEdicaoNome">
+<form action="PHP/atualiza_nome.php" method="post" class="form-nome" id="formEdicaoNome">
   <input type="text" name="novoNome" id="inputNovoNome" 
          value="<?php echo htmlspecialchars($usuario['nm_usuario']); ?>" 
          maxlength="50" required>
@@ -189,13 +190,32 @@ $resMissoes = $stmtMissao->get_result();
             <?php echo htmlspecialchars($row['nm_missao']); ?> (+<?php echo $row['pontos']; ?> pts)
         </span>
         <?php if ($row['concluida']): ?>
-            <span class="missao-check">✔️</span>
-        <?php else: ?>
-            <form method="GET" action="conheca.php">
-                <input type="hidden" name="local" value="<?php echo $row['fk_local']; ?>">
-                <button class="btn-missoes" type="submit">Concluir</button>
-            </form>
-        <?php endif; ?>
+    <span class="missao-check">✔️</span>
+<?php else: ?>
+    <?php
+      $nomeMissao = strtolower($row['nm_missao']);
+      if (strpos($nomeMissao, 'depoimento') !== false): ?>
+          <form method="GET" action="PHP/concluir_missao.php">
+              <input type="hidden" name="id_missao" value="<?php echo $row['id_missao']; ?>">
+              <input type="hidden" name="redirect" value="descubra.php">
+              <button class="btn-missoes" type="submit">Concluir</button>
+          </form>
+    <?php elseif (strpos($nomeMissao, 'quiz') !== false): ?>
+          <form method="GET" action="PHP/concluir_missao.php">
+              <input type="hidden" name="id_missao" value="<?php echo $row['id_missao']; ?>">
+              <input type="hidden" name="redirect" value="quiz.php?id=<?php echo $row['fk_local']; ?>">
+              <button class="btn-missoes" type="submit">Responder Quiz</button>
+          </form>
+    <?php else: ?>
+          <form method="GET" action="conheca.php">
+              <input type="hidden" name="local" value="<?php echo $row['fk_local']; ?>">
+              <button class="btn-missoes" type="submit">Concluir</button>
+          </form>
+    <?php endif; ?>
+<?php endif; ?>
+
+     
+
     </div>
    <?php endwhile; ?>
 </div>
@@ -254,13 +274,13 @@ $resMissoes = $stmtMissao->get_result();
             <button onclick="marcarMapa(-24.132455, -46.711498)">Ver no Mapa</button>
         </div>
         <div class="ponto-turistico">
-            <img src="IMG/praça.dudu.png" alt="Praça Dudu Samba">
+            <img src="IMG/praca.dudu.png" alt="Praça Dudu Samba">
             <h3>Praça Dudu Samba</h3>
             <p>Famosa praça de eventos culturais.</p>
             <button onclick="marcarMapa(-24.09606, -46.62045)">Ver no Mapa</button>
         </div>
         <div class="ponto-turistico">
-            <img src="IMG/poçoantas.png" alt="Poço das Antas">
+            <img src="IMG/pocoantas.png" alt="Poço das Antas">
             <h3>Poço das Antas</h3>
             <p>Área natural para relaxar e explorar.</p>
             <button onclick="marcarMapa(-24.08973, -46.62292)">Ver no Mapa</button>

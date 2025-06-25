@@ -1,5 +1,5 @@
 <?php
-include 'php/conexao.php'; 
+include 'PHP/conexao.php'; 
  session_start();
 
  if (!isset($_SESSION['id'])) {
@@ -14,8 +14,9 @@ include 'php/conexao.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exploração - Planejamento Simplificado</title>
+    <link rel="icon" type="image/x-icon" href="IMG/pinomark1.png">
     <link rel="stylesheet" href="CSS/navbar.css">
-    <link rel="stylesheet" href="CSS/exploração.css">
+    <link rel="stylesheet" href="/CSS/exploracao.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
@@ -40,7 +41,7 @@ include 'php/conexao.php';
     <?php if (isset($_SESSION['id'])):?> 
             <li><a href="quiz.php?id=14">Quiz</a></li>
             <li><a href="gamificacao.php">Perfil</a></li>
-            <li><a href="php/logout.php" class="btn-sair">Sair</a></li>
+            <li><a href="PHP/logout.php" class="btn-sair">Sair</a></li>
             <?php else: ?>
                 <li><a href="cadastro.php" class="btn-cadastrar">Cadastre-se</a></li>
                 <?php endif; ?>

@@ -13,6 +13,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Conheça - MongaMap</title>
+  <link rel="icon" type="image/x-icon" href="IMG/pinomark1.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/html5-qrcode"></script>
@@ -40,7 +41,7 @@
   <?php if (isset($_SESSION['id'])):?> 
             <li><a href="quiz.php?id=14">Quiz</a></li>
             <li><a href="gamificacao.php">Perfil</a></li>
-            <li><a href="php/logout.php" class="btn-sair">Sair</a></li>
+            <li><a href="PHP/logout.php" class="btn-sair">Sair</a></li>
             <?php else: ?>
             <li><a href="cadastro.php" class="btn-cadastrar">Cadastre-se</a></li>
             <?php endif; ?>
@@ -75,12 +76,12 @@
           <p>Uma praia de águas limpas e quentes, com ondas suaves, ideal para famílias com crianças.</p>
       </div>
       <div class="grid-item" onclick="abrirModal(4)">
-          <img src="IMG/praça.dudu.png" alt="Praça Dudu Samba">
+          <img src="IMG/praca.dudu.png" alt="Praça Dudu Samba">
           <h2>Praça de Eventos Dudu Samba</h2>
           <p>Local onde ocorrem eventos culturais e de lazer, incluindo o famoso carnaval de Mongaguá.</p>
       </div>
       <div class="grid-item" onclick="abrirModal(5)">
-          <img src="IMG/poçoantas.png" alt="Poço das Antas">
+          <img src="IMG/pocoantas.png" alt="Poço das Antas">
           <h2>Poço das Antas</h2>
           <p>Uma das construções mais antigas de Mongaguá, a Igreja Matriz é rica em história e arquitetura colonial.</p>
       </div>

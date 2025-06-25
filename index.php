@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="icon" type="image/x-icon" href="IMG/pinomark1.png">
     <link rel="stylesheet" href="CSS/navbar.css">
     <link rel="stylesheet" href="CSS/home.css">
     <link rel="stylesheet" href="CSS/style.css">
@@ -43,7 +44,7 @@
             <li><a href="adicionar_local.php">Adicionar Local</a></li>
         <?php endif; ?>
 
-         <li><a href="php/logout.php" class="btn-sair">Sair</a></li>
+         <li><a href="PHP/logout.php" class="btn-sair">Sair</a></li>
             <?php else: ?>
             <li><a href="cadastro.php" class="btn-cadastrar">Cadastre-se</a></li>
             <?php endif; ?>
@@ -116,7 +117,7 @@
   <!-- SEÇÃO DE DESTAQUES -->
 <section class="destaques">
   <div class="card">
-    <a href="exploração.php">
+    <a href="exploracao.php">
     <img src="IMG/santa.mongagua.png" alt="Exploração">
     <div class="card-body">
     <h3>Exploração Fácil</h3>
@@ -169,7 +170,7 @@
     <p>Sim, o MongaMap é otimizado para dispositivos móveis. Você pode acessar o site pelo navegador do seu celular sem nenhum problema.</p>
   </div>
 </section>
-<?php include 'php/ranking.php';?>
+<?php include 'PHP/ranking.php';?>
 <!--mapa-->
 <section class="mini-mapa">
   <h2>Encontre-nos</h2>

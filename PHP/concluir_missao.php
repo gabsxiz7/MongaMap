@@ -1,11 +1,20 @@
 <?php
 session_start();
-header('Content-Type: application/json; charset=utf-8');
 require 'conexao.php';
 
+// Captura redirect se existir na URL
+$redirect = isset($_GET['redirect']) ? $_GET['redirect'] : null;
+
+// Validação dos parâmetros obrigatórios
 if (!isset($_SESSION['id'], $_GET['id_missao'])) {
-  echo json_encode(['sucesso'=>false, 'erro'=>'Dados faltando']);
-  exit;
+  if ($redirect) {
+    header("Location: ../gamificacao.php?erro=Dados faltando");
+    exit;
+  } else {
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode(['sucesso'=>false, 'erro'=>'Dados faltando']);
+    exit;
+  }
 }
 
 $idUser   = (int)$_SESSION['id'];
@@ -41,8 +50,16 @@ $stmt2 = $conexao->prepare($sql2);
 $stmt2->bind_param("ii", $pontos, $idUser);
 $stmt2->execute();
 
-echo json_encode([
-  'sucesso'       => true,
-  'pontosGanhados'=> $pontos
-]);
+// Decide se redireciona ou retorna JSON
+if ($redirect) {
+  header("Location: ../$redirect");
+  exit;
+} else {
+  header('Content-Type: application/json; charset=utf-8');
+  echo json_encode([
+    'sucesso'       => true,
+    'pontosGanhados'=> $pontos
+  ]);
+  exit;
+}
 ?>

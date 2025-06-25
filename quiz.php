@@ -79,6 +79,7 @@ if ($pergunta) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz - MongaMap</title>
+    <link rel="icon" type="image/x-icon" href="IMG/pinomark1.png">
     <link rel="stylesheet" href="CSS/navbar.css">
     <link rel="stylesheet" href="CSS/quiz.css">
 </head>
@@ -101,7 +102,7 @@ if ($pergunta) {
             <?php if (isset($_SESSION['id'])): ?> 
                 <li><a href="quiz.php">Quiz</a></li>
                 <li><a href="gamificacao.php">Perfil</a></li>
-                <li><a href="php/logout.php" class="btn-sair">Sair</a></li>
+                <li><a href="PHP/logout.php" class="btn-sair">Sair</a></li>
             <?php else: ?>
                 <li><a href="cadastro.php" class="btn-cadastrar">Cadastre-se</a></li>
             <?php endif; ?>

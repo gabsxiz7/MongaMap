@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login e Cadastro - MongaMap</title>
+    <link rel="icon" type="image/x-icon" href="IMG/pinomark1.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="CSS/auth.css">
     <link rel="stylesheet" href="CSS/navbar.css">
@@ -46,7 +47,7 @@
     <div class="container" id="container">
         <!---------FORMULÁRIO DE CADASTRO----------->
         <div class="form-container sign-up">
-            <form action="php/processa_cadastro.php" method="POST" novalidate>
+            <form action="PHP/processa_cadastro.php" method="POST" novalidate>
                 <h1>Criar Conta</h1>
                 <input type="text" placeholder="Nome" name="nome" required>
                 <input type="email" placeholder="Email" name="email" required>
@@ -66,16 +67,16 @@
 
 
                    <!-- reCAPTCHA localhost-->
-        <div class="g-recaptcha" data-sitekey="6LeRF_oqAAAAALag1sMQ1Xuouq_X9DRsj-EUYkiP"></div>
+       <!--<div class="g-recaptcha" data-sitekey="6LeRF_oqAAAAALag1sMQ1Xuouq_X9DRsj-EUYkiP"></div>-->
                    <!--dominio-->
-        <!--<div class="g-recaptcha" data-sitekey="6LdLBFUrAAAAAM3YfRf2kj0H0afscqt1flWTrbDd"></div>-->
+        <div class="g-recaptcha" data-sitekey="6LdLBFUrAAAAAM3YfRf2kj0H0afscqt1flWTrbDd"></div>
 
                 <button type="submit">Cadastre-se</button>
             </form>
         </div>
         <!-------FORMULÁRIO DE LOGIN---------->
         <div class="form-container sign-in">
-            <form action="php/processa_login.php" method="POST">
+            <form action="PHP/processa_login.php" method="POST">
                 <h1>Entrar</h1>
                 <input type="email" placeholder="Email" name="email" required>
                 <input type="password" placeholder="Senha" name="senha" required>
@@ -83,7 +84,7 @@
 
                   <!-- reCAPTCHA domínio-->
                 <div class="recaptcha-container">
-                  <div class="g-recaptcha" data-sitekey="6LeRF_oqAAAAALag1sMQ1Xuouq_X9DRsj-EUYkiP"></div>
+                  <div class="g-recaptcha" data-sitekey="6LdLBFUrAAAAAM3YfRf2kj0H0afscqt1flWTrbDd"></div>
                 </div>
           
                 <button type="submit">Entrar</button>

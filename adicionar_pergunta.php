@@ -1,5 +1,5 @@
 <?php
-include 'php/conexao.php';
+include 'PHP/conexao.php';
 session_start();
 
 if (!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] !== 'admin') {

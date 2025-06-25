@@ -1,6 +1,13 @@
 <?php
 session_start();
 include 'conexao.php';
+//ENVIA O E-MAIL DE CONFIRMAÇÃO COM PHPMailer
+require 'phpmailer/Exception.php';
+require 'phpmailer/PHPMailer.php';
+require 'phpmailer/SMTP.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 //RECEBE DADOS DO FORMULÁRIO
 $nome     = trim($_POST['nome']);
@@ -31,8 +38,11 @@ if (!$captcha) {
     exit;
 }
 //localhost----> 
-$secretKey = "6LeRF_oqAAAAAOtIYhuTAXzqEaPq5n5RQA39pgHS";
-//dominio--->$secretKey = "6LdLBFUrAAAAAErCdKfYZNdve3UHDIeEFlyO4Rp7";
+//$secretKey = "6LeRF_oqAAAAAOtIYhuTAXzqEaPq5n5RQA39pgHS";
+
+//dominio--->
+$secretKey = "6LdLBFUrAAAAAErCdKfYZNdve3UHDIeEFlyO4Rp7";
+
 $response      = file_get_contents(
     "https://www.google.com/recaptcha/api/siteverify?secret={$secretKey}&response={$captcha}"
 );
@@ -88,34 +98,31 @@ $id_usuario = $stmt->insert_id;
 $stmt->close();
 
 //MONTA O LINK DE CONFIRMAÇÃO (apontando para o confirmacion_email.php)
-$linkConfirmacao = "http://localhost/MongaMap/confirmar_email.php?token={$tokenVerifica}";
+//localhost--->$linkConfirmacao = "http://localhost/MongaMap/confirmar_email.php?token={$tokenVerifica}";
 
-//ENVIA O E-MAIL DE CONFIRMAÇÃO COM PHPMailer
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+//dominio
+$linkConfirmacao = "https://mongamap.com.br/confirmar_email.php?token={$tokenVerifica}";
 
-require 'phpmailer/Exception.php';
-require 'phpmailer/PHPMailer.php';
-require 'phpmailer/SMTP.php';
+//var_dump($linkConfirmacao); 
+//exit;
+
+$mail = new PHPMailer(true);
 
 try {
-    $mail = new PHPMailer(true);
-
     // --- CONFIGURAÇÃO SMTP (exemplo com Gmail) ---
     $mail->isSMTP();
-    $mail->Host       = 'smtp.gmail.com';
-    $mail->SMTPAuth   = true;
-    $mail->Username   = 'contato.equipe8bits@gmail.com';        // seu Gmail
-    $mail->Password   = 'spnj tgaw quag rwfc';               // senha de app, se tiver 2FA
+    $mail->Host = 'smtp.gmail.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'contato.equipe8bits@gmail.com';        // seu Gmail
+    $mail->Password = 'spnj tgaw quag rwfc';               // senha de app, se tiver 2FA
     $mail->SMTPSecure = 'tls';
-    $mail->Port       = 587;
+    $mail->Port = 587;
 
     $mail->setFrom('contato.equipe8bits@gmail.com', 'MongaMap');
     $mail->addAddress($email, $nome);
-
     $mail->isHTML(true);
     $mail->Subject = 'Confirme seu cadastro no MongaMap';
-    $mail->Body    = "
+    $mail->Body = "
         <p>Olá, <strong>{$nome}</strong>!</p>
         <p>Obrigado por se cadastrar no MongaMap. Para ativar sua conta, clique no link abaixo:</p>
         <p><a href='{$linkConfirmacao}'>Confirmar meu e-mail</a></p>

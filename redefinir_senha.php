@@ -1,7 +1,7 @@
 <?php
 // redefinir_senha.php
 session_start();
-include 'php/conexao.php';
+include 'PHP/conexao.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     // 1) Verifica se veio o token via GET
@@ -39,6 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>Redefinir Senha – MongaMap</title>
+      <link rel="icon" type="image/x-icon" href="IMG/pinomark1.png">
       <link rel="stylesheet" href="CSS/redefinir.css" />
       <link rel="stylesheet" href="CSS/navbar.css" />
     </head>
@@ -58,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             <?php if (isset($_SESSION['id'])): ?>
               <li><a href="quiz.php?id=14">Quiz</a></li>
               <li><a href="gamificacao.php">Perfil</a></li>
-              <li><a href="php/logout.php" class="btn-sair">Sair</a></li>
+              <li><a href="PHP/logout.php" class="btn-sair">Sair</a></li>
             <?php endif; ?>
             <li><a href="index.php">Início</a></li>
             <li><a href="sobre.php">Sobre</a></li>

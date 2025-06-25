@@ -188,6 +188,11 @@
     color: #007bff;
 }
 
+.btn-reacao.ativo i {
+    color: #007bff; /* Azul igual do hover */
+}
+
+
 @media (max-width: 768px) {
     .comentarios-container {
         grid-template-columns: 1fr;

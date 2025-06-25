@@ -234,7 +234,7 @@ function onScanSuccess(decodedText) {
   }
 
   // 4) chama o endpoint
-  fetch(`php/credita_pontos.php?id=${id}`)
+  fetch(`PHP/credita_pontos.php?id=${id}`)
     .then(r => r.json())
     .then(json => {
       if (json.sucesso) {

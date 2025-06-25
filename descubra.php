@@ -12,6 +12,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Descubra</title>
+  <link rel="icon" type="image/x-icon" href="IMG/pinomark1.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="CSS/navbar.css">
   <link rel="stylesheet" href="CSS/descubra.css">
@@ -114,38 +115,37 @@
     </div>
 </section>
 
-
-
-
         <!-- SEÇÃO DE FORMULÁRIO -->
         <section class="form-experiencia">
     <h2>Compartilhe sua experiência</h2>
     <form action="PHP/upload.php" method="post" enctype="multipart/form-data">
-        
-        <div class="form-group">
-            <input type="text" name="" id="nome" placeholder="Digite seu nome" required>
-            <span class="tooltip" data-tooltip="Insira seu primeiro nome ou apelido!">ℹ <i class="fa-solid fa-user"></i>
+    <div class="form-group">
+        <label for="id_local">Sobre qual local é sua experiência?</label>
+        <select name="id_local" id="id_local" required>
+            <option value="">Selecione o local</option>
+            <option value="14">Plataforma de Pesca</option>
+            <option value="15">Parque Ecológico</option>
+            <option value="16">Feira de Artesanato</option>
+            <!-- ...adicione todos os locais... -->
+        </select>
+    </div>
+    <!-- ...restante do formulário... -->
+    <div class="form-group">
+        <input type="file" id="foto" name="fotos" accept="image/*">
+        <span class="tooltip" data-tooltip="Selecione uma foto da sua experiência (opcional)">
+            <i class="fa-solid fa-images"></i>
         </span>
-        </div>
-
-        <div class="form-group">
-            <input type="file" id="foto" name="fotos" accept="image/*">
-            <span class="tooltip" data-tooltip="Selecione uma foto da sua experiência (opcional)"><i class="fa-solid fa-images"></i>
+    </div>
+    <div class="form-group">
+        <textarea name="descricao" id="mensagem" rows="3" placeholder="Conte sobre sua experiência..." required></textarea>
+        <span class="tooltip" data-tooltip="Fale brevemente sobre o que você viveu!"> 
+            <i class="fa-solid fa-comment-dots"></i>
         </span>
-        </div>
-
-        <div class="form-group">
-            <textarea name="descricao" id="mensagem" rows="3" placeholder="Conte sobre sua experiência..." required></textarea>
-            <span class="tooltip" data-tooltip="Fale brevemente sobre o que você viveu!"> <i class="fa-solid fa-comment-dots"></i>
-        </span>
-        </div>
-
-        <button type="submit">Enviar Depoimento</button>
-    </form>
+    </div>
+    <button type="submit">Enviar Depoimento</button>
+</form>
 </section>
-
-    </main>
-
+</main>
     <!-- FOOTER -->
     <footer class="footer">
         <p>&copy; 2025 MongaMap. Todos os direitos reservados.</p>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'php/conexao.php';
+include 'PHP/conexao.php';
 
 if (!isset($_GET['token'])) {
     $mensagem = "Requisição inválida.";
@@ -50,10 +50,11 @@ if (!isset($_GET['token'])) {
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Confirmação de E-mail – MongaMap</title>
-  <link rel="stylesheet" href="CSS/navbar.css" />
-  <link rel="stylesheet" href="CSS/confirmar.css" />
+  <link rel="icon" type="image/x-icon" href="IMG/pinomark1.png">
+  <link rel="stylesheet" href="CSS/navbar.css"/>
+  <link rel="stylesheet" href="CSS/confirmar.css"/>
 </head>
 <body>
   <!-- ================= Navbar ================= -->

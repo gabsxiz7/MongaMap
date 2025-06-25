@@ -7,6 +7,11 @@
         }
         return cor;
     }
+if (window.location.search.includes('parabens=1')) {
+    alert('Parabéns! Você ganhou pontos pelo quiz!');
+}
 
     // Aplica ao fundo do body
     document.body.style.backgroundColor = corAleatoria();
+
+

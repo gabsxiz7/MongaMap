@@ -1,4 +1,3 @@
-// salvar_missao.php
 <?php
 include 'conexao.php';
 session_start();
